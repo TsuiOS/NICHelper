@@ -11,8 +11,8 @@
 #import "XNMessageController.h"
 #import "XNComposeController.h"
 #import "XNProfileController.h"
-
-#define XNColor [UIColor colorWithRed:223 / 255.0 green:107 / 255.0 blue:93 /255.0 alpha:1.0]
+#import "XNDiscoverController.h"
+#import "XNColor.h"
 
 @interface XNMainTabBarViewController ()
 
@@ -22,8 +22,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.tabBar setBackgroundColor:DEFAULT_SEARCHBAR_COLOR];
+    [self.tabBar setTintColor:DEFAULT_GREEN_COLOR];
     //初始化子控制器
     [self addSubControllers];
+    
     
 }
 
@@ -35,12 +38,9 @@
     //任务
     XNMessageController *message = [[XNMessageController alloc]init];
     [self setupChildViewController:message title:@"任务" imageName: @"tabbar_mainframe" selectedImageName:@"tabbar_mainframeHL"];
-    
-    //撰写
-    UIViewController *placeholderView = [[UIViewController alloc]init];
-    placeholderView.view.backgroundColor = [UIColor redColor];
-    [self addChildViewController:placeholderView];
-    
+    //发现
+    XNDiscoverController *discover = [[XNDiscoverController alloc]init];
+    [self setupChildViewController:discover title:@"发现" imageName:@"tabbar_discover" selectedImageName:@"tabbar_discoverHL"];
     //个人中心
     XNProfileController *profile = [[XNProfileController alloc]init];
     [self setupChildViewController:profile title:@"我" imageName: @"tabbar_me" selectedImageName:@"tabbar_meHL"];
@@ -58,13 +58,6 @@
     
     //1.设置子控制器的文字
     childVc.title = title;
-    //设置文字样式
-    NSMutableDictionary *selectedTextAttrs = [[NSMutableDictionary alloc]init];
-    selectedTextAttrs[NSForegroundColorAttributeName] =  XNColor;   //223 107 93
-    
-    [childVc.tabBarItem setTitleTextAttributes:selectedTextAttrs forState:UIControlStateSelected];
-    
-    
     //2.设置图标
     childVc.tabBarItem.image = [[UIImage imageNamed:imageName]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     //设置选中状态的图标
@@ -76,8 +69,5 @@
     [self addChildViewController:nav];
     
 }
-
-
-
 
 @end

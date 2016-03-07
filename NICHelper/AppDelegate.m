@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "XNMainTabBarViewController.h"
+#import "XNColor.h"
 
 @interface AppDelegate ()
 
@@ -24,8 +25,36 @@
     
     //3. 设置 self.window为主窗口并显示出来
     [self.window makeKeyAndVisible];
-    
+
+    [self setNavigationStyle];
+    [self setStatusBarStyle:application];
     return YES;
+}
+- (void)setNavigationStyle {
+    //获取设置外观对象
+    UINavigationBar *navBar = [UINavigationBar appearance];
+    
+    //设置导航栏图片
+    [navBar setBarTintColor:DEFAULT_NAVBAR_COLOR];
+    
+    //设置导航栏文字为白色
+    //富文本
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
+    dict[NSForegroundColorAttributeName] = [UIColor whiteColor];
+    dict[NSFontAttributeName] = [UIFont systemFontOfSize:17];
+    
+    [navBar setTitleTextAttributes:dict];
+    
+    [navBar setTintColor:[UIColor whiteColor]];
+    
+}
+
+//统一设置状态栏外观
+- (void)setStatusBarStyle:(UIApplication *)application {
+    application.statusBarHidden = NO;
+    
+    application.statusBarStyle = UIStatusBarStyleLightContent;
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
