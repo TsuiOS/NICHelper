@@ -9,23 +9,33 @@
 /* Begin PBXBuildFile section */
 		04529A1A1C8D9C400081CF4E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04529A191C8D9C400081CF4E /* main.m */; };
 		04529A1D1C8D9C400081CF4E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04529A1C1C8D9C400081CF4E /* AppDelegate.m */; };
-		04529A201C8D9C400081CF4E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04529A1F1C8D9C400081CF4E /* ViewController.m */; };
-		04529A231C8D9C400081CF4E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04529A211C8D9C400081CF4E /* Main.storyboard */; };
 		04529A251C8D9C400081CF4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04529A241C8D9C400081CF4E /* Assets.xcassets */; };
 		04529A281C8D9C400081CF4E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04529A261C8D9C400081CF4E /* LaunchScreen.storyboard */; };
+		04529A4C1C8D9D3B0081CF4E /* XNComposeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04529A341C8D9D3B0081CF4E /* XNComposeController.m */; };
+		04529A4D1C8D9D3B0081CF4E /* XNBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04529A3A1C8D9D3B0081CF4E /* XNBaseNavigationController.m */; };
+		04529A4E1C8D9D3B0081CF4E /* XNMainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04529A3C1C8D9D3B0081CF4E /* XNMainTabBarViewController.m */; };
+		04529A4F1C8D9D3B0081CF4E /* XNMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04529A431C8D9D3B0081CF4E /* XNMessageController.m */; };
+		04529A501C8D9D3B0081CF4E /* XNProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04529A491C8D9D3B0081CF4E /* XNProfileController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		04529A151C8D9C400081CF4E /* NICHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NICHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04529A191C8D9C400081CF4E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		04529A1B1C8D9C400081CF4E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		04529A1C1C8D9C400081CF4E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		04529A1E1C8D9C400081CF4E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		04529A1F1C8D9C400081CF4E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		04529A221C8D9C400081CF4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		04529A1B1C8D9C400081CF4E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../../AppDelegate.h; sourceTree = "<group>"; };
+		04529A1C1C8D9C400081CF4E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../../AppDelegate.m; sourceTree = "<group>"; };
 		04529A241C8D9C400081CF4E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04529A271C8D9C400081CF4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04529A291C8D9C400081CF4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04529A331C8D9D3B0081CF4E /* XNComposeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNComposeController.h; sourceTree = "<group>"; };
+		04529A341C8D9D3B0081CF4E /* XNComposeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNComposeController.m; sourceTree = "<group>"; };
+		04529A391C8D9D3B0081CF4E /* XNBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNBaseNavigationController.h; sourceTree = "<group>"; };
+		04529A3A1C8D9D3B0081CF4E /* XNBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNBaseNavigationController.m; sourceTree = "<group>"; };
+		04529A3B1C8D9D3B0081CF4E /* XNMainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNMainTabBarViewController.h; sourceTree = "<group>"; };
+		04529A3C1C8D9D3B0081CF4E /* XNMainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNMainTabBarViewController.m; sourceTree = "<group>"; };
+		04529A421C8D9D3B0081CF4E /* XNMessageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNMessageController.h; sourceTree = "<group>"; };
+		04529A431C8D9D3B0081CF4E /* XNMessageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNMessageController.m; sourceTree = "<group>"; };
+		04529A481C8D9D3B0081CF4E /* XNProfileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNProfileController.h; sourceTree = "<group>"; };
+		04529A491C8D9D3B0081CF4E /* XNProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNProfileController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,14 +68,11 @@
 		04529A171C8D9C400081CF4E /* NICHelper */ = {
 			isa = PBXGroup;
 			children = (
-				04529A1B1C8D9C400081CF4E /* AppDelegate.h */,
-				04529A1C1C8D9C400081CF4E /* AppDelegate.m */,
-				04529A1E1C8D9C400081CF4E /* ViewController.h */,
-				04529A1F1C8D9C400081CF4E /* ViewController.m */,
-				04529A211C8D9C400081CF4E /* Main.storyboard */,
-				04529A241C8D9C400081CF4E /* Assets.xcassets */,
-				04529A261C8D9C400081CF4E /* LaunchScreen.storyboard */,
-				04529A291C8D9C400081CF4E /* Info.plist */,
+				04529A2F1C8D9D3B0081CF4E /* Common */,
+				04529A311C8D9D3B0081CF4E /* Compose */,
+				04529A371C8D9D3B0081CF4E /* Main */,
+				04529A401C8D9D3B0081CF4E /* Message */,
+				04529A461C8D9D3B0081CF4E /* Profile */,
 				04529A181C8D9C400081CF4E /* Supporting Files */,
 			);
 			path = NICHelper;
@@ -74,9 +81,171 @@
 		04529A181C8D9C400081CF4E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				04529A241C8D9C400081CF4E /* Assets.xcassets */,
+				04529A291C8D9C400081CF4E /* Info.plist */,
 				04529A191C8D9C400081CF4E /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		04529A2F1C8D9D3B0081CF4E /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				04529A301C8D9D3B0081CF4E /* Tools */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		04529A301C8D9D3B0081CF4E /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		04529A311C8D9D3B0081CF4E /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+				04529A321C8D9D3B0081CF4E /* Controller */,
+				04529A351C8D9D3B0081CF4E /* Model */,
+				04529A361C8D9D3B0081CF4E /* View */,
+			);
+			path = Compose;
+			sourceTree = "<group>";
+		};
+		04529A321C8D9D3B0081CF4E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				04529A331C8D9D3B0081CF4E /* XNComposeController.h */,
+				04529A341C8D9D3B0081CF4E /* XNComposeController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		04529A351C8D9D3B0081CF4E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		04529A361C8D9D3B0081CF4E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		04529A371C8D9D3B0081CF4E /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				04529A381C8D9D3B0081CF4E /* Controller */,
+				04529A3D1C8D9D3B0081CF4E /* Model */,
+				04529A3E1C8D9D3B0081CF4E /* Other */,
+				04529A3F1C8D9D3B0081CF4E /* View */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		04529A381C8D9D3B0081CF4E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				04529A391C8D9D3B0081CF4E /* XNBaseNavigationController.h */,
+				04529A3A1C8D9D3B0081CF4E /* XNBaseNavigationController.m */,
+				04529A3B1C8D9D3B0081CF4E /* XNMainTabBarViewController.h */,
+				04529A3C1C8D9D3B0081CF4E /* XNMainTabBarViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		04529A3D1C8D9D3B0081CF4E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		04529A3E1C8D9D3B0081CF4E /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				04529A1B1C8D9C400081CF4E /* AppDelegate.h */,
+				04529A1C1C8D9C400081CF4E /* AppDelegate.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		04529A3F1C8D9D3B0081CF4E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04529A261C8D9C400081CF4E /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		04529A401C8D9D3B0081CF4E /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				04529A411C8D9D3B0081CF4E /* Controller */,
+				04529A441C8D9D3B0081CF4E /* Model */,
+				04529A451C8D9D3B0081CF4E /* View */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		04529A411C8D9D3B0081CF4E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				04529A421C8D9D3B0081CF4E /* XNMessageController.h */,
+				04529A431C8D9D3B0081CF4E /* XNMessageController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		04529A441C8D9D3B0081CF4E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		04529A451C8D9D3B0081CF4E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		04529A461C8D9D3B0081CF4E /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				04529A471C8D9D3B0081CF4E /* Controller */,
+				04529A4A1C8D9D3B0081CF4E /* Model */,
+				04529A4B1C8D9D3B0081CF4E /* View */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		04529A471C8D9D3B0081CF4E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				04529A481C8D9D3B0081CF4E /* XNProfileController.h */,
+				04529A491C8D9D3B0081CF4E /* XNProfileController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		04529A4A1C8D9D3B0081CF4E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		04529A4B1C8D9D3B0081CF4E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,7 +308,6 @@
 			files = (
 				04529A281C8D9C400081CF4E /* LaunchScreen.storyboard in Resources */,
 				04529A251C8D9C400081CF4E /* Assets.xcassets in Resources */,
-				04529A231C8D9C400081CF4E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,29 +318,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04529A201C8D9C400081CF4E /* ViewController.m in Sources */,
+				04529A4C1C8D9D3B0081CF4E /* XNComposeController.m in Sources */,
+				04529A4D1C8D9D3B0081CF4E /* XNBaseNavigationController.m in Sources */,
+				04529A501C8D9D3B0081CF4E /* XNProfileController.m in Sources */,
+				04529A4F1C8D9D3B0081CF4E /* XNMessageController.m in Sources */,
 				04529A1D1C8D9C400081CF4E /* AppDelegate.m in Sources */,
 				04529A1A1C8D9C400081CF4E /* main.m in Sources */,
+				04529A4E1C8D9D3B0081CF4E /* XNMainTabBarViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		04529A211C8D9C400081CF4E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				04529A221C8D9C400081CF4E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		04529A261C8D9C400081CF4E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				04529A271C8D9C400081CF4E /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -262,9 +427,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				INFOPLIST_FILE = NICHelper/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tsuios.hsu.NICHelper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tsuios.hsu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -273,9 +440,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				INFOPLIST_FILE = NICHelper/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tsuios.hsu.NICHelper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tsuios.hsu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -299,6 +468,7 @@
 				04529A2E1C8D9C400081CF4E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

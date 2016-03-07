@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "XNMainTabBarViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,14 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    //1. 创建窗口
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    
+    self.window.rootViewController = [[XNMainTabBarViewController alloc]init];
+    
+    //3. 设置 self.window为主窗口并显示出来
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
