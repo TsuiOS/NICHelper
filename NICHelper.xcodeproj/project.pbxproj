@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0417F5F91C8DCF430071A6F0 /* XNMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0417F5F81C8DCF430071A6F0 /* XNMessage.m */; };
+		0417F5FC1C8DCF680071A6F0 /* XNMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0417F5FB1C8DCF680071A6F0 /* XNMessageCell.m */; };
+		0417F5FF1C8DE2EA0071A6F0 /* XNMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0417F5FE1C8DE2EA0071A6F0 /* XNMessageView.m */; };
 		04529A1A1C8D9C400081CF4E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04529A191C8D9C400081CF4E /* main.m */; };
 		04529A1D1C8D9C400081CF4E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04529A1C1C8D9C400081CF4E /* AppDelegate.m */; };
 		04529A251C8D9C400081CF4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04529A241C8D9C400081CF4E /* Assets.xcassets */; };
@@ -21,6 +24,12 @@
 
 /* Begin PBXFileReference section */
 		0417F5F61C8DBA400071A6F0 /* XNColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XNColor.h; sourceTree = "<group>"; };
+		0417F5F71C8DCF430071A6F0 /* XNMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNMessage.h; sourceTree = "<group>"; };
+		0417F5F81C8DCF430071A6F0 /* XNMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNMessage.m; sourceTree = "<group>"; };
+		0417F5FA1C8DCF680071A6F0 /* XNMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNMessageCell.h; sourceTree = "<group>"; };
+		0417F5FB1C8DCF680071A6F0 /* XNMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNMessageCell.m; sourceTree = "<group>"; };
+		0417F5FD1C8DE2EA0071A6F0 /* XNMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNMessageView.h; sourceTree = "<group>"; };
+		0417F5FE1C8DE2EA0071A6F0 /* XNMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNMessageView.m; sourceTree = "<group>"; };
 		04529A151C8D9C400081CF4E /* NICHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NICHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04529A191C8D9C400081CF4E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		04529A1B1C8D9C400081CF4E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../../AppDelegate.h; sourceTree = "<group>"; };
@@ -214,6 +223,8 @@
 		04529A441C8D9D3B0081CF4E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0417F5F71C8DCF430071A6F0 /* XNMessage.h */,
+				0417F5F81C8DCF430071A6F0 /* XNMessage.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -221,6 +232,10 @@
 		04529A451C8D9D3B0081CF4E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0417F5FA1C8DCF680071A6F0 /* XNMessageCell.h */,
+				0417F5FB1C8DCF680071A6F0 /* XNMessageCell.m */,
+				0417F5FD1C8DE2EA0071A6F0 /* XNMessageView.h */,
+				0417F5FE1C8DE2EA0071A6F0 /* XNMessageView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -430,7 +445,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				04529A4C1C8D9D3B0081CF4E /* XNComposeController.m in Sources */,
+				0417F5F91C8DCF430071A6F0 /* XNMessage.m in Sources */,
 				04529A4D1C8D9D3B0081CF4E /* XNBaseNavigationController.m in Sources */,
+				0417F5FF1C8DE2EA0071A6F0 /* XNMessageView.m in Sources */,
+				0417F5FC1C8DCF680071A6F0 /* XNMessageCell.m in Sources */,
 				04529A571C8DA0FB0081CF4E /* XNDiscoverController.m in Sources */,
 				04529A501C8D9D3B0081CF4E /* XNProfileController.m in Sources */,
 				04529A4F1C8D9D3B0081CF4E /* XNMessageController.m in Sources */,
