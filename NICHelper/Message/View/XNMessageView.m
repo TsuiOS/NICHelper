@@ -11,7 +11,10 @@
 #import "Masonry.h"
 #import "UIView+Extension.h"
 #import "XNMessage.h"
+
 #define TEXTFONT [UIFont systemFontOfSize:16]
+#define kMargin 10
+#define kIcomWH 40
 
 
 @interface XNMessageView ()
@@ -31,7 +34,7 @@
     if (_sourceLabel == nil) {
         _sourceLabel = [[UILabel alloc]init];
         _sourceLabel.text = @"来自 网络中心";
-        _sourceLabel.font = [UIFont systemFontOfSize:14];
+        _sourceLabel.font = [UIFont systemFontOfSize:13];
         _sourceLabel.textColor = kColorBlackLight;
         
     }
@@ -41,7 +44,7 @@
 - (UILabel *)titleLabel {
     if (_titleLabel == nil) {
         _titleLabel = [[UILabel alloc]init];
-        _titleLabel.text = @"孩子无意碰撞，男子猛踢男童，你要是男童家长，认为怎么处理才算满意？";
+        _titleLabel.text = @"我是标题";
         _titleLabel.font = TEXTFONT;
         _titleLabel.textColor = kColorBlack;
         _titleLabel.numberOfLines = 0;
@@ -79,40 +82,45 @@
     return self;
 }
 
-#pragma mark 给子控件设置数据
+#pragma mark 设置子控件的数据以及布局
 - (void)setMessage:(XNMessage *)message {
 
     _message = message;
+
     self.sourceLabel.text = [NSString stringWithFormat:@"来自 %@",message.source];
     self.titleLabel.text = message.title;
     self.detailLabel.text = message.detail;
     
+    //计算标题的 Frame
+    CGFloat viewW = [UIScreen mainScreen].bounds.size.width - 2 *kMargin;
+    CGFloat maxW = viewW - 3 * kMargin - kIcomWH;
+    CGSize textSize = [self sizeWithText:self.titleLabel.text font:TEXTFONT maxSize:CGSizeMake(maxW, MAXFLOAT)];
+    
+    //更新约束
+    [_titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@(textSize.width));
+        make.height.equalTo(@(textSize.height + 1));
+    }];
+    [_detailLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.titleLabel.mas_bottom).offset(kMargin);
+        make.bottom.equalTo(self.mas_bottom).offset(-kMargin);
+    }];
+    
+    
 }
-
-#pragma mark 布局子控件
-
-#define kMargin 10
-#define kIcomWH 40
+#pragma mark 设置子控件的布局
 - (void)setupUI {
+
     //1. 设置 view 的样式
     self.backgroundColor = kColorWhite;
     self.layer.cornerRadius = 5;
     self.layer.masksToBounds = YES;
-
-    //添加控件
+    
+    //2.添加控件
     [self addSubview:self.sourceLabel];
     [self addSubview:self.iconView];
     [self addSubview:self.titleLabel];
     [self addSubview:self.detailLabel];
-    
-    NSLog(@"---%zd",self.subviews.count);
-    //计算标题的 Frame
-    CGFloat viewW = [UIScreen mainScreen].bounds.size.width - 2 *kMargin;
-    CGFloat maxW = viewW - 2 * kMargin - kIcomWH;
-    NSLog(@"----%f",maxW);
-    CGSize textSize = [self sizeWithText:self.titleLabel.text font:TEXTFONT maxSize:CGSizeMake(maxW, MAXFLOAT)];
-    NSLog(@"----%f",textSize.width);
-
     
     // 自动布局
     //来源标签
@@ -131,8 +139,9 @@
     [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.sourceLabel.mas_bottom).offset(kMargin);
         make.left.equalTo(self.sourceLabel.mas_left);
-        make.width.equalTo(@(textSize.width));
-        make.height.equalTo(@(textSize.height));
+        make.width.equalTo(@(240));
+        // +1 是为了适配6以上,计算的误差
+        make.height.equalTo(@(40));
     }];
     //详情
     [_detailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -142,6 +151,8 @@
         make.bottom.equalTo(self.mas_bottom).offset(-kMargin);
         
     }];
+
+
 
 }
 /**
