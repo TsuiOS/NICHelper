@@ -10,6 +10,8 @@
 		0417F5F91C8DCF430071A6F0 /* XNMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0417F5F81C8DCF430071A6F0 /* XNMessage.m */; };
 		0417F5FC1C8DCF680071A6F0 /* XNMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0417F5FB1C8DCF680071A6F0 /* XNMessageCell.m */; };
 		0417F5FF1C8DE2EA0071A6F0 /* XNMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0417F5FE1C8DE2EA0071A6F0 /* XNMessageView.m */; };
+		041E586F1C8EEA8E00E55132 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 041E586E1C8EEA8E00E55132 /* UIView+Extension.m */; };
+		041E58711C8EF09300E55132 /* Message.plist in Resources */ = {isa = PBXBuildFile; fileRef = 041E58701C8EF09300E55132 /* Message.plist */; };
 		04529A1A1C8D9C400081CF4E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04529A191C8D9C400081CF4E /* main.m */; };
 		04529A1D1C8D9C400081CF4E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04529A1C1C8D9C400081CF4E /* AppDelegate.m */; };
 		04529A251C8D9C400081CF4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04529A241C8D9C400081CF4E /* Assets.xcassets */; };
@@ -30,6 +32,9 @@
 		0417F5FB1C8DCF680071A6F0 /* XNMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNMessageCell.m; sourceTree = "<group>"; };
 		0417F5FD1C8DE2EA0071A6F0 /* XNMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNMessageView.h; sourceTree = "<group>"; };
 		0417F5FE1C8DE2EA0071A6F0 /* XNMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNMessageView.m; sourceTree = "<group>"; };
+		041E586D1C8EEA8E00E55132 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		041E586E1C8EEA8E00E55132 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		041E58701C8EF09300E55132 /* Message.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Message.plist; sourceTree = "<group>"; };
 		04529A151C8D9C400081CF4E /* NICHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NICHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04529A191C8D9C400081CF4E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		04529A1B1C8D9C400081CF4E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../../AppDelegate.h; sourceTree = "<group>"; };
@@ -103,6 +108,7 @@
 				04529A241C8D9C400081CF4E /* Assets.xcassets */,
 				04529A291C8D9C400081CF4E /* Info.plist */,
 				04529A191C8D9C400081CF4E /* main.m */,
+				041E58701C8EF09300E55132 /* Message.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -119,6 +125,8 @@
 			isa = PBXGroup;
 			children = (
 				0417F5F61C8DBA400071A6F0 /* XNColor.h */,
+				041E586D1C8EEA8E00E55132 /* UIView+Extension.h */,
+				041E586E1C8EEA8E00E55132 /* UIView+Extension.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -385,6 +393,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				041E58711C8EF09300E55132 /* Message.plist in Resources */,
 				04529A251C8D9C400081CF4E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -450,6 +459,7 @@
 				0417F5FF1C8DE2EA0071A6F0 /* XNMessageView.m in Sources */,
 				0417F5FC1C8DCF680071A6F0 /* XNMessageCell.m in Sources */,
 				04529A571C8DA0FB0081CF4E /* XNDiscoverController.m in Sources */,
+				041E586F1C8EEA8E00E55132 /* UIView+Extension.m in Sources */,
 				04529A501C8D9D3B0081CF4E /* XNProfileController.m in Sources */,
 				04529A4F1C8D9D3B0081CF4E /* XNMessageController.m in Sources */,
 				04529A1D1C8D9C400081CF4E /* AppDelegate.m in Sources */,

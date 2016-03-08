@@ -9,13 +9,23 @@
 #import "XNMessageController.h"
 #import "XNMessageCell.h"
 #import "XNColor.h"
+#import "XNMessage.h"
 
 @interface XNMessageController ()
+
+@property (nonatomic, strong) NSMutableArray *message;
 
 @end
 
 @implementation XNMessageController
 
+#pragma mark 懒加载数据
+- (NSMutableArray *)message {
+    if (_message == nil) {
+        _message = [XNMessage message];
+    }
+    return _message;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // 设置背景颜色
@@ -33,12 +43,14 @@
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 20;
+    return self.message.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+
     XNMessageCell *cell = [XNMessageCell tableViewCellWithTableView:tableView];
-    
+    cell.messageView.message = self.message[indexPath.row];
+
     return cell;
 }
 

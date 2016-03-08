@@ -9,11 +9,8 @@
 #import "XNMessageCell.h"
 #import "XNColor.h"
 #import "Masonry.h"
-#import "XNMessageView.h"
 
 @interface XNMessageCell ()
-
-@property (nonatomic, strong) XNMessageView *messageView;
 
 
 @end
@@ -36,7 +33,9 @@
     //取消 cell 点击显示灰色的效果
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.backgroundColor = XNColor(224, 231, 234, 1);
+    
     XNMessageView *messageView = [[XNMessageView alloc]init];
+    
     // 添加控件
     [self.contentView addSubview:messageView];
     self.messageView = messageView;
@@ -59,7 +58,6 @@
     
     return cell;
 }
-
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
