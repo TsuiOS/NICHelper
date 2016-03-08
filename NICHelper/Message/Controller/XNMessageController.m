@@ -21,7 +21,7 @@
     // 设置背景颜色
     self.view.backgroundColor = XNColor(224, 231, 234, 1);
     //设置 cell 的高度
-    self.tableView.rowHeight = 200;
+    self.tableView.rowHeight = 180;
     //取消分割线
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
