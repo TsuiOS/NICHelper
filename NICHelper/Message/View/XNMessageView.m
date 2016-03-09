@@ -139,9 +139,6 @@
     [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.sourceLabel.mas_bottom).offset(kMargin);
         make.left.equalTo(self.sourceLabel.mas_left);
-        make.width.equalTo(@(240));
-        // +1 是为了适配6以上,计算的误差
-        make.height.equalTo(@(40));
     }];
     //详情
     [_detailLabel mas_makeConstraints:^(MASConstraintMaker *make) {

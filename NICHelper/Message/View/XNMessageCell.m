@@ -12,7 +12,6 @@
 
 @interface XNMessageCell ()
 
-
 @end
 
 @implementation XNMessageCell
@@ -32,7 +31,7 @@
 - (void)setupUI {
     //取消 cell 点击显示灰色的效果
     self.selectionStyle = UITableViewCellSelectionStyleNone;
-    self.backgroundColor = XNColor(224, 231, 234, 1);
+    self.backgroundColor = [UIColor clearColor];
     
     XNMessageView *messageView = [[XNMessageView alloc]init];
     
@@ -55,8 +54,47 @@
     if (!cell) {
         cell = [[XNMessageCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
-    
+
     return cell;
+}
+
+// These methods can be used by subclasses to animate additional changes to the cell when the cell is changing state
+// Note that when the cell is swiped, the cell will be transitioned into the UITableViewCellStateShowingDeleteConfirmationMask state,
+// but the UITableViewCellStateShowingEditControlMask will not be set.
+// 用户某一行开始侧滑, 并且侧滑的button还没展示出来时, state的值为UITableViewCellStateShowingDeleteConfirmationMask
+// 但是由于侧滑的view 是懒加载的, 这个时候还没创建出来, 所以使用延时加载
+/**
+ UITableViewCellStateDefaultMask                     = 0,
+ UITableViewCellStateShowingEditControlMask          = 1 << 0,
+ UITableViewCellStateShowingDeleteConfirmationMask   = 1 << 1
+ */
+- (void)willTransitionToState:(UITableViewCellStateMask)state {
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.001 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        for (UIView *subview in self.subviews) {
+            if ([NSStringFromClass([subview class]) isEqualToString:@"UITableViewCellDeleteConfirmationView"] ) {
+                
+                UIView *setView = (UIView *)[subview.subviews firstObject];
+                UIImageView *setImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"barbuttonicon_set"]];
+                // 需要转换坐标
+                CGPoint childSetP = [setView.superview convertPoint:setView.center toView:setView];
+                setImage.center = childSetP;
+                [setView addSubview:setImage];
+                
+                UIView *sharedview = (UIView *)[subview.subviews lastObject];
+                UIImageView *sharedImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"barbuttonicon_Operate"]];
+                // 需要转换坐标
+                CGPoint childSP = [sharedview.superview convertPoint:sharedview.center toView:sharedview];
+                sharedImage.center = childSP;
+                [sharedview addSubview:sharedImage];
+            }
+        }
+    });
+
+}
+
+- (void)didTransitionToState:(UITableViewCellStateMask)state {
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -64,5 +102,6 @@
 
     
 }
+
 
 @end

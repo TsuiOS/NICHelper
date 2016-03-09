@@ -11,6 +11,7 @@
 #import "XNColor.h"
 #import "XNMessage.h"
 
+
 @interface XNMessageController () <UITableViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *message;
@@ -66,8 +67,9 @@
     return YES;
 
 }
-// 有 bug
+#warning bug暂未处理
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    
     NSUInteger fromRow = [sourceIndexPath row];
     NSUInteger toRow = [destinationIndexPath row];
     
@@ -78,7 +80,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    
 }
 
 #pragma mark UITableViewDelegate
@@ -89,24 +91,23 @@
      UITableViewRowActionStyleDestructive = UITableViewRowActionStyleDefault,
      UITableViewRowActionStyleNormal
      */
-    UITableViewRowAction *sharedAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"分享" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
-        
+    UITableViewRowAction *sharedAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"    " handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
         //相关逻辑
         // 在最后希望cell可以自动回到默认状态，所以需要退出编辑模式
         //tableView.editing = NO;
         NSLog(@"分享");
     }];
-    UITableViewRowAction *settingAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"设置" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+    UITableViewRowAction *settingAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"    " handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
         NSLog(@"设置");
         // 在最后希望cell可以自动回到默认状态，所以需要退出编辑模式
         //tableView.editing = NO;
     }];
-    
+    //换成图片最简单的方式,但是需要素材合适
+//    settingAction.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"barbuttonicon_Operate"]];
     settingAction.backgroundColor = DEFAULT_BACKGROUND_COLOR;
     sharedAction.backgroundColor = DEFAULT_BACKGROUND_COLOR;
     return @[settingAction,sharedAction];
 
 }
-
 
 @end

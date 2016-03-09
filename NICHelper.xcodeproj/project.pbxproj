@@ -12,9 +12,6 @@
 		0417F5FF1C8DE2EA0071A6F0 /* XNMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0417F5FE1C8DE2EA0071A6F0 /* XNMessageView.m */; };
 		041E586F1C8EEA8E00E55132 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 041E586E1C8EEA8E00E55132 /* UIView+Extension.m */; };
 		041E58711C8EF09300E55132 /* Message.plist in Resources */ = {isa = PBXBuildFile; fileRef = 041E58701C8EF09300E55132 /* Message.plist */; };
-		044E25BF1C8FB02B00384E77 /* UITableViewCell+JZExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 044E25BB1C8FB02B00384E77 /* UITableViewCell+JZExtension.m */; };
-		044E25C01C8FB02B00384E77 /* UITableViewRowAction+JZExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 044E25BD1C8FB02B00384E77 /* UITableViewRowAction+JZExtension.m */; };
-		044E25C11C8FB02B00384E77 /* UITableViewRowAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 044E25BE1C8FB02B00384E77 /* UITableViewRowAction.m */; };
 		04529A1A1C8D9C400081CF4E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04529A191C8D9C400081CF4E /* main.m */; };
 		04529A1D1C8D9C400081CF4E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04529A1C1C8D9C400081CF4E /* AppDelegate.m */; };
 		04529A251C8D9C400081CF4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04529A241C8D9C400081CF4E /* Assets.xcassets */; };
@@ -38,10 +35,6 @@
 		041E586D1C8EEA8E00E55132 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		041E586E1C8EEA8E00E55132 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		041E58701C8EF09300E55132 /* Message.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Message.plist; sourceTree = "<group>"; };
-		044E25BB1C8FB02B00384E77 /* UITableViewCell+JZExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+JZExtension.m"; sourceTree = "<group>"; };
-		044E25BC1C8FB02B00384E77 /* UITableViewRowAction+JZExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewRowAction+JZExtension.h"; sourceTree = "<group>"; };
-		044E25BD1C8FB02B00384E77 /* UITableViewRowAction+JZExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewRowAction+JZExtension.m"; sourceTree = "<group>"; };
-		044E25BE1C8FB02B00384E77 /* UITableViewRowAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITableViewRowAction.m; sourceTree = "<group>"; };
 		04529A151C8D9C400081CF4E /* NICHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NICHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04529A191C8D9C400081CF4E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		04529A1B1C8D9C400081CF4E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../../AppDelegate.h; sourceTree = "<group>"; };
@@ -77,17 +70,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		044E25BA1C8FB02B00384E77 /* JZTableViewRowAction */ = {
-			isa = PBXGroup;
-			children = (
-				044E25BB1C8FB02B00384E77 /* UITableViewCell+JZExtension.m */,
-				044E25BC1C8FB02B00384E77 /* UITableViewRowAction+JZExtension.h */,
-				044E25BD1C8FB02B00384E77 /* UITableViewRowAction+JZExtension.m */,
-				044E25BE1C8FB02B00384E77 /* UITableViewRowAction.m */,
-			);
-			path = JZTableViewRowAction;
-			sourceTree = "<group>";
-		};
 		04529A0C1C8D9C400081CF4E = {
 			isa = PBXGroup;
 			children = (
@@ -142,7 +124,6 @@
 		04529A301C8D9D3B0081CF4E /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				044E25BA1C8FB02B00384E77 /* JZTableViewRowAction */,
 				0417F5F61C8DBA400071A6F0 /* XNColor.h */,
 				041E586D1C8EEA8E00E55132 /* UIView+Extension.h */,
 				041E586E1C8EEA8E00E55132 /* UIView+Extension.m */,
@@ -472,15 +453,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				044E25C01C8FB02B00384E77 /* UITableViewRowAction+JZExtension.m in Sources */,
 				04529A4C1C8D9D3B0081CF4E /* XNComposeController.m in Sources */,
 				0417F5F91C8DCF430071A6F0 /* XNMessage.m in Sources */,
 				04529A4D1C8D9D3B0081CF4E /* XNBaseNavigationController.m in Sources */,
 				0417F5FF1C8DE2EA0071A6F0 /* XNMessageView.m in Sources */,
 				0417F5FC1C8DCF680071A6F0 /* XNMessageCell.m in Sources */,
-				044E25C11C8FB02B00384E77 /* UITableViewRowAction.m in Sources */,
 				04529A571C8DA0FB0081CF4E /* XNDiscoverController.m in Sources */,
-				044E25BF1C8FB02B00384E77 /* UITableViewCell+JZExtension.m in Sources */,
 				041E586F1C8EEA8E00E55132 /* UIView+Extension.m in Sources */,
 				04529A501C8D9D3B0081CF4E /* XNProfileController.m in Sources */,
 				04529A4F1C8D9D3B0081CF4E /* XNMessageController.m in Sources */,
