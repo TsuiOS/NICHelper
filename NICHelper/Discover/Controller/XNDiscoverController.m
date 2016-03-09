@@ -7,6 +7,7 @@
 //
 
 #import "XNDiscoverController.h"
+#import "UMSocial.h"
 
 @interface XNDiscoverController ()
 
@@ -28,7 +29,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

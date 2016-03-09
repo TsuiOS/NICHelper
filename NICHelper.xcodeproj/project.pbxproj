@@ -377,6 +377,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 04529A0C1C8D9C400081CF4E;
 			productRefGroup = 04529A161C8D9C400081CF4E /* Products */;
@@ -557,9 +558,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = NICHelper/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/NICHelper/Common/UMSocial_Sdk_5.0",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tsuios.hsu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -571,9 +577,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = NICHelper/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/NICHelper/Common/UMSocial_Sdk_5.0",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tsuios.hsu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

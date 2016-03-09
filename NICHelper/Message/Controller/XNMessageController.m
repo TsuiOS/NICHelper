@@ -10,6 +10,7 @@
 #import "XNMessageCell.h"
 #import "XNColor.h"
 #import "XNMessage.h"
+#import <UMSocial.h>
 
 
 @interface XNMessageController () <UITableViewDelegate>
@@ -91,10 +92,17 @@
      UITableViewRowActionStyleDestructive = UITableViewRowActionStyleDefault,
      UITableViewRowActionStyleNormal
      */
+//    __weak typeof(self) weakSelf = self;
     UITableViewRowAction *sharedAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"    " handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
         //相关逻辑
+        [UMSocialSnsService presentSnsIconSheetView:self
+                                             appKey:@"56dfe2a467e58e8423002a33"
+                                          shareText:@"你要分享的文字"
+                                         shareImage:[UIImage imageNamed:@"Action_Share"]
+                                    shareToSnsNames:nil
+                                           delegate:nil];
         // 在最后希望cell可以自动回到默认状态，所以需要退出编辑模式
-        //tableView.editing = NO;
+        tableView.editing = NO;
         NSLog(@"分享");
     }];
     UITableViewRowAction *settingAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"    " handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
@@ -109,5 +117,7 @@
     return @[settingAction,sharedAction];
 
 }
+
+
 
 @end
