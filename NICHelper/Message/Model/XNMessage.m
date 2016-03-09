@@ -29,6 +29,7 @@
         XNMessage *message = [self messageWithDict:obj];
         [arrayM addObject:message];
     }];
+    
     return [arrayM copy];
 }
 @end

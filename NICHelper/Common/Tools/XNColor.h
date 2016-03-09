@@ -12,7 +12,7 @@
 #define     DEFAULT_NAVBAR_COLOR             XNColor(20.0, 20.0, 20.0, 0.9)
 #define     DEFAULT_SEARCHBAR_COLOR          XNColor(239.0, 239.0, 244.0, 1.0)
 #define     DEFAULT_GREEN_COLOR              XNColor(2.0, 187.0, 0.0, 1.0f)
-
+#define     DEFAULT_BACKGROUND_COLOR         XNColor(224, 231, 234, 1)
 // 16进制转换RGB
 #define kUIColorFromRGB(rgbValue) [UIColor \
 colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
