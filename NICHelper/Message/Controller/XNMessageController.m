@@ -11,6 +11,7 @@
 #import "XNColor.h"
 #import "XNMessage.h"
 #import <UMSocial.h>
+#import <UMSocialQQHandler.h>
 
 
 @interface XNMessageController () <UITableViewDelegate>
@@ -31,7 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // 设置背景颜色
-    self.view.backgroundColor = DEFAULT_BACKGROUND_COLOR;
+    self.view.backgroundColor = [UIColor clearColor]; //DEFAULT_BACKGROUND_COLOR;
     //设置 cell 的高度
     self.tableView.rowHeight = 180;
     //取消分割线
@@ -84,7 +85,7 @@
     
 }
 
-#pragma mark UITableViewDelegate
+#pragma mark UITableViewDelegate   
 // cell 左划效果
 - (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
     /**
@@ -99,7 +100,7 @@
                                              appKey:@"56dfe2a467e58e8423002a33"
                                           shareText:@"你要分享的文字"
                                          shareImage:[UIImage imageNamed:@"Action_Share"]
-                                    shareToSnsNames:nil
+                                    shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToQzone,UMShareToSms,UMShareToQQ,UMShareToWechatSession,UMShareToWechatTimeline,nil]
                                            delegate:nil];
         // 在最后希望cell可以自动回到默认状态，所以需要退出编辑模式
         tableView.editing = NO;
@@ -112,8 +113,8 @@
     }];
     //换成图片最简单的方式,但是需要素材合适
 //    settingAction.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"barbuttonicon_Operate"]];
-    settingAction.backgroundColor = DEFAULT_BACKGROUND_COLOR;
-    sharedAction.backgroundColor = DEFAULT_BACKGROUND_COLOR;
+    settingAction.backgroundColor = [UIColor clearColor];//DEFAULT_BACKGROUND_COLOR;
+    sharedAction.backgroundColor = [UIColor clearColor];//DEFAULT_BACKGROUND_COLOR;
     return @[settingAction,sharedAction];
 
 }

@@ -73,8 +73,9 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.001 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         for (UIView *subview in self.subviews) {
             if ([NSStringFromClass([subview class]) isEqualToString:@"UITableViewCellDeleteConfirmationView"] ) {
-                
                 UIView *setView = (UIView *)[subview.subviews firstObject];
+                setView.superview.backgroundColor = [UIColor clearColor];
+
                 UIImageView *setImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"barbuttonicon_set"]];
                 // 需要转换坐标
                 CGPoint childSetP = [setView.superview convertPoint:setView.center toView:setView];

@@ -1,24 +1,23 @@
 //
-//  XNBaseNavigationController.m
+//  XNLoginController.m
 //  NICHelper
 //
-//  Created by mac on 16/3/4.
+//  Created by mac on 16/3/9.
 //  Copyright © 2016年 Hsu. All rights reserved.
 //
 
-#import "XNBaseNavigationController.h"
+#import "XNLoginController.h"
 #import "XNColor.h"
 
-@interface XNBaseNavigationController ()
+@interface XNLoginController ()
 
 @end
 
-@implementation XNBaseNavigationController
+@implementation XNLoginController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = DEFAULT_BACKGROUND_COLOR;
-
+    self.view.backgroundColor = XNColor(255, 255, 255, 0.5);
 }
 
 - (void)didReceiveMemoryWarning {
