@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		040FDBFE1C90523A00935EBF /* XNLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FDBFD1C90523A00935EBF /* XNLoginController.m */; };
+		041173141C925CE7009AC6F9 /* NSString+XNTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 041173131C925CE7009AC6F9 /* NSString+XNTool.m */; };
 		0417F5F91C8DCF430071A6F0 /* XNMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0417F5F81C8DCF430071A6F0 /* XNMessage.m */; };
 		0417F5FC1C8DCF680071A6F0 /* XNMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0417F5FB1C8DCF680071A6F0 /* XNMessageCell.m */; };
 		0417F5FF1C8DE2EA0071A6F0 /* XNMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0417F5FE1C8DE2EA0071A6F0 /* XNMessageView.m */; };
@@ -36,6 +37,8 @@
 /* Begin PBXFileReference section */
 		040FDBFC1C90523A00935EBF /* XNLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XNLoginController.h; path = ../../Main/Controller/XNLoginController.h; sourceTree = "<group>"; };
 		040FDBFD1C90523A00935EBF /* XNLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XNLoginController.m; path = ../../Main/Controller/XNLoginController.m; sourceTree = "<group>"; };
+		041173121C925CE7009AC6F9 /* NSString+XNTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+XNTool.h"; sourceTree = "<group>"; };
+		041173131C925CE7009AC6F9 /* NSString+XNTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XNTool.m"; sourceTree = "<group>"; };
 		0417F5F61C8DBA400071A6F0 /* XNColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XNColor.h; sourceTree = "<group>"; };
 		0417F5F71C8DCF430071A6F0 /* XNMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNMessage.h; sourceTree = "<group>"; };
 		0417F5F81C8DCF430071A6F0 /* XNMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNMessage.m; sourceTree = "<group>"; };
@@ -186,6 +189,8 @@
 			isa = PBXGroup;
 			children = (
 				0417F5F61C8DBA400071A6F0 /* XNColor.h */,
+				041173121C925CE7009AC6F9 /* NSString+XNTool.h */,
+				041173131C925CE7009AC6F9 /* NSString+XNTool.m */,
 				041E586D1C8EEA8E00E55132 /* UIView+Extension.h */,
 				041E586E1C8EEA8E00E55132 /* UIView+Extension.m */,
 			);
@@ -530,6 +535,7 @@
 				0417F5FC1C8DCF680071A6F0 /* XNMessageCell.m in Sources */,
 				04529A571C8DA0FB0081CF4E /* XNDiscoverController.m in Sources */,
 				040FDBFE1C90523A00935EBF /* XNLoginController.m in Sources */,
+				041173141C925CE7009AC6F9 /* NSString+XNTool.m in Sources */,
 				041E586F1C8EEA8E00E55132 /* UIView+Extension.m in Sources */,
 				04529A501C8D9D3B0081CF4E /* XNProfileController.m in Sources */,
 				04529A4F1C8D9D3B0081CF4E /* XNMessageController.m in Sources */,

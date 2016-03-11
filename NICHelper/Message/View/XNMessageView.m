@@ -10,6 +10,7 @@
 #import "XNColor.h"
 #import "Masonry.h"
 #import "UIView+Extension.h"
+#import "NSString+XNTool.h"
 #import "XNMessage.h"
 
 #define TEXTFONT [UIFont systemFontOfSize:16]
@@ -29,7 +30,7 @@
 
 @implementation XNMessageView
 
-#pragma mark 懒加载
+#pragma mark - 懒加载
 - (UILabel *)sourceLabel {
     if (_sourceLabel == nil) {
         _sourceLabel = [[UILabel alloc]init];
@@ -82,7 +83,7 @@
     return self;
 }
 
-#pragma mark 设置子控件的数据以及布局
+#pragma mark - 设置子控件的数据以及布局
 - (void)setMessage:(XNMessage *)message {
 
     _message = message;
@@ -94,7 +95,7 @@
     //计算标题的 Frame
     CGFloat viewW = [UIScreen mainScreen].bounds.size.width - 2 *kMargin;
     CGFloat maxW = viewW - 3 * kMargin - kIcomWH;
-    CGSize textSize = [self sizeWithText:self.titleLabel.text font:TEXTFONT maxSize:CGSizeMake(maxW, MAXFLOAT)];
+    CGSize textSize = [self.message.title sizeWithText:self.titleLabel.text font:TEXTFONT maxSize:CGSizeMake(maxW, MAXFLOAT)];
     
     //更新约束
     [_titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
@@ -108,7 +109,7 @@
     
     
 }
-#pragma mark 设置子控件的布局
+#pragma mark - 设置子控件的布局
 - (void)setupUI {
 
     //1. 设置 view 的样式
@@ -148,24 +149,8 @@
         make.bottom.equalTo(self.mas_bottom).offset(-kMargin);
         
     }];
-
-
-
 }
-/**
- *  计算标题的 Frame
- *
- *  @param text    标题
- *  @param maxSize 最大填充的范围
- *
- *  @return  size
- */
-- (CGSize)sizeWithText:(NSString *)text font:()font maxSize:(CGSize)maxSize
-{
-    NSDictionary *att = @{NSFontAttributeName:font};
-    return  [text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:att context:nil].size;
-    
-}
+
 
 
 @end

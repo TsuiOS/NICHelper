@@ -12,18 +12,18 @@
 #import "XNMessage.h"
 #import <UMSocial.h>
 #import <UMSocialQQHandler.h>
-
+#define XNAPPKEY @"56dfe2a467e58e8423002a33"
 
 @interface XNMessageController () <UITableViewDelegate>
 
-@property (nonatomic, strong) NSMutableArray *message;
+@property (nonatomic, strong) NSArray *message;
 
 @end
 
 @implementation XNMessageController
 
 #pragma mark 懒加载数据
-- (NSMutableArray *)message {
+- (NSArray *)message {
     if (_message == nil) {
         _message = [XNMessage message];
     }
@@ -58,26 +58,23 @@
 
     return cell;
 }
-
-
 /**
  *  测试代码
  */
-
 // 允许移动表格
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
 
 }
-#warning bug暂未处理
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
-    
+    /**
     NSUInteger fromRow = [sourceIndexPath row];
     NSUInteger toRow = [destinationIndexPath row];
     
     id object = [self.message objectAtIndex:fromRow];
     [self.message removeObjectAtIndex:fromRow];
     [self.message insertObject:object atIndex:toRow];
+     */
     
 }
 
@@ -93,15 +90,9 @@
      UITableViewRowActionStyleDestructive = UITableViewRowActionStyleDefault,
      UITableViewRowActionStyleNormal
      */
-//    __weak typeof(self) weakSelf = self;
     UITableViewRowAction *sharedAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"    " handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
         //相关逻辑
-        [UMSocialSnsService presentSnsIconSheetView:self
-                                             appKey:@"56dfe2a467e58e8423002a33"
-                                          shareText:@"你要分享的文字"
-                                         shareImage:[UIImage imageNamed:@"Action_Share"]
-                                    shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToQzone,UMShareToSms,UMShareToQQ,UMShareToWechatSession,UMShareToWechatTimeline,nil]
-                                           delegate:nil];
+        [self UMSharedToPlatform];
         // 在最后希望cell可以自动回到默认状态，所以需要退出编辑模式
         tableView.editing = NO;
         NSLog(@"分享");
@@ -118,7 +109,25 @@
     return @[settingAction,sharedAction];
 
 }
-
+/**
+ *  友盟分享
+ */
+- (void)UMSharedToPlatform {
+    
+    // 指定分享平台
+    NSArray *sharedPlatform = [NSArray arrayWithObjects:UMShareToSina,UMShareToQzone,UMShareToSms,UMShareToQQ,UMShareToWechatSession,UMShareToWechatTimeline,nil];
+    // 分享的图片
+    UIImage *shareImage = [UIImage imageNamed:@"Action_Share"];
+    // 分享文字
+    NSString *shareText = @"你要分享的文字";
+    
+    [UMSocialSnsService presentSnsIconSheetView:self
+                                         appKey:XNAPPKEY
+                                      shareText:shareText
+                                     shareImage:shareImage
+                                shareToSnsNames:sharedPlatform
+                                       delegate:nil];
+}
 
 
 @end

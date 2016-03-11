@@ -7,92 +7,100 @@
 //
 
 #import "XNProfileController.h"
+#import "XNColor.h"
+#import <Masonry.h>
 
-@interface XNProfileController ()
+static CGFloat ParallaxHeaderHeight = 235;
+static NSString *ID = @"Profile_Cell";
+
+
+@interface XNProfileController ()<UITableViewDelegate,UITableViewDataSource>
+
+@property (strong, nonatomic) UIImageView *parallaxHeaderView;
+@property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) MASConstraint *parallaxHeaderHeightConstraint;
 
 @end
 
 @implementation XNProfileController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self configTableView];
+    [self setupUI];
+
+}
+
+#pragma mark - Private methods
+
+- (void)configTableView {
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    _tableView = [[UITableView alloc]init];
+    [self.view addSubview:_tableView];
+    _tableView.backgroundColor = [UIColor clearColor];
+    _tableView.showsVerticalScrollIndicator = NO;
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    _tableView.contentInset = UIEdgeInsetsMake(ParallaxHeaderHeight, 0, 0, 0);
+}
+
+
+#pragma mark - 设置界面
+
+- (void)setupUI {
+
+    // 添加控件
+    // 把Parallax Header放在UITableView的下面
+    _parallaxHeaderView = [UIImageView new];
+    [self.view insertSubview:_parallaxHeaderView belowSubview:_tableView];
+    _parallaxHeaderView.contentMode = UIViewContentModeScaleAspectFill;
+    _parallaxHeaderView.image = [UIImage imageNamed:@"parallax_header_back"];
+
+
+    // 自动布局
+    [_parallaxHeaderView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.and.right.equalTo(self.view);
+        make.top.equalTo(self.mas_topLayoutGuideBottom);
+        _parallaxHeaderHeightConstraint = make.height.equalTo(@(ParallaxHeaderHeight));
+    }];
+    [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view.mas_top);
+        make.left.and.right.equalTo(self.view);
+        make.bottom.equalTo(self.view).offset(-44);
+    }];
+    // Add KVO
+    [_tableView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
+
+}
+// 利用KVO
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    if ([keyPath isEqualToString:@"contentOffset"]) {
+        CGPoint contentOffset = ((NSValue *)change[NSKeyValueChangeNewKey]).CGPointValue;
+        if (contentOffset.y < -ParallaxHeaderHeight) {
+            _parallaxHeaderHeightConstraint.equalTo(@(-contentOffset.y));
+        }else {
+            _parallaxHeaderHeightConstraint.equalTo(@(ParallaxHeaderHeight));
+        }
+    }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)dealloc {
+    [_tableView removeObserver:self forKeyPath:@"contentOffset"];
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
-}
-
+#pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return 20;
 }
-
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    if (!cell) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+    }
+    cell.textLabel.text = @(indexPath.row).stringValue;
     
     return cell;
 }
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

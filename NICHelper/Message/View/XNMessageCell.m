@@ -39,7 +39,7 @@
     [self.contentView addSubview:messageView];
     self.messageView = messageView;
     // 自动布局
-    UIEdgeInsets padding = UIEdgeInsetsMake(10, 10, 5, 10);
+    UIEdgeInsets padding = UIEdgeInsetsMake(5, 10, 5, 10);
     [self.messageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self).insets(padding);
 
@@ -73,14 +73,14 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.001 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         for (UIView *subview in self.subviews) {
             if ([NSStringFromClass([subview class]) isEqualToString:@"UITableViewCellDeleteConfirmationView"] ) {
+                
                 UIView *setView = (UIView *)[subview.subviews firstObject];
-                setView.superview.backgroundColor = [UIColor clearColor];
-
                 UIImageView *setImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"barbuttonicon_set"]];
                 // 需要转换坐标
                 CGPoint childSetP = [setView.superview convertPoint:setView.center toView:setView];
                 setImage.center = childSetP;
                 [setView addSubview:setImage];
+                
                 
                 UIView *sharedview = (UIView *)[subview.subviews lastObject];
                 UIImageView *sharedImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"barbuttonicon_Operate"]];
@@ -98,11 +98,6 @@
 
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    
-}
 
 
 @end
