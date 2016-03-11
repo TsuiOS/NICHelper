@@ -7,13 +7,15 @@
 //
 
 #import "XNDiscoverController.h"
+#import "ParallaxHeaderView.h"
 #import "UMSocial.h"
+#import "XNColor.h"
 #import <Masonry.h>
-static CGFloat ParallaxHeaderHeight = 235;
+static CGFloat ParallaxHeaderHeight = 180;
 
 
 
-@interface XNDiscoverController ()
+@interface XNDiscoverController ()<UIScrollViewDelegate>
 
 @property (strong, nonatomic) UIImageView *parallaxHeaderView;
 
@@ -32,21 +34,9 @@ static CGFloat ParallaxHeaderHeight = 235;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    ParallaxHeaderView *headerView = [ParallaxHeaderView parallaxHeaderViewWithImage:[UIImage imageNamed:@"parallax_header_back"] forSize:CGSizeMake(DEFAULT_WIDTH, ParallaxHeaderHeight)];
+    [self.tableView setTableHeaderView:headerView];
 
-}
-
-//直接在scrollViewDidScroll:刷新
-#pragma mark - UIScrollViewDelegate
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (scrollView.contentOffset.y < 0) {
-        [_parallaxHeaderView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.height.equalTo(@(ParallaxHeaderHeight - scrollView.contentOffset.y));
-        }];
-    } else {
-        [_parallaxHeaderView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.height.equalTo(@(ParallaxHeaderHeight));
-        }];
-    }
 }
 
 #pragma mark - UITableViewDataSource
@@ -66,21 +56,34 @@ static CGFloat ParallaxHeaderHeight = 235;
     return cell;
 }
 
-#pragma mark - UITableViewDelegate
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    
-    static NSString *ID = @"headerView";
-    UITableViewHeaderFooterView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:ID];
-    
-    if (!headerView) {
-        headerView = [[UITableViewHeaderFooterView alloc]initWithReuseIdentifier:ID];
-    }
-    headerView.textLabel.text = @"天气预报";
-    return headerView;
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+#pragma mark - UISCrollViewDelegate
 
-    return 44;
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+
+    if (scrollView == self.tableView) {
+        [(ParallaxHeaderView *)self.tableView.tableHeaderView layoutHeaderViewForScrollViewOffset:scrollView.contentOffset];
+    }
+
 }
+
+#pragma mark - UITableViewDelegate
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+//    
+//    static NSString *ID = @"headerView";
+//    UITableViewHeaderFooterView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:ID];
+//    
+//    if (!headerView) {
+//        headerView = [[UITableViewHeaderFooterView alloc]initWithReuseIdentifier:ID];
+//    }
+//    headerView.textLabel.text = @"天气预报";
+//    return headerView;
+//}
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+//
+//    return 44;
+//}
+
+
 
 @end
