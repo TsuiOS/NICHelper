@@ -43,7 +43,7 @@
 
 - (void)setupUI {
     
-    self.backgroundColor = XNColor(59, 59, 59, 0.5);
+    self.backgroundColor = XNColor(59, 59, 59, 0.7);
     // 添加控件
     [self addSubview:self.temperatureView];
     CGFloat Xmargin = 20;

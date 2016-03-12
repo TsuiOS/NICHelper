@@ -11,10 +11,11 @@
 #import "XNColor.h"
 #import <Masonry.h>
 #import "XNCoverView.h"
+#define  ViewDidScrollOffset   394.0
 static NSString *ID = @"discover_cell";
 
 
-@interface XNDiscoverController ()<UITableViewDelegate,UITableViewDataSource>
+@interface XNDiscoverController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 
 @property (strong, nonatomic) UIImageView *parallaxHeaderView;
 @property (strong, nonatomic) XNCoverView *coverView;
@@ -43,7 +44,6 @@ static NSString *ID = @"discover_cell";
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [_tableView setContentOffset:CGPointMake(0, -kParallaxHeaderHeight)];
-    self.coverView.alpha = 1;
 }
 #pragma mark - Private methods
 - (void)configTableView {
@@ -101,15 +101,7 @@ static NSString *ID = @"discover_cell";
         CGPoint contentOffset = ((NSValue *)change[NSKeyValueChangeNewKey]).CGPointValue;
         if (contentOffset.y < -kParallaxHeaderHeight) {
             _parallaxHeaderHeightConstraint.equalTo(@(-contentOffset.y));
-            //coverView动画
-            [UIView animateWithDuration:0.6 animations:^{
-                self.coverView.alpha = 0;
-            }];
-        } else {
-            //coverView动画
-            [UIView animateWithDuration:0.5 animations:^{
-                self.coverView.alpha = 1;
-            }];
+
         }
     }
 }
@@ -134,7 +126,20 @@ static NSString *ID = @"discover_cell";
     return cell;
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
 
+    if (-scrollView.contentOffset.y == kParallaxHeaderHeight) {
+        return;
+    }
+    CGFloat alphaY = (ViewDidScrollOffset / -scrollView.contentOffset.y) - 1.5;
+    
+    if (alphaY < 0) {
+        alphaY = 0;
+    }
+    NSLog(@"%f",alphaY);
+       self.coverView.alpha = alphaY;
+
+}
 
 
 
