@@ -8,12 +8,13 @@
 
 #import "XNCoverView.h"
 #import "XNColor.h"
+#import "XNWeatherView.h"
 #import <Masonry.h>
 
 @interface XNCoverView ()
 
 /** 天气 */
-@property (strong, nonatomic) UIButton *temperatureBtn;
+@property (strong, nonatomic) XNWeatherView *temperatureView;
 
 @end
 
@@ -29,14 +30,14 @@
 
 #pragma mark - 懒加载
 
-- (UIButton *)temperatureBtn {
-    if (_temperatureBtn == nil) {
-        _temperatureBtn = [[UIButton alloc]init];
-        _temperatureBtn.layer.cornerRadius = 5;
-        _temperatureBtn.layer.masksToBounds = YES;
-        _temperatureBtn.backgroundColor = XNColor(255, 255, 255, 0.8);
+- (XNWeatherView *)temperatureView {
+    if (_temperatureView == nil) {
+        _temperatureView = [[XNWeatherView alloc]init];
+        _temperatureView.layer.cornerRadius = 10;
+        _temperatureView.layer.masksToBounds = YES;
+        _temperatureView.backgroundColor = XNColor(255, 255, 255, 0);
     }
-    return _temperatureBtn;
+    return _temperatureView;
 }
 
 
@@ -44,14 +45,14 @@
     
     self.backgroundColor = XNColor(59, 59, 59, 0.5);
     // 添加控件
-    [self addSubview:self.temperatureBtn];
+    [self addSubview:self.temperatureView];
     CGFloat Xmargin = 20;
     CGFloat width = 100;
     CGFloat topMargin = (kParallaxHeaderHeight - width - 64) * 0.5;
     //自动布局
     
     
-    [_temperatureBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_temperatureView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(Xmargin);
         make.top.equalTo(self).offset(topMargin);
         make.height.equalTo(@(width));

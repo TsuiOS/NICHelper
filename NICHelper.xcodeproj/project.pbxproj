@@ -34,6 +34,7 @@
 		0477D74A1C9186CB003C32DF /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0477D7491C9186CB003C32DF /* libz.tbd */; };
 		047D32891C93F4E200CEEFC6 /* XNWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = 047D32881C93F4E200CEEFC6 /* XNWeather.m */; };
 		047D328D1C93FB9D00CEEFC6 /* NetworkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 047D328C1C93FB9D00CEEFC6 /* NetworkTools.m */; };
+		047D32931C94186E00CEEFC6 /* XNWeatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = 047D32921C94186E00CEEFC6 /* XNWeatherView.m */; };
 		69FCE9E6D3DD3D66C4ADA64F /* libPods-NICHelper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2048FF99DFEEDACCE6FBD5 /* libPods-NICHelper.a */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +85,8 @@
 		047D32881C93F4E200CEEFC6 /* XNWeather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNWeather.m; sourceTree = "<group>"; };
 		047D328B1C93FB9D00CEEFC6 /* NetworkTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkTools.h; sourceTree = "<group>"; };
 		047D328C1C93FB9D00CEEFC6 /* NetworkTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkTools.m; sourceTree = "<group>"; };
+		047D32911C94186E00CEEFC6 /* XNWeatherView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNWeatherView.h; sourceTree = "<group>"; };
+		047D32921C94186E00CEEFC6 /* XNWeatherView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNWeatherView.m; sourceTree = "<group>"; };
 		0FB5A7758DDA5DD0D4598680 /* Pods-NICHelper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NICHelper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NICHelper/Pods-NICHelper.debug.xcconfig"; sourceTree = "<group>"; };
 		3D375FE0AE9D5F211C4C51CA /* Pods-NICHelper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NICHelper.release.xcconfig"; path = "Pods/Target Support Files/Pods-NICHelper/Pods-NICHelper.release.xcconfig"; sourceTree = "<group>"; };
 		EB2048FF99DFEEDACCE6FBD5 /* libPods-NICHelper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NICHelper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -391,6 +394,8 @@
 			children = (
 				0442186E1C93C20C008B1F50 /* XNCoverView.h */,
 				0442186F1C93C20C008B1F50 /* XNCoverView.m */,
+				047D32911C94186E00CEEFC6 /* XNWeatherView.h */,
+				047D32921C94186E00CEEFC6 /* XNWeatherView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -576,6 +581,7 @@
 				04529A1D1C8D9C400081CF4E /* AppDelegate.m in Sources */,
 				04529A1A1C8D9C400081CF4E /* main.m in Sources */,
 				04529A4E1C8D9D3B0081CF4E /* XNMainTabBarViewController.m in Sources */,
+				047D32931C94186E00CEEFC6 /* XNWeatherView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

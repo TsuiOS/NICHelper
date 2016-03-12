@@ -15,7 +15,7 @@
 
 @interface XNProfileController ()
 
-
+@property (nonatomic, strong) UITableViewHeaderFooterView *headerView;
 
 @end
 
@@ -24,7 +24,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [_headerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.mas_topLayoutGuideBottom);
+        make.height.equalTo(@(136));
+    }];
 
+}
+- (void)viewDidAppear:(BOOL)animated {
+  
+
+    
 }
 
 
@@ -43,4 +52,20 @@
     
     return cell;
 }
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    static NSString *ID = @"header_view";
+    self.headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:ID];
+    if (self.headerView == nil) {
+        self.headerView = [[UITableViewHeaderFooterView alloc]initWithReuseIdentifier:ID];
+    }
+    self.headerView.contentView.backgroundColor = [UIColor redColor];
+    return self.headerView;
+
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 136;
+}
+
 @end

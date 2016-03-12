@@ -1,19 +1,13 @@
 //
-//  XNWeather.m
+//  XNWeatherView.h
 //  NICHelper
 //
 //  Created by mac on 16/3/12.
 //  Copyright © 2016年 Hsu. All rights reserved.
 //
 
-#import "XNWeather.h"
+#import <UIKit/UIKit.h>
 
-
-
-@implementation XNResult
-
-@end
-
-@implementation XNWeather
+@interface XNWeatherView : UIView
 
 @end

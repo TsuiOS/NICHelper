@@ -11,7 +11,6 @@
 #import "XNColor.h"
 #import <Masonry.h>
 #import "XNCoverView.h"
-#import "NetworkTools.h"
 static NSString *ID = @"discover_cell";
 
 
@@ -26,20 +25,15 @@ static NSString *ID = @"discover_cell";
 
 @implementation XNDiscoverController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configTableView];
     [self setupUI];
-    // 测试网络方法
-    [[NetworkTools sharedTools] request:GET URLString:@"http://apicloud.mob.com/v1/weather/query" parameters:@{@"key":@"10557a5d75b9c",@"city":@"南宁",@"province":@"江苏"} finished:^(id result, NSError *error) {
-        if (error) {
-            NSLog(@"解析出错--%@",error);
-            return ;
-        }
-        NSLog(@"%@",result);
-    }];
-    
 }
 
 #pragma mark - 生命周期的方法
@@ -49,7 +43,7 @@ static NSString *ID = @"discover_cell";
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [_tableView setContentOffset:CGPointMake(0, -kParallaxHeaderHeight)];
-    self.coverView.alpha = 0.5;
+    self.coverView.alpha = 1;
 }
 #pragma mark - Private methods
 - (void)configTableView {
@@ -75,6 +69,7 @@ static NSString *ID = @"discover_cell";
     _parallaxHeaderView.image = [UIImage imageNamed:@"niclcu"];
     [self.view insertSubview:_parallaxHeaderView belowSubview:_tableView];
     
+
     _coverView = [XNCoverView new];
     [self.view insertSubview:_coverView belowSubview:_tableView];
     
@@ -112,13 +107,12 @@ static NSString *ID = @"discover_cell";
             }];
         } else {
             //coverView动画
-            [UIView animateWithDuration:0.2 animations:^{
-                self.coverView.alpha = 0.5;
+            [UIView animateWithDuration:0.5 animations:^{
+                self.coverView.alpha = 1;
             }];
         }
     }
 }
-
 
 // remove KVO
 - (void)dealloc {
@@ -139,6 +133,7 @@ static NSString *ID = @"discover_cell";
     
     return cell;
 }
+
 
 
 
