@@ -32,8 +32,16 @@ static NSString *ID = @"Profile_Cell";
 
 }
 
-#pragma mark - Private methods
+#pragma mark - 生命周期的方法
+/**
+ *  当视图出现时, tableView 向下滚动ParallaxHeaderHeight的高度
+ */
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [_tableView setContentOffset:CGPointMake(0, -ParallaxHeaderHeight)];
 
+}
+#pragma mark - Private methods
 - (void)configTableView {
     
     _tableView = [[UITableView alloc]init];
@@ -67,8 +75,10 @@ static NSString *ID = @"Profile_Cell";
     [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view.mas_top);
         make.left.and.right.equalTo(self.view);
-        make.bottom.equalTo(self.view).offset(-44);
+        make.bottom.equalTo(self.view);
     }];
+
+   
     // Add KVO
     [_tableView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
 
@@ -80,17 +90,16 @@ static NSString *ID = @"Profile_Cell";
         CGPoint contentOffset = ((NSValue *)change[NSKeyValueChangeNewKey]).CGPointValue;
         if (contentOffset.y < -ParallaxHeaderHeight) {
             _parallaxHeaderHeightConstraint.equalTo(@(-contentOffset.y));
-        }else {
-            _parallaxHeaderHeightConstraint.equalTo(@(ParallaxHeaderHeight));
         }
     }
 }
-
+// remove KVO
 - (void)dealloc {
     [_tableView removeObserver:self forKeyPath:@"contentOffset"];
 }
 
 #pragma mark - UITableViewDataSource
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 20;
 }

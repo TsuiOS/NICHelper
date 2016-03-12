@@ -11,30 +11,18 @@
 #import "UMSocial.h"
 #import "XNColor.h"
 #import <Masonry.h>
-static CGFloat ParallaxHeaderHeight = 180;
-
-
+static CGFloat ParallaxHeaderHeight = 140;
 
 @interface XNDiscoverController ()<UIScrollViewDelegate>
-
-@property (strong, nonatomic) UIImageView *parallaxHeaderView;
 
 @end
 
 @implementation XNDiscoverController
 
-#pragma mark - 懒加载
-- (UIImageView *)parallaxHeaderView {
-    if (_parallaxHeaderView == nil) {
-        _parallaxHeaderView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"parallax_header_back"]];
-        _parallaxHeaderView.contentMode = UIViewContentModeScaleAspectFill;
-    }
-    return _parallaxHeaderView;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    ParallaxHeaderView *headerView = [ParallaxHeaderView parallaxHeaderViewWithImage:[UIImage imageNamed:@"parallax_header_back"] forSize:CGSizeMake(DEFAULT_WIDTH, ParallaxHeaderHeight)];
+    ParallaxHeaderView *headerView = [ParallaxHeaderView parallaxHeaderViewWithImage:[UIImage imageNamed:@"sun"] forSize:CGSizeMake(DEFAULT_WIDTH, ParallaxHeaderHeight)];
     [self.tableView setTableHeaderView:headerView];
 
 }
