@@ -10,6 +10,7 @@ pod 'AFNetworking', '~> 3.0'
 pod 'SDWebImage', '~>3.7'
 pod 'SVProgressHUD'
 pod 'UMengSocial', '~> 5.0'
+pod 'YYModel'
 
 
 

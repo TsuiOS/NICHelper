@@ -20,6 +20,7 @@ PODS:
   - SDWebImage/Core (3.7.5)
   - SVProgressHUD (1.1.3)
   - UMengSocial (5.0)
+  - YYModel (1.0.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
@@ -27,6 +28,7 @@ DEPENDENCIES:
   - SDWebImage (~> 3.7)
   - SVProgressHUD
   - UMengSocial (~> 5.0)
+  - YYModel
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
@@ -34,5 +36,6 @@ SPEC CHECKSUMS:
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
   UMengSocial: 48b67179c492a8cf7803fbb0438b8f55432e2fc1
+  YYModel: 794f0820a9a9703615bc166aa8e336abaf422c2b
 
 COCOAPODS: 0.39.0
