@@ -7,17 +7,17 @@
 //
 
 #import "XNDiscoverController.h"
-#import "ParallaxHeaderView.h"
 #import "UMSocial.h"
 #import "XNColor.h"
 #import <Masonry.h>
-static CGFloat ParallaxHeaderHeight = 180;
+#import "XNCoverView.h"
 static NSString *ID = @"discover_cell";
 
 
 @interface XNDiscoverController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (strong, nonatomic) UIImageView *parallaxHeaderView;
+@property (strong, nonatomic) XNCoverView *coverView;
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) MASConstraint *parallaxHeaderHeightConstraint;
 
@@ -39,8 +39,8 @@ static NSString *ID = @"discover_cell";
  */
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [_tableView setContentOffset:CGPointMake(0, -ParallaxHeaderHeight)];
-    
+    [_tableView setContentOffset:CGPointMake(0, -kParallaxHeaderHeight)];
+    self.coverView.alpha = 0.5;
 }
 #pragma mark - Private methods
 - (void)configTableView {
@@ -51,7 +51,7 @@ static NSString *ID = @"discover_cell";
     _tableView.showsVerticalScrollIndicator = NO;
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    _tableView.contentInset = UIEdgeInsetsMake(ParallaxHeaderHeight, 0, 0, 0);
+    _tableView.contentInset = UIEdgeInsetsMake(kParallaxHeaderHeight, 0, 0, 0);
 }
 
 
@@ -62,21 +62,27 @@ static NSString *ID = @"discover_cell";
     // 添加控件
     // 把Parallax Header放在UITableView的下面
     _parallaxHeaderView = [UIImageView new];
-    [self.view insertSubview:_parallaxHeaderView belowSubview:_tableView];
     _parallaxHeaderView.contentMode = UIViewContentModeScaleAspectFill;
     _parallaxHeaderView.image = [UIImage imageNamed:@"niclcu"];
+    [self.view insertSubview:_parallaxHeaderView belowSubview:_tableView];
+    
+    _coverView = [XNCoverView new];
+    [self.view insertSubview:_coverView belowSubview:_tableView];
     
     
     // 自动布局
+    [_coverView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(_parallaxHeaderView);
+    }];
     [_parallaxHeaderView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.and.right.equalTo(self.view);
         make.top.equalTo(self.mas_topLayoutGuideBottom);
-        _parallaxHeaderHeightConstraint = make.height.equalTo(@(ParallaxHeaderHeight));
+        _parallaxHeaderHeightConstraint = make.height.equalTo(@(kParallaxHeaderHeight));
     }];
     [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view.mas_top);
         make.left.and.right.equalTo(self.view);
-        make.bottom.equalTo(self.view);
+        make.bottom.equalTo(self.view).offset(-44);
     }];
     
     
@@ -89,11 +95,22 @@ static NSString *ID = @"discover_cell";
     
     if ([keyPath isEqualToString:@"contentOffset"]) {
         CGPoint contentOffset = ((NSValue *)change[NSKeyValueChangeNewKey]).CGPointValue;
-        if (contentOffset.y < -ParallaxHeaderHeight) {
+        if (contentOffset.y < -kParallaxHeaderHeight) {
             _parallaxHeaderHeightConstraint.equalTo(@(-contentOffset.y));
+            //coverView动画
+            [UIView animateWithDuration:0.6 animations:^{
+                self.coverView.alpha = 0;
+            }];
+        } else {
+            //coverView动画
+            [UIView animateWithDuration:0.2 animations:^{
+                self.coverView.alpha = 0.5;
+            }];
         }
     }
 }
+
+
 // remove KVO
 - (void)dealloc {
     [_tableView removeObserver:self forKeyPath:@"contentOffset"];

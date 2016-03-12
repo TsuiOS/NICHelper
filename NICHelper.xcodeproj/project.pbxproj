@@ -14,6 +14,7 @@
 		0417F5FF1C8DE2EA0071A6F0 /* XNMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0417F5FE1C8DE2EA0071A6F0 /* XNMessageView.m */; };
 		041E586F1C8EEA8E00E55132 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 041E586E1C8EEA8E00E55132 /* UIView+Extension.m */; };
 		041E58711C8EF09300E55132 /* Message.plist in Resources */ = {isa = PBXBuildFile; fileRef = 041E58701C8EF09300E55132 /* Message.plist */; };
+		044218701C93C20C008B1F50 /* XNCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0442186F1C93C20C008B1F50 /* XNCoverView.m */; };
 		04529A1A1C8D9C400081CF4E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04529A191C8D9C400081CF4E /* main.m */; };
 		04529A1D1C8D9C400081CF4E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04529A1C1C8D9C400081CF4E /* AppDelegate.m */; };
 		04529A251C8D9C400081CF4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04529A241C8D9C400081CF4E /* Assets.xcassets */; };
@@ -31,8 +32,6 @@
 		0477D7461C9186B1003C32DF /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0477D7451C9186B1003C32DF /* CoreTelephony.framework */; };
 		0477D7481C9186BD003C32DF /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0477D7471C9186BD003C32DF /* libstdc++.tbd */; };
 		0477D74A1C9186CB003C32DF /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0477D7491C9186CB003C32DF /* libz.tbd */; };
-		04EBA4BF1C931EF700BAEDA5 /* ParallaxHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EBA4BE1C931EF700BAEDA5 /* ParallaxHeaderView.m */; };
-		04EBA4C21C931FBF00BAEDA5 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EBA4C11C931FBF00BAEDA5 /* UIImage+ImageEffects.m */; };
 		69FCE9E6D3DD3D66C4ADA64F /* libPods-NICHelper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2048FF99DFEEDACCE6FBD5 /* libPods-NICHelper.a */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +50,8 @@
 		041E586D1C8EEA8E00E55132 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		041E586E1C8EEA8E00E55132 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		041E58701C8EF09300E55132 /* Message.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Message.plist; sourceTree = "<group>"; };
+		0442186E1C93C20C008B1F50 /* XNCoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNCoverView.h; sourceTree = "<group>"; };
+		0442186F1C93C20C008B1F50 /* XNCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNCoverView.m; sourceTree = "<group>"; };
 		04529A151C8D9C400081CF4E /* NICHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NICHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04529A191C8D9C400081CF4E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		04529A1B1C8D9C400081CF4E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../../AppDelegate.h; sourceTree = "<group>"; };
@@ -77,10 +78,6 @@
 		0477D7451C9186B1003C32DF /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		0477D7471C9186BD003C32DF /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		0477D7491C9186CB003C32DF /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		04EBA4BD1C931EF700BAEDA5 /* ParallaxHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParallaxHeaderView.h; sourceTree = "<group>"; };
-		04EBA4BE1C931EF700BAEDA5 /* ParallaxHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParallaxHeaderView.m; sourceTree = "<group>"; };
-		04EBA4C01C931FBF00BAEDA5 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
-		04EBA4C11C931FBF00BAEDA5 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		0FB5A7758DDA5DD0D4598680 /* Pods-NICHelper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NICHelper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NICHelper/Pods-NICHelper.debug.xcconfig"; sourceTree = "<group>"; };
 		3D375FE0AE9D5F211C4C51CA /* Pods-NICHelper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NICHelper.release.xcconfig"; path = "Pods/Target Support Files/Pods-NICHelper/Pods-NICHelper.release.xcconfig"; sourceTree = "<group>"; };
 		EB2048FF99DFEEDACCE6FBD5 /* libPods-NICHelper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NICHelper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -195,8 +192,6 @@
 		04529A301C8D9D3B0081CF4E /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				04EBA4C01C931FBF00BAEDA5 /* UIImage+ImageEffects.h */,
-				04EBA4C11C931FBF00BAEDA5 /* UIImage+ImageEffects.m */,
 				0417F5F61C8DBA400071A6F0 /* XNColor.h */,
 				041173121C925CE7009AC6F9 /* NSString+XNTool.h */,
 				041173131C925CE7009AC6F9 /* NSString+XNTool.m */,
@@ -385,6 +380,8 @@
 		04529A541C8DA0C00081CF4E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0442186E1C93C20C008B1F50 /* XNCoverView.h */,
+				0442186F1C93C20C008B1F50 /* XNCoverView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -392,8 +389,6 @@
 		04EBA4BC1C931EE500BAEDA5 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
-				04EBA4BD1C931EF700BAEDA5 /* ParallaxHeaderView.h */,
-				04EBA4BE1C931EF700BAEDA5 /* ParallaxHeaderView.m */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -546,8 +541,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04EBA4C21C931FBF00BAEDA5 /* UIImage+ImageEffects.m in Sources */,
-				04EBA4BF1C931EF700BAEDA5 /* ParallaxHeaderView.m in Sources */,
 				04529A4C1C8D9D3B0081CF4E /* XNComposeController.m in Sources */,
 				0417F5F91C8DCF430071A6F0 /* XNMessage.m in Sources */,
 				04529A4D1C8D9D3B0081CF4E /* XNBaseNavigationController.m in Sources */,
@@ -559,6 +552,7 @@
 				041E586F1C8EEA8E00E55132 /* UIView+Extension.m in Sources */,
 				04529A501C8D9D3B0081CF4E /* XNProfileController.m in Sources */,
 				04529A4F1C8D9D3B0081CF4E /* XNMessageController.m in Sources */,
+				044218701C93C20C008B1F50 /* XNCoverView.m in Sources */,
 				04529A1D1C8D9C400081CF4E /* AppDelegate.m in Sources */,
 				04529A1A1C8D9C400081CF4E /* main.m in Sources */,
 				04529A4E1C8D9D3B0081CF4E /* XNMainTabBarViewController.m in Sources */,
