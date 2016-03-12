@@ -11,6 +11,7 @@
 #import "XNColor.h"
 #import <Masonry.h>
 #import "XNCoverView.h"
+#import "NetworkTools.h"
 static NSString *ID = @"discover_cell";
 
 
@@ -30,6 +31,14 @@ static NSString *ID = @"discover_cell";
     [super viewDidLoad];
     [self configTableView];
     [self setupUI];
+    // 测试网络方法
+    [[NetworkTools sharedTools] request:GET URLString:@"http://apicloud.mob.com/v1/weather/query" parameters:@{@"key":@"10557a5d75b9c",@"city":@"南宁",@"province":@"江苏"} finished:^(id result, NSError *error) {
+        if (error) {
+            NSLog(@"解析出错--%@",error);
+            return ;
+        }
+        NSLog(@"%@",result);
+    }];
     
 }
 
