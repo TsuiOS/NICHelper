@@ -7,7 +7,7 @@
 //
 
 #import <AFNetworking/AFNetworking.h>
-
+#define XNRequesCallBack (void (^)(id result, NSError *error))finished
 /**
  请求方式枚举
  */
@@ -21,6 +21,10 @@ typedef enum : NSUInteger {
 
 + (instancetype)sharedTools;
 
-- (void)request:(XNRequestMethod)method URLString:(NSString *)URLString parameters:(id) parameters finished:(void (^)(id result, NSError *error))finished;
+/** 请求网络的方法 */
+- (void)request:(XNRequestMethod)method URLString:(NSString *)URLString parameters:(id) parameters finished:XNRequesCallBack;
+
+/** 天气相关的方法 */
+- (void) loadWeatherWithCity:(NSString *)city province:(NSString *)province finished:XNRequesCallBack;
 
 @end

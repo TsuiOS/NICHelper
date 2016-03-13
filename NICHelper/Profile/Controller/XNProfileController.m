@@ -30,12 +30,6 @@
     }];
 
 }
-- (void)viewDidAppear:(BOOL)animated {
-  
-
-    
-}
-
 
 #pragma mark - UITableViewDataSource
 

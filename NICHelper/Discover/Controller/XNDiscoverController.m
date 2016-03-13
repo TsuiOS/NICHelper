@@ -11,6 +11,8 @@
 #import "XNColor.h"
 #import <Masonry.h>
 #import "XNCoverView.h"
+#import "XNWeatherModel.h"
+
 #define  ViewDidScrollOffset   394.0
 static NSString *ID = @"discover_cell";
 
@@ -26,15 +28,18 @@ static NSString *ID = @"discover_cell";
 
 @implementation XNDiscoverController
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configTableView];
     [self setupUI];
+    
+    //测试字典转模型
+    [XNWeatherModel weatherWithSuccess:^(NSDictionary *weatherDict) {
+       
+        NSLog(@"%@",weatherDict);
+        
+    }];
 }
 
 #pragma mark - 生命周期的方法
@@ -126,13 +131,16 @@ static NSString *ID = @"discover_cell";
     return cell;
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
 
-    if (-scrollView.contentOffset.y == kParallaxHeaderHeight) {
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+    // 当控制器加载时不改变coverView的alpha
+     // 往上滚动不改变coverView的alpha
+    if (-scrollView.contentOffset.y <= kParallaxHeaderHeight) {
         return;
     }
     CGFloat alphaY = (ViewDidScrollOffset / -scrollView.contentOffset.y) - 1.5;
-    
     if (alphaY < 0) {
         alphaY = 0;
     }

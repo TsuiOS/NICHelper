@@ -93,7 +93,6 @@
     });
 
 }
-
 - (void)didTransitionToState:(UITableViewCellStateMask)state {
 
 }

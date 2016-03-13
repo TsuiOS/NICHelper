@@ -70,9 +70,19 @@
     return tools;
 }
 
-- (void)request:(XNRequestMethod)method URLString:(NSString *)URLString parameters:(id) parameters finished:(void (^)(id result, NSError *error))finished {
+
+/**
+ *  请求网络的方法
+ *
+ *  @param method     GET /POST
+ *  @param URLString  URLString
+ *  @param parameters 参数
+ *  @param finished   完成的回调
+ */
+- (void)request:(XNRequestMethod)method URLString:(NSString *)URLString parameters:(id) parameters finished:XNRequesCallBack {
     
     NSString *methodName = (method == GET) ? @"GET" : @"POST";
+    
     
     //dataTaskWithHTTPMethod 本来没有实现,但是父类实现了
     [[self dataTaskWithHTTPMethod:methodName URLString:URLString parameters:parameters uploadProgress:nil downloadProgress:nil success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -98,5 +108,27 @@
 //        }];
 //    }
 }
+#pragma mark - 天气相关的方法
+/**
+ *  天气相关的方法
+ *
+ *  @param city     城市
+ *  @param province 省份
+ *  @param finished 回调
+ *
+ *  - see [http://api.mob.com/#/mobapi/weather](http://api.mob.com/#/mobapi/weather)
+ */
+- (void) loadWeatherWithCity:(NSString *)city province:(NSString *)province finished:XNRequesCallBack {
+    
+    NSString *appKey = @"10557a5d75b9c";
+    NSString *URLString = @"http://apicloud.mob.com/v1/weather/query";
+    NSDictionary *parameters = @{@"key":appKey,
+                                 @"city":city,
+                                 @"province":province};
+    
+    [self request:GET URLString:URLString parameters:parameters finished:finished];
+
+}
+
 
 @end

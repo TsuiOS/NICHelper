@@ -9,7 +9,7 @@
 #import "XNWeatherView.h"
 #import <Masonry.h>
 #import <YYModel/YYModel.h>
-#import "XNWeather.h"
+#import <SVProgressHUD.h>
 #import "NetworkTools.h"
 
 
@@ -41,7 +41,6 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setupUI];
-        [self setupData];
     }
     return self;
 }
@@ -132,22 +131,6 @@
     // 添加监听
     [_loactionBtn addTarget:self action:@selector(loactionClick) forControlEvents:UIControlEventTouchUpInside];
     
-}
-
-- (void)setupData {
-    // 测试网络方法
-    [[NetworkTools sharedTools] request:GET URLString:@"http://apicloud.mob.com/v1/weather/query" parameters:@{@"key":@"10557a5d75b9c",@"city":@"南宁",@"province":@"江苏"} finished:^(id result, NSError *error) {
-        if (error) {
-            NSLog(@"解析出错--%@",error);
-            return ;
-        }
-        
-        NSString *temp = result[@"result"][0][@"future"][0][@"temperature"];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.temperatureBtn setTitle:temp forState:UIControlStateNormal];
-        });
-    }];
-
 }
 
 - (void)loactionClick {
