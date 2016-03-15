@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+
 /**
  "airCondition": "轻度污染",
  "temperature": "14°C / 5°C",
@@ -15,6 +16,8 @@
  "weather": "多云",
  
  */
+#pragma mark - -----------------------------------------------------------------
+
 
 @interface XNFuture : NSObject
 
@@ -31,9 +34,11 @@
 /** 风向 */
 @property (nonatomic, copy) NSString *wind;
 
+- (instancetype)initWithDict:(NSDictionary *)dict;
 
 @end
 
+#pragma mark - -----------------------------------------------------------------
 
 
 @interface XNResult : NSObject
@@ -46,10 +51,19 @@
 /** 天气 */
 @property (nonatomic, copy) NSString *weather;
 
+
+- (instancetype)initWithDict:(NSDictionary *)dict;
+
 @end
 
 
+#pragma mark - -----------------------------------------------------------------
+
+
 @interface XNWeatherModel : NSObject
+
+/** 成功/失败 */
+@property (nonatomic, copy) NSString *msg;
 
 /** 返回的天气数组 */
 @property (nonatomic, strong) NSArray *result;
@@ -57,14 +71,9 @@
 /**
  *  200 成功
  */
-@property (nonatomic, strong) NSString *retCode;
+@property (nonatomic, copy) NSString *retCode;
 
+- (instancetype)initWithDict:(NSDictionary *)dict;
 
-//发送异步请求加载数据
-/**
- *  定义一个块代码的属性
- */
-
-+ (void)weatherWithSuccess:(void(^)(NSDictionary *weatherDict))success;
 
 @end

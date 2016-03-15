@@ -34,12 +34,6 @@ static NSString *ID = @"discover_cell";
     [self configTableView];
     [self setupUI];
     
-    //测试字典转模型
-    [XNWeatherModel weatherWithSuccess:^(NSDictionary *weatherDict) {
-       
-        NSLog(@"%@",weatherDict);
-        
-    }];
 }
 
 #pragma mark - 生命周期的方法
@@ -144,7 +138,7 @@ static NSString *ID = @"discover_cell";
     if (alphaY < 0) {
         alphaY = 0;
     }
-    NSLog(@"%f",alphaY);
+//    NSLog(@"%f",alphaY);
        self.coverView.alpha = alphaY;
 
 }

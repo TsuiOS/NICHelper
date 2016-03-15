@@ -8,34 +8,122 @@
 
 #import "XNWeatherModel.h"
 #import "NetworkTools.h"
-#import <YYModel/YYModel.h>
+
 
 @implementation XNFuture
 
 
+- (instancetype)initWithDict:(NSDictionary *)dict {
+    if ([dict isKindOfClass:[NSDictionary class]]) {
+        
+        if ([super init]) {
+            [self setValuesForKeysWithDictionary:dict];
+        }
+        return self;
+    } else {
+        return nil;
+    }
+
+}
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key {
+    
+}
 
 @end
+
+#pragma mark --------------------------XNResult---------------------------------
+
 
 @implementation XNResult
 
+- (instancetype)initWithDict:(NSDictionary *)dict {
+    
+    if ([dict isKindOfClass:[NSDictionary class]]) {
+        
+        if ([super init]) {
+            [self setValuesForKeysWithDictionary:dict];
+        }
+        return self;
+    } else {
+        return nil;
+    }
+}
+
+
+- (void)setValue:(id)value forKey:(NSString *)key {
+    
+    if ([value isKindOfClass:[NSNull class]]) {
+        return;
+    }
+    if ([key isEqualToString:@"future"] && [value isKindOfClass:[NSArray class]]) {
+        
+        NSArray *temp = value;
+        NSMutableArray *futureList = [NSMutableArray arrayWithCapacity:temp.count];
+        for (NSDictionary *dict in temp) {
+            
+            XNFuture *future = [[XNFuture alloc]initWithDict:dict];
+            [futureList addObject:future];
+
+        }
+        value = futureList;
+    }
+    [super setValue:value forKey:key];
+
+
+}
+
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key {
+    
+}
+
 
 @end
 
+
+#pragma mark -----------------------XNWeatherModel------------------------------
+
 @implementation XNWeatherModel
 
-
-+ (void)weatherWithSuccess:(void(^)(NSDictionary *weatherDict))success {
+- (instancetype)initWithDict:(NSDictionary *)dict {
     
-    [[NetworkTools sharedTools] loadWeatherWithCity:@"聊城" province:@"山东" finished:^(id result, NSError *error) {
+    if ([dict isKindOfClass:[NSDictionary class]]) {
         
-        if (error) {
-            NSLog(@"网络错误");
-            return ;
+        if ([super init]) {
+            [self setValuesForKeysWithDictionary:dict];
         }
-        if (success) {
-            success((NSDictionary *)[XNWeatherModel yy_modelWithDictionary:result]);
-        }
-    }];
+        return self;
+    } else {
+        return nil;
+    }
+    
 }
+
+
+- (void)setValue:(id)value forKey:(NSString *)key {
+    
+    if ([value isKindOfClass:[NSNull class]]) {
+        return;
+    }
+    
+    if ([key isEqualToString:@"result"] && [value isKindOfClass:[NSArray class]] ) {
+        NSArray *temp = value;
+        
+        NSMutableArray *weatherList = [NSMutableArray arrayWithCapacity:temp.count];
+       
+        for (NSDictionary *dict in temp) {
+            
+            XNResult *result = [[XNResult alloc] initWithDict:dict];
+            [weatherList addObject:result];
+        }
+        value = weatherList;
+    }
+    // 必须先处理完自己的, 然后在调用父类的
+    [super setValue:value forKey:key];
+}
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key {
+
+}
+
+
 
 @end

@@ -11,6 +11,7 @@
 #import <YYModel/YYModel.h>
 #import <SVProgressHUD.h>
 #import "NetworkTools.h"
+#import "XNWeatherModel.h"
 
 
 @interface XNWeatherView ()
@@ -26,6 +27,8 @@
 /** 定位 */
 @property (nonatomic, strong) UIButton *loactionBtn;
 
+@property (nonatomic, strong) XNWeatherModel *CurrentWeatherData;
+
 @end
 
 @implementation XNWeatherView
@@ -36,11 +39,13 @@
     temperature: "14°C / 5°C",
  */
 
+
 #pragma mark - 初始化方法
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         [self setupUI];
+        [self loadWeatherJSON];
     }
     return self;
 }
@@ -131,6 +136,34 @@
     // 添加监听
     [_loactionBtn addTarget:self action:@selector(loactionClick) forControlEvents:UIControlEventTouchUpInside];
     
+}
+
+- (void)loadWeatherJSON {
+    
+    [[NetworkTools sharedTools]loadWeatherWithCity:@"聊城" province:@"山东" finished:^(NSDictionary *results, NSError *error) {
+        
+        XNWeatherModel *weatherModel = [[XNWeatherModel alloc]initWithDict:results];
+        
+        self.CurrentWeatherData = weatherModel;
+        
+        
+        NSLog(@"%@",self.CurrentWeatherData);
+        
+//        //更新 UI
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [self refreshUI:result[@"result"]];
+//        });
+//        
+        
+    }];
+}
+
+- (void)refreshUI:(NSArray *)result {
+
+    NSDictionary *weatherDict = result.firstObject;
+    NSLog(@"%@",weatherDict[@"future"]);
+    
+
 }
 
 - (void)loactionClick {
