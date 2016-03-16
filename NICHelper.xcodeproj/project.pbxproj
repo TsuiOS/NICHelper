@@ -36,6 +36,8 @@
 		0477D7461C9186B1003C32DF /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0477D7451C9186B1003C32DF /* CoreTelephony.framework */; };
 		0477D7481C9186BD003C32DF /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0477D7471C9186BD003C32DF /* libstdc++.tbd */; };
 		0477D74A1C9186CB003C32DF /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0477D7491C9186CB003C32DF /* libz.tbd */; };
+		0477EA941C9908D0009F9394 /* XNRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0477EA931C9908D0009F9394 /* XNRefreshControl.m */; };
+		0477EA971C990C8C009F9394 /* XNProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0477EA961C990C8C009F9394 /* XNProgressHUD.m */; };
 		047D328D1C93FB9D00CEEFC6 /* NetworkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 047D328C1C93FB9D00CEEFC6 /* NetworkTools.m */; };
 		047D32931C94186E00CEEFC6 /* XNWeatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = 047D32921C94186E00CEEFC6 /* XNWeatherView.m */; };
 		04FEBB431C98584600FC5E79 /* XNDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FEBB421C98584600FC5E79 /* XNDetailViewController.m */; };
@@ -92,6 +94,10 @@
 		0477D7451C9186B1003C32DF /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		0477D7471C9186BD003C32DF /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		0477D7491C9186CB003C32DF /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		0477EA921C9908D0009F9394 /* XNRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XNRefreshControl.h; path = ../View/XNRefreshControl.h; sourceTree = "<group>"; };
+		0477EA931C9908D0009F9394 /* XNRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XNRefreshControl.m; path = ../View/XNRefreshControl.m; sourceTree = "<group>"; };
+		0477EA951C990C8C009F9394 /* XNProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNProgressHUD.h; sourceTree = "<group>"; };
+		0477EA961C990C8C009F9394 /* XNProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNProgressHUD.m; sourceTree = "<group>"; };
 		047D328B1C93FB9D00CEEFC6 /* NetworkTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkTools.h; sourceTree = "<group>"; };
 		047D328C1C93FB9D00CEEFC6 /* NetworkTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkTools.m; sourceTree = "<group>"; };
 		047D32911C94186E00CEEFC6 /* XNWeatherView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNWeatherView.h; sourceTree = "<group>"; };
@@ -223,6 +229,8 @@
 				041E586E1C8EEA8E00E55132 /* UIView+Extension.m */,
 				042711771C95863100E6EFBB /* ShareManager.h */,
 				042711781C95863100E6EFBB /* ShareManager.m */,
+				0477EA951C990C8C009F9394 /* XNProgressHUD.h */,
+				0477EA961C990C8C009F9394 /* XNProgressHUD.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -322,6 +330,8 @@
 				04529A431C8D9D3B0081CF4E /* XNMessageController.m */,
 				04FEBB411C98584600FC5E79 /* XNDetailViewController.h */,
 				04FEBB421C98584600FC5E79 /* XNDetailViewController.m */,
+				0477EA921C9908D0009F9394 /* XNRefreshControl.h */,
+				0477EA931C9908D0009F9394 /* XNRefreshControl.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -588,12 +598,14 @@
 				04529A4D1C8D9D3B0081CF4E /* XNBaseNavigationController.m in Sources */,
 				042711791C95863100E6EFBB /* ShareManager.m in Sources */,
 				0417F5FF1C8DE2EA0071A6F0 /* XNMessageView.m in Sources */,
+				0477EA941C9908D0009F9394 /* XNRefreshControl.m in Sources */,
 				042226271C97940D004F1140 /* NSArray+Log.m in Sources */,
 				0417F5FC1C8DCF680071A6F0 /* XNMessageCell.m in Sources */,
 				046913721C959E7F00AA440D /* XNWeatherModel.m in Sources */,
 				04529A571C8DA0FB0081CF4E /* XNDiscoverController.m in Sources */,
 				040FDBFE1C90523A00935EBF /* XNLoginController.m in Sources */,
 				047D328D1C93FB9D00CEEFC6 /* NetworkTools.m in Sources */,
+				0477EA971C990C8C009F9394 /* XNProgressHUD.m in Sources */,
 				041173141C925CE7009AC6F9 /* NSString+XNTool.m in Sources */,
 				041E586F1C8EEA8E00E55132 /* UIView+Extension.m in Sources */,
 				04529A501C8D9D3B0081CF4E /* XNProfileController.m in Sources */,

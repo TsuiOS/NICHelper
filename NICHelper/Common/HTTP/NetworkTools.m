@@ -83,30 +83,22 @@
     
     NSString *methodName = (method == GET) ? @"GET" : @"POST";
     
-    
     //dataTaskWithHTTPMethod 本来没有实现,但是父类实现了
-    [[self dataTaskWithHTTPMethod:methodName URLString:URLString parameters:parameters uploadProgress:nil downloadProgress:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-        finished(responseObject, nil);
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        finished(nil,error);
-    }] resume];
+    [[self dataTaskWithHTTPMethod:methodName
+                        URLString:URLString
+                       parameters:parameters
+                   uploadProgress:nil
+                 downloadProgress:nil
+                          success:^(NSURLSessionDataTask *task, id responseObject) {
+      
+                              finished(responseObject, nil);
+                              
+                          } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                              finished(nil,error);
+        
+                              NSLog(@"error--%@",error);
+                          }] resume];
     
-    
-    //判断请求方式
-//    if (method == GET) {
-//        // GET
-//        [self GET:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//            finished(responseObject, nil);
-//        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//            finished(nil,error);
-//        }];
-//    } else {
-//        [self POST:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//            finished(responseObject, nil);
-//        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//            finished(nil,error);
-//        }];
-//    }
 }
 #pragma mark - 天气相关的方法
 /**

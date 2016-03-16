@@ -13,6 +13,7 @@
 #import "XNMessage.h"
 #import "ShareManager.h"
 #import "UIView+Extension.h"
+#import "XNRefreshControl.h"
 
 @interface XNMessageController () <UITableViewDelegate>
 
@@ -32,19 +33,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+//    self.refreshControl = [XNRefreshControl new];
+    [self configTableView];
+    
+    
+}
+// tableView 的相关设置
+- (void)configTableView {
+    
     UIButton *addButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [addButton setBackgroundImage:[UIImage imageNamed:@"barbuttonicon_add"] forState:UIControlStateNormal];
     [addButton addTarget:self action:@selector(addMessage) forControlEvents:UIControlEventTouchUpInside];
     //设置尺寸
     addButton.size = addButton.currentBackgroundImage.size;
-     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:addButton];
-
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:addButton];
     // 设置背景颜色
     self.view.backgroundColor = [UIColor clearColor]; //DEFAULT_BACKGROUND_COLOR;
     //设置 cell 的高度
     self.tableView.rowHeight = 180;
     //取消分割线
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
 }
 
 // 发布任务的按钮

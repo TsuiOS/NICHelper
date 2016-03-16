@@ -10,6 +10,7 @@
 #import "XNMainTabBarViewController.h"
 #import "XNColor.h"
 #import "XNLoginController.h"
+#import <AFNetworkActivityIndicatorManager.h>
 #import <UMSocial.h>
 #import <UMSocialWechatHandler.h>
 #import <UMSocialQQHandler.h>
@@ -31,7 +32,9 @@
     
     //3. 设置 self.window为主窗口并显示出来
     [self.window makeKeyAndVisible];
-
+    
+//    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    
     [self setNavigationStyle];
     [self setStatusBarStyle:application];
     [self setUMShare];

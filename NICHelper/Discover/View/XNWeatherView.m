@@ -9,7 +9,7 @@
 #import "XNWeatherView.h"
 #import <Masonry.h>
 #import <YYModel/YYModel.h>
-#import <SVProgressHUD.h>
+#import "XNProgressHUD.h"
 #import "NetworkTools.h"
 #import "XNWeatherModel.h"
 
@@ -28,35 +28,11 @@
 @property (nonatomic, strong) UIButton *loactionBtn;
 
 @property (nonatomic, strong) XNWeatherModel *CurrentWeatherData;
+@property (nonatomic, strong) XNResult *result;
 
 @end
 
 @implementation XNWeatherView
-/**
-    airCondition: "轻度污染",
-    wind: "东南风 3～4级"
-    weather: "多云"
-    temperature: "14°C / 5°C",
- */
-
-- (void)setCurrentWeatherData:(XNWeatherModel *)CurrentWeatherData {
-    
-    _CurrentWeatherData = CurrentWeatherData;
-    NSLog(@"%@",self.CurrentWeatherData.retCode);
-    // 判断请求状态码
-    if (![self.CurrentWeatherData.retCode isEqualToString:@"200"]) {
-        [SVProgressHUD showInfoWithStatus:@"未查询到相应的天气"];
-        return;
-    }
-    XNResult *result = self.CurrentWeatherData.result.firstObject;
-    [self.airConditionBtn setTitle:result.airCondition forState:UIControlStateNormal];
-    [self.weatherBtn setTitle:result.weather forState:UIControlStateNormal];
-    
-    XNFuture *todayInfo = result.future.firstObject;
-    [self.temperatureBtn setTitle:todayInfo.temperature forState:UIControlStateNormal];
-    [self.windBtn setTitle:todayInfo.wind forState:UIControlStateNormal];
-
-}
 
 #pragma mark - 初始化方法
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -160,12 +136,40 @@
     
     [[NetworkTools sharedTools]loadWeatherWithCity:@"聊城" province:@"山东" finished:^(NSDictionary *results, NSError *error) {
         
-        XNWeatherModel *weatherModel = [[XNWeatherModel alloc]initWithDict:results];
-        
-        self.CurrentWeatherData = weatherModel;
+        if (error) {
+            NSLog(@"%@",error);
+            [XNProgressHUD showInfoWithStatus:@"世界上最遥远的距离就是没网"];
+            return;
+        }
+        self.CurrentWeatherData = [[XNWeatherModel alloc]initWithDict:results];
+        // 判断请求状态码
+        if (![self.CurrentWeatherData.retCode isEqualToString:@"200"]) {
+            [XNProgressHUD showInfoWithStatus:@"未查询到相应的天气"];
+            return;
+        }
+        // 回到主线程更新 UI
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self refreshUI];
+        });
         
     }];
+
 }
+// refreshUI
+- (void)refreshUI {
+    
+    XNResult *result = self.CurrentWeatherData.result.firstObject;
+    [self.airConditionBtn setTitle:result.airCondition forState:UIControlStateNormal];
+    [self.weatherBtn setTitle:result.weather forState:UIControlStateNormal];
+    
+    XNFuture *todayInfo = result.future.firstObject;
+    [self.temperatureBtn setTitle:todayInfo.temperature forState:UIControlStateNormal];
+    [self.windBtn setTitle:todayInfo.wind forState:UIControlStateNormal];
+   
+    [XNProgressHUD dismiss];
+
+}
+
 - (void)loactionClick {
     NSLog(@"定位");
 }
