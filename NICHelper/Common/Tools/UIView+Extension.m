@@ -52,6 +52,31 @@
     frame.size.height = height;
     self.frame = frame;
 }
+//size
+- (CGSize)size {
+    
+    return self.frame.size;
+    
+}
+- (void)setSize:(CGSize)size {
+    
+    CGRect frame = self.frame;
+    frame.size = size;
+    self.frame = frame;
+    
+}
+
+- (CGPoint)origin {
+    
+    return self.frame.origin;
+}
+- (void)setOrigin:(CGPoint)origin {
+    
+    CGRect frame = self.frame;
+    frame.origin = origin;
+    self.frame = frame;
+    
+}
 
 
 @end

@@ -27,8 +27,10 @@
     
     return self;
 }
+
 #pragma mark 设置 cell 的布局
 - (void)setupUI {
+    
     //取消 cell 点击显示灰色的效果
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.backgroundColor = [UIColor clearColor];
@@ -74,16 +76,16 @@
         for (UIView *subview in self.subviews) {
             if ([NSStringFromClass([subview class]) isEqualToString:@"UITableViewCellDeleteConfirmationView"] ) {
                 
-                UIView *setView = (UIView *)[subview.subviews firstObject];
-                UIImageView *setImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"barbuttonicon_set"]];
+                UIView *likeView = (UIView *)[subview.subviews firstObject];
+                UIImageView *setImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"icon_tabbar_like"]];
                 // 需要转换坐标
-                CGPoint childSetP = [setView.superview convertPoint:setView.center toView:setView];
+                CGPoint childSetP = [likeView.superview convertPoint:likeView.center toView:likeView];
                 setImage.center = childSetP;
-                [setView addSubview:setImage];
+                [likeView addSubview:setImage];
                 
                 
                 UIView *sharedview = (UIView *)[subview.subviews lastObject];
-                UIImageView *sharedImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"barbuttonicon_Operate"]];
+                UIImageView *sharedImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"icon_tabbar_share"]];
                 // 需要转换坐标
                 CGPoint childSP = [sharedview.superview convertPoint:sharedview.center toView:sharedview];
                 sharedImage.center = childSP;

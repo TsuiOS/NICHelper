@@ -6,8 +6,10 @@
 //  Copyright © 2016年 Hsu. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface ShareManager : NSObject
 
+
++ (void)shareToPlatform:(UIViewController *)controller shareText:(NSString *)shareText shareImage:(UIImage *)shareImage delegate:(id)delegate;
 @end

@@ -127,8 +127,8 @@ static NSString *ID = @"discover_cell";
 
 
 #pragma mark - UIScrollViewDelegate
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    
     // 当控制器加载时不改变coverView的alpha
      // 往上滚动不改变coverView的alpha
     if (-scrollView.contentOffset.y <= kParallaxHeaderHeight) {
@@ -138,10 +138,17 @@ static NSString *ID = @"discover_cell";
     if (alphaY < 0) {
         alphaY = 0;
     }
-//    NSLog(@"%f",alphaY);
-       self.coverView.alpha = alphaY;
+    self.coverView.alpha = alphaY;
 
 }
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    
+    [UIView animateWithDuration:0.5 animations:^{
+       self.coverView.alpha = 1;
+    }];
+    
+}
+
 
 
 
