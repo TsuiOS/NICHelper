@@ -33,7 +33,8 @@
     //3. 设置 self.window为主窗口并显示出来
     [self.window makeKeyAndVisible];
     
-//    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    // 显示网络指示符
+    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
     
     [self setNavigationStyle];
     [self setStatusBarStyle:application];

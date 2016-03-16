@@ -10,12 +10,8 @@
 
 @interface XNProgressHUD : SVProgressHUD
 
-/**
- *  XNProgressHUD
- *
- *  @param setBackgroundColor default is [UIColor whiteColor]
- */
-+ (void)show:(UIColor *)backgroundColor;
+
++ (void)show;
 
 + (void)dismiss;
 

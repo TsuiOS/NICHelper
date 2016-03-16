@@ -13,7 +13,7 @@
 #import "XNMessage.h"
 #import "ShareManager.h"
 #import "UIView+Extension.h"
-#import "XNRefreshControl.h"
+#import <MJRefresh.h>
 
 @interface XNMessageController () <UITableViewDelegate>
 
@@ -32,11 +32,40 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-//    self.refreshControl = [XNRefreshControl new];
     [self configTableView];
+    [self refreshCustom];
     
     
+}
+// 刷新
+- (void)refreshCustom {
+    // 下拉刷新
+    __weak typeof(self) weakSelf = self;
+    
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        
+        [weakSelf.tableView reloadData];
+        //结束刷新
+        [weakSelf.tableView.mj_header endRefreshing];
+    }];
+    
+    //设置 header
+    self.tableView.mj_header = header;
+    [header setTitle:@"我不耐烦,我要的我现在就要" forState:MJRefreshStateIdle];
+    [header setTitle:@"我不耐烦,我要的我现在就要" forState:MJRefreshStatePulling];
+    [header setTitle:@"正在加载..." forState:MJRefreshStateRefreshing];
+    
+    //上拉加载
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        // 进入刷新状态后会自动调用这个block
+        
+        // 变为没有更多数据的状态
+//        [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
+        [weakSelf.tableView.mj_footer endRefreshing];
+    }];
+
+    self.tableView.mj_header.automaticallyChangeAlpha = YES;
+
 }
 // tableView 的相关设置
 - (void)configTableView {

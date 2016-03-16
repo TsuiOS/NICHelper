@@ -12,6 +12,9 @@
 #import <Masonry.h>
 #import "XNCoverView.h"
 #import "XNWeatherModel.h"
+#import "XNProgressHUD.h"
+#import <MJRefresh.h>
+#import "NetworkTools.h"
 
 #define  ViewDidScrollOffset   394.0
 static NSString *ID = @"discover_cell";
@@ -23,6 +26,8 @@ static NSString *ID = @"discover_cell";
 @property (strong, nonatomic) XNCoverView *coverView;
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) MASConstraint *parallaxHeaderHeightConstraint;
+@property (nonatomic, strong) XNWeatherModel *CurrentWeatherData;
+
 
 @end
 
@@ -33,9 +38,8 @@ static NSString *ID = @"discover_cell";
     [super viewDidLoad];
     [self configTableView];
     [self setupUI];
-    
-}
 
+}
 #pragma mark - 生命周期的方法
 /**
  *  当视图出现时, tableView 向下滚动ParallaxHeaderHeight的高度
@@ -129,6 +133,7 @@ static NSString *ID = @"discover_cell";
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+
     // 当控制器加载时不改变coverView的alpha
      // 往上滚动不改变coverView的alpha
     if (-scrollView.contentOffset.y <= kParallaxHeaderHeight) {
@@ -139,6 +144,11 @@ static NSString *ID = @"discover_cell";
         alphaY = 0;
     }
     self.coverView.alpha = alphaY;
+    
+    if (-scrollView.contentOffset.y > 350) {
+        [self loadWeatherJSON];
+    }
+    
 
 }
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
@@ -148,6 +158,34 @@ static NSString *ID = @"discover_cell";
     }];
     
 }
+- (void)loadWeatherJSON {
+    
+    [XNProgressHUD show];
+
+    [[NetworkTools sharedTools]loadWeatherWithCity:@"聊城" province:@"山东" finished:^(NSDictionary *results, NSError *error) {
+        
+        [XNProgressHUD dismiss];
+        if (error) {
+            NSLog(@"%@",error);
+            [XNProgressHUD showInfoWithStatus:@"世界上最遥远的距离就是没网"];
+            return;
+        }
+        self.CurrentWeatherData = [[XNWeatherModel alloc]initWithDict:results];
+        // 判断请求状态码
+        if (![self.CurrentWeatherData.retCode isEqualToString:@"200"]) {
+            [XNProgressHUD showInfoWithStatus:@"未查询到相应的天气"];
+            return;
+        }
+        NSLog(@"%d",[self.delegate respondsToSelector:@selector(refreshWeatherInfo:)]);
+//        if (![self.delegate respondsToSelector:@selector(refreshWeatherInfo:)]) {
+        
+            [self.delegate refreshWeatherInfo:self.CurrentWeatherData];
+//        }
+        
+    }];
+    
+}
+
 
 
 

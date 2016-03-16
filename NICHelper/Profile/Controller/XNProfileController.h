@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XNProfileController : UITableViewController
+@interface XNProfileController : UIViewController
 
 @end

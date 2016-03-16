@@ -12,9 +12,10 @@
 #import "XNProgressHUD.h"
 #import "NetworkTools.h"
 #import "XNWeatherModel.h"
+#import "XNDiscoverController.h"
 
 
-@interface XNWeatherView ()
+@interface XNWeatherView ()<XNDiscoverControllerDelgate>
 
 /** 污染状况 */
 @property (nonatomic, strong) UIButton *airConditionBtn;
@@ -39,7 +40,6 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setupUI];
-        [self loadWeatherJSON];
     }
     return self;
 }
@@ -132,31 +132,8 @@
     
 }
 
-- (void)loadWeatherJSON {
-    
-    [[NetworkTools sharedTools]loadWeatherWithCity:@"聊城" province:@"山东" finished:^(NSDictionary *results, NSError *error) {
-        
-        if (error) {
-            NSLog(@"%@",error);
-            [XNProgressHUD showInfoWithStatus:@"世界上最遥远的距离就是没网"];
-            return;
-        }
-        self.CurrentWeatherData = [[XNWeatherModel alloc]initWithDict:results];
-        // 判断请求状态码
-        if (![self.CurrentWeatherData.retCode isEqualToString:@"200"]) {
-            [XNProgressHUD showInfoWithStatus:@"未查询到相应的天气"];
-            return;
-        }
-        // 回到主线程更新 UI
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self refreshUI];
-        });
-        
-    }];
-
-}
-// refreshUI
-- (void)refreshUI {
+- (void)refreshWeatherInfo:(XNWeatherModel *)weatherInfo {
+    _CurrentWeatherData = weatherInfo;
     
     XNResult *result = self.CurrentWeatherData.result.firstObject;
     [self.airConditionBtn setTitle:result.airCondition forState:UIControlStateNormal];
@@ -165,10 +142,10 @@
     XNFuture *todayInfo = result.future.firstObject;
     [self.temperatureBtn setTitle:todayInfo.temperature forState:UIControlStateNormal];
     [self.windBtn setTitle:todayInfo.wind forState:UIControlStateNormal];
-   
-    [XNProgressHUD dismiss];
+
 
 }
+
 
 - (void)loactionClick {
     NSLog(@"定位");

@@ -1,5 +1,5 @@
 //
-//  XNRefreshControl.h
+//  XNHeadeView.h
 //  NICHelper
 //
 //  Created by mac on 16/3/16.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XNRefreshControl : UIRefreshControl
+@interface XNHeadeView : UIView
 
 @end

@@ -11,14 +11,11 @@
 @implementation XNProgressHUD
 
 
-+ (void)show:(UIColor *)backgroundColor {
++ (void)show {
     
-    if (backgroundColor == nil) {
-        [SVProgressHUD show];
-    } else {
-        [SVProgressHUD setBackgroundColor:backgroundColor];
-        [SVProgressHUD show];
-    }
+    [SVProgressHUD setBackgroundColor:[UIColor clearColor]];
+    [SVProgressHUD show];
+    
     
 }
 + (void)dismiss {

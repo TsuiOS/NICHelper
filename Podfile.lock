@@ -15,6 +15,7 @@ PODS:
   - AFNetworking/UIKit (3.0.4):
     - AFNetworking/NSURLSession
   - Masonry (0.6.4)
+  - MJRefresh (3.1.0)
   - SDWebImage (3.7.5):
     - SDWebImage/Core (= 3.7.5)
   - SDWebImage/Core (3.7.5)
@@ -25,6 +26,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
   - Masonry
+  - MJRefresh
   - SDWebImage (~> 3.7)
   - SVProgressHUD
   - UMengSocial (~> 5.0)
@@ -33,6 +35,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
+  MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
   UMengSocial: 48b67179c492a8cf7803fbb0438b8f55432e2fc1

@@ -1,14 +1,14 @@
 //
-//  XNRefreshControl.m
+//  XNHeadeView.m
 //  NICHelper
 //
 //  Created by mac on 16/3/16.
 //  Copyright © 2016年 Hsu. All rights reserved.
 //
 
-#import "XNRefreshControl.h"
+#import "XNHeadeView.h"
 
-@implementation XNRefreshControl
+@implementation XNHeadeView
 
 /*
 // Only override drawRect: if you perform custom drawing.
