@@ -13,20 +13,11 @@
 
 @interface XNCoverView ()
 
-/** 天气 */
-@property (strong, nonatomic) XNWeatherView *temperatureView;
 
 @end
 
 @implementation XNCoverView
 
-- (instancetype)initWithFrame:(CGRect)frame {
-   self = [super initWithFrame:frame];
-    if (self) {
-        [self setupUI];
-    }
-    return self;
-}
 
 #pragma mark - 懒加载
 
@@ -38,9 +29,7 @@
     return _temperatureView;
 }
 
-
-- (void)setupUI {
-    
+- (void)layoutSubviews {
     self.backgroundColor = XNColor(0, 0, 0, 0.5);
     // 添加控件
     [self addSubview:self.temperatureView];
@@ -58,6 +47,7 @@
 
 
 }
+
 
 
 @end

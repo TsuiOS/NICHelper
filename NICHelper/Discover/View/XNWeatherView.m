@@ -8,14 +8,12 @@
 
 #import "XNWeatherView.h"
 #import <Masonry.h>
-#import <YYModel/YYModel.h>
 #import "XNProgressHUD.h"
 #import "NetworkTools.h"
 #import "XNWeatherModel.h"
-#import "XNDiscoverController.h"
 
 
-@interface XNWeatherView ()<XNDiscoverControllerDelgate>
+@interface XNWeatherView ()
 
 /** 污染状况 */
 @property (nonatomic, strong) UIButton *airConditionBtn;
@@ -28,21 +26,13 @@
 /** 定位 */
 @property (nonatomic, strong) UIButton *loactionBtn;
 
-@property (nonatomic, strong) XNWeatherModel *CurrentWeatherData;
+
 @property (nonatomic, strong) XNResult *result;
 
 @end
 
 @implementation XNWeatherView
 
-#pragma mark - 初始化方法
-- (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-        [self setupUI];
-    }
-    return self;
-}
 
 #pragma mark - 懒加载
 
@@ -90,7 +80,7 @@
     return _loactionBtn;
 }
 
-- (void)setupUI {
+- (void)layoutSubviews {
 
     //添加控件
     [self addSubview:self.weatherBtn];
@@ -120,7 +110,7 @@
     [_airConditionBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.mas_centerX).offset(padding);
         make.top.equalTo(self.mas_centerY).offset(padding);
-
+        
     }];
     [_loactionBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(self);
@@ -129,12 +119,12 @@
     
     // 添加监听
     [_loactionBtn addTarget:self action:@selector(loactionClick) forControlEvents:UIControlEventTouchUpInside];
-    
+
 }
 
-- (void)refreshWeatherInfo:(XNWeatherModel *)weatherInfo {
-    _CurrentWeatherData = weatherInfo;
+- (void)setCurrentWeatherData:(XNWeatherModel *)CurrentWeatherData {
     
+    _CurrentWeatherData = CurrentWeatherData;
     XNResult *result = self.CurrentWeatherData.result.firstObject;
     [self.airConditionBtn setTitle:result.airCondition forState:UIControlStateNormal];
     [self.weatherBtn setTitle:result.weather forState:UIControlStateNormal];
@@ -145,7 +135,6 @@
 
 
 }
-
 
 - (void)loactionClick {
     NSLog(@"定位");

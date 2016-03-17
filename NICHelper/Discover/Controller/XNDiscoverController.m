@@ -15,6 +15,8 @@
 #import "XNProgressHUD.h"
 #import <MJRefresh.h>
 #import "NetworkTools.h"
+#import "XNWeatherView.h"
+
 
 #define  ViewDidScrollOffset   394.0
 static NSString *ID = @"discover_cell";
@@ -38,7 +40,7 @@ static NSString *ID = @"discover_cell";
     [super viewDidLoad];
     [self configTableView];
     [self setupUI];
-
+    
 }
 #pragma mark - 生命周期的方法
 /**
@@ -74,6 +76,7 @@ static NSString *ID = @"discover_cell";
     
 
     _coverView = [XNCoverView new];
+
     [self.view insertSubview:_coverView belowSubview:_tableView];
     
     
@@ -176,17 +179,11 @@ static NSString *ID = @"discover_cell";
             [XNProgressHUD showInfoWithStatus:@"未查询到相应的天气"];
             return;
         }
-        NSLog(@"%d",[self.delegate respondsToSelector:@selector(refreshWeatherInfo:)]);
-//        if (![self.delegate respondsToSelector:@selector(refreshWeatherInfo:)]) {
-        
-            [self.delegate refreshWeatherInfo:self.CurrentWeatherData];
-//        }
-        
+        self.coverView.temperatureView.CurrentWeatherData = self.CurrentWeatherData;
+
     }];
     
 }
-
-
 
 
 

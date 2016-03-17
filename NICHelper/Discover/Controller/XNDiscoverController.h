@@ -7,19 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-@class XNWeatherView;
-@class XNWeatherModel;
 
-@protocol XNDiscoverControllerDelgate <NSObject>
-
-/** 刷新天气 */
-- (void)refreshWeatherInfo:(XNWeatherModel *)weatherInfo;
-
-@end
 
 @interface XNDiscoverController : UIViewController
 
-@property (nonatomic, strong) id<XNDiscoverControllerDelgate> delegate;
 
 
 @end

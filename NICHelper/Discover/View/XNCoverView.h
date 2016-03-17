@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class XNWeatherView;
 
 @interface XNCoverView : UIView
+
+/** 天气 */
+@property (strong, nonatomic) XNWeatherView *temperatureView;
 
 @end
