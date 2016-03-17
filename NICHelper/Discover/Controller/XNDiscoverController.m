@@ -35,6 +35,12 @@ static NSString *ID = @"discover_cell";
 
 @implementation XNDiscoverController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self loadWeatherJSON];
+
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -122,6 +128,7 @@ static NSString *ID = @"discover_cell";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 20;
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if (!cell) {
@@ -148,12 +155,16 @@ static NSString *ID = @"discover_cell";
     }
     self.coverView.alpha = alphaY;
     
-    if (-scrollView.contentOffset.y > 350) {
+    // 当视图的contentOffset超过300时,刷新天气数据
+    if (-scrollView.contentOffset.y > 300) {
         [self loadWeatherJSON];
     }
     
-
 }
+/**
+ *  视图滚动完成后,恢复默认的coverView的alpha
+ *
+ */
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     
     [UIView animateWithDuration:0.5 animations:^{
@@ -161,6 +172,9 @@ static NSString *ID = @"discover_cell";
     }];
     
 }
+/**
+ *  加载天气数据
+ */
 - (void)loadWeatherJSON {
     
     [XNProgressHUD show];

@@ -18,6 +18,7 @@
 @interface XNMessageController () <UITableViewDelegate>
 
 @property (nonatomic, strong) NSArray *message;
+@property (nonatomic, strong) NSIndexPath *indexPath;
 
 @end
 
@@ -124,6 +125,8 @@
 
 // cell 左划效果
 - (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    self.indexPath = indexPath;
     /**
      UITableViewRowActionStyleDefault = 0,
      UITableViewRowActionStyleDestructive = UITableViewRowActionStyleDefault,
@@ -153,10 +156,12 @@
  *  友盟分享
  */
 - (void)UMSharedToPlatform {
+    
+    XNMessage *message = self.message[self.indexPath.row];
     // 分享的图片
-    UIImage *shareImage = [UIImage imageNamed:@"Action_Share"];
+    UIImage *shareImage = nil;
     // 分享文字
-    NSString *shareText = @"你要分享的文字";
+    NSString *shareText = [NSString stringWithFormat:@"%@ %@",message.title,message.detail];
     [ShareManager shareToPlatform:self shareText:shareText shareImage:shareImage delegate:nil];
 }
 

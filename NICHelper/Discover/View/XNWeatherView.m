@@ -9,7 +9,6 @@
 #import "XNWeatherView.h"
 #import <Masonry.h>
 #import "XNProgressHUD.h"
-#import "NetworkTools.h"
 #import "XNWeatherModel.h"
 
 
@@ -39,7 +38,6 @@
 - (UIButton *)weatherBtn {
     if (_weatherBtn == nil) {
         _weatherBtn = [[UIButton alloc]init];
-        [_weatherBtn setTitle:@"多云" forState:UIControlStateNormal];
         [_weatherBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     }
     return _weatherBtn;
@@ -48,7 +46,6 @@
 - (UIButton *)temperatureBtn {
     if (_temperatureBtn == nil) {
         _temperatureBtn = [[UIButton alloc]init];
-        [_temperatureBtn setTitle:@"14°C / 5°C" forState:UIControlStateNormal];
         [_temperatureBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     }
     return _temperatureBtn;
@@ -57,7 +54,6 @@
 - (UIButton *)windBtn {
     if (_windBtn == nil) {
         _windBtn = [[UIButton alloc]init];
-        [_windBtn setTitle:@"东南风 3～4级" forState:UIControlStateNormal];
         [_windBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     }
     return _windBtn;
@@ -66,7 +62,6 @@
 - (UIButton *)airConditionBtn {
     if (_airConditionBtn == nil) {
         _airConditionBtn = [[UIButton alloc]init];
-        [_airConditionBtn setTitle:@"轻度污染" forState:UIControlStateNormal];
         [_airConditionBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     }
     return _airConditionBtn;
@@ -126,16 +121,18 @@
     
     _CurrentWeatherData = CurrentWeatherData;
     XNResult *result = self.CurrentWeatherData.result.firstObject;
-    [self.airConditionBtn setTitle:result.airCondition forState:UIControlStateNormal];
-    [self.weatherBtn setTitle:result.weather forState:UIControlStateNormal];
-    
     XNFuture *todayInfo = result.future.firstObject;
-    [self.temperatureBtn setTitle:todayInfo.temperature forState:UIControlStateNormal];
-    [self.windBtn setTitle:todayInfo.wind forState:UIControlStateNormal];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.airConditionBtn setTitle:result.airCondition forState:UIControlStateNormal];
+        [self.weatherBtn setTitle:result.weather forState:UIControlStateNormal];
+        [self.temperatureBtn setTitle:todayInfo.temperature forState:UIControlStateNormal];
+        [self.windBtn setTitle:todayInfo.wind forState:UIControlStateNormal];
+    });
+   
 
 
 }
-
 - (void)loactionClick {
     NSLog(@"定位");
 }
