@@ -110,6 +110,7 @@
     
 }
 #pragma mark - 设置子控件的布局
+
 - (void)setupUI {
 
     //1. 设置 view 的样式

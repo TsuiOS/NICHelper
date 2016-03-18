@@ -16,6 +16,8 @@
 #import <MJRefresh.h>
 #import "NetworkTools.h"
 #import "XNWeatherView.h"
+#import "XNTableView.h"
+#import "UIView+Extension.h"
 
 
 #define  ViewDidScrollOffset   394.0
@@ -26,7 +28,7 @@ static NSString *ID = @"discover_cell";
 
 @property (strong, nonatomic) UIImageView *parallaxHeaderView;
 @property (strong, nonatomic) XNCoverView *coverView;
-@property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) XNTableView *tableView;
 @property (strong, nonatomic) MASConstraint *parallaxHeaderHeightConstraint;
 @property (nonatomic, strong) XNWeatherModel *CurrentWeatherData;
 
@@ -36,7 +38,6 @@ static NSString *ID = @"discover_cell";
 @implementation XNDiscoverController
 
 - (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
     
     [self loadWeatherJSON];
 
@@ -47,6 +48,12 @@ static NSString *ID = @"discover_cell";
     [self configTableView];
     [self setupUI];
     
+//    UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [rightBtn setBackgroundImage:[UIImage imageNamed:@"locationt"] forState:UIControlStateNormal];
+//    rightBtn.size = CGSizeMake(30, 30);
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:rightBtn];
+
+
 }
 #pragma mark - 生命周期的方法
 /**
@@ -59,7 +66,7 @@ static NSString *ID = @"discover_cell";
 #pragma mark - Private methods
 - (void)configTableView {
     
-    _tableView = [[UITableView alloc]init];
+    _tableView = [[XNTableView alloc]init];
     [self.view addSubview:_tableView];
     _tableView.backgroundColor = [UIColor clearColor];
     _tableView.showsVerticalScrollIndicator = NO;
@@ -146,9 +153,8 @@ static NSString *ID = @"discover_cell";
 
     // 当控制器加载时不改变coverView的alpha
      // 往上滚动不改变coverView的alpha
-    if (-scrollView.contentOffset.y <= kParallaxHeaderHeight) {
-        return;
-    }
+    if (-scrollView.contentOffset.y <= kParallaxHeaderHeight) return;
+    
     CGFloat alphaY = (ViewDidScrollOffset / -scrollView.contentOffset.y) - 1.5;
     if (alphaY < 0) {
         alphaY = 0;
@@ -198,7 +204,6 @@ static NSString *ID = @"discover_cell";
     }];
     
 }
-
 
 
 @end

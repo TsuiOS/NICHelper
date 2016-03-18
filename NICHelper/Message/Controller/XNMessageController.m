@@ -140,10 +140,11 @@
         tableView.editing = NO;
         NSLog(@"分享");
     }];
-    UITableViewRowAction *likeAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"     " handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+    UITableViewRowAction *likeAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"    " handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
         NSLog(@"收藏");
         // 在最后希望cell可以自动回到默认状态，所以需要退出编辑模式
-        tableView.editing = NO;
+//            tableView.editing = NO;
+
     }];
     //换成图片最简单的方式,但是需要素材合适
 //    settingAction.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"barbuttonicon_Operate"]];

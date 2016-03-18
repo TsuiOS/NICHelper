@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XNProfileController : UIViewController
+@interface XNProfileController : UITableViewController
+
+@property (nonatomic, copy) NSString *plistName;
 
 @end

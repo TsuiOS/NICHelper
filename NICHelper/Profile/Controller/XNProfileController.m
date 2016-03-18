@@ -8,22 +8,109 @@
 
 #import "XNProfileController.h"
 #import "XNColor.h"
-#import <Masonry.h>
+#import "XNProfileCell.h"
+#import "XNProfileDetailCell.h"
 
 
 @interface XNProfileController ()
 
+@property (nonatomic, strong) NSArray *infoSettings;
 
 @end
 
 @implementation XNProfileController
 
+#pragma mark - 创建tableView的时候默认是分组样式的
+- (instancetype)init {
 
+    return [super initWithStyle:UITableViewStyleGrouped];
+}
+
+- (instancetype)initWithStyle:(UITableViewStyle)style {
+    
+    return [super initWithStyle:UITableViewStyleGrouped];
+}
+
+- (NSArray *)infoSettings {
+    if (_infoSettings == nil) {
+        
+        _infoSettings = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle]
+                                                          pathForResource:@"Profile"
+                                                          ofType:@"plist"]];
+    }
+    
+    return _infoSettings;
+
+
+}
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
+    
+   
+}
+
+#pragma mark - UITableViewDataSource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return [self.infoSettings count];
+
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSDictionary *group = self.infoSettings[section];
+    
+    return [group[@"items"] count];
 
 }
 
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (indexPath.section == 0) {
+        XNProfileDetailCell *cell = [XNProfileDetailCell tableViewCellWithTableView:tableView];
+        return cell;
+    }
+    XNProfileCell *cell = [XNProfileCell tableViewCellWithTableView:tableView];
+    
+    // 获取数据
+    NSDictionary *group = self.infoSettings[indexPath.section];
+    NSDictionary *item = [group[@"items"] objectAtIndex:indexPath.row];
+    
+    cell.item = item;
+    return cell;
+}
+
+#pragma mark - UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    if (indexPath.section == 0) {
+        return 90.0f;
+    }
+    
+    return [super tableView:tableView heightForRowAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section - 1]];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UIViewController *destVC = nil;
+    
+    // 获取数据
+    NSDictionary *group = self.infoSettings[indexPath.section];
+    NSDictionary *item = [group[@"items"] objectAtIndex:indexPath.row];
+    
+    //获取当前单击的项的target_vc
+    NSString *targetClassName = item[@"target_vc"];
+
+    if (targetClassName) {
+        //把字符串转换成类名
+        Class TargetClass = NSClassFromString(targetClassName);
+        destVC = [TargetClass new];
+    }
+    destVC.navigationController.title = item[@"title"];
+    
+    [self.navigationController pushViewController:destVC animated:YES];
+
+}
 
 @end

@@ -76,19 +76,23 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.001 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         for (UIView *subview in self.subviews) {
             if ([NSStringFromClass([subview class]) isEqualToString:@"UITableViewCellDeleteConfirmationView"] ) {
-                
+        
                 UIView *likeView = (UIView *)[subview.subviews firstObject];
-                UIImageView *setImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"icon_tabbar_like"]];
+                UIButton *likeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+                [likeButton setImage:[UIImage imageNamed:@"icon_tabbar_like"] forState:UIControlStateNormal];
+                [likeButton setImage:[UIImage imageNamed:@"icon_tabbar_like_active"] forState:UIControlStateSelected];
+                [likeButton sizeToFit];
+//                [likeButton addTarget:self action:@selector(likeBtnClick:) forControlEvents:UIControlEventTouchUpInside];
                 // 需要转换坐标
-                CGPoint childSetP = [likeView.superview convertPoint:likeView.center toView:likeView];
-                setImage.center = childSetP;
-                [likeView addSubview:setImage];
+                CGPoint childSetP = [subview convertPoint:likeView.center toView:likeView];
+                likeButton.center = childSetP;
+                [likeView addSubview:likeButton];
                 
-                
+           
                 UIView *sharedview = (UIView *)[subview.subviews lastObject];
                 UIImageView *sharedImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"icon_tabbar_share"]];
                 // 需要转换坐标
-                CGPoint childSP = [sharedview.superview convertPoint:sharedview.center toView:sharedview];
+                CGPoint childSP = [subview convertPoint:sharedview.center toView:sharedview];
                 sharedImage.center = childSP;
                 [sharedview addSubview:sharedImage];
             }
@@ -96,9 +100,14 @@
     });
 
 }
-- (void)didTransitionToState:(UITableViewCellStateMask)state {
+
+- (void)likeBtnClick:(UIButton *)button {
+    button.selected = !button.selected;
 
 }
+//- (void)didTransitionToState:(UITableViewCellStateMask)state {
+//
+//}
 
 
 
