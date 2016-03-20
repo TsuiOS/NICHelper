@@ -8,7 +8,17 @@
 
 #import "XNProfileDetailCell.h"
 
+@interface XNProfileDetailCell ()
+
+@property (nonatomic, strong) UILabel *userNameLabel;
+@property (nonatomic, strong) UILabel *userIDLabel;
+@property (nonatomic, strong) UIImageView *avatarImageView;
+
+@end
+
+
 @implementation XNProfileDetailCell
+
 
 + (instancetype)tableViewCellWithTableView:(UITableView *)tableView {
     static NSString *ID = @"message_cell";
@@ -21,15 +31,21 @@
     return cell;
 }
 
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
 
-- (void)awakeFromNib {
-    // Initialization code
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        [self addSubview:self.avatarImageView];
+        [self addSubview:self.userNameLabel];
+        [self addSubview:self.userIDLabel];
+    }
+    
+    return self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+- (void)layoutSubviews {
 
-    // Configure the view for the selected state
+
 }
+
 
 @end

@@ -41,17 +41,16 @@
     
     return _infoSettings;
 
-
 }
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     
-   
 }
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
     return [self.infoSettings count];
 
 }

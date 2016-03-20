@@ -14,11 +14,14 @@
 #import "ShareManager.h"
 #import "UIView+Extension.h"
 #import <MJRefresh.h>
+#import "XNPopViewController.h"
 
-@interface XNMessageController () <UITableViewDelegate>
+@interface XNMessageController () <UITableViewDelegate,UIPopoverPresentationControllerDelegate>
 
 @property (nonatomic, strong) NSArray *message;
 @property (nonatomic, strong) NSIndexPath *indexPath;
+@property (nonatomic, strong) XNPopViewController *menuView;
+@property (nonatomic, strong) UIButton *addButton;
 
 @end
 
@@ -71,12 +74,12 @@
 // tableView 的相关设置
 - (void)configTableView {
     
-    UIButton *addButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [addButton setBackgroundImage:[UIImage imageNamed:@"barbuttonicon_add"] forState:UIControlStateNormal];
-    [addButton addTarget:self action:@selector(addMessage) forControlEvents:UIControlEventTouchUpInside];
+    self.addButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.addButton setBackgroundImage:[UIImage imageNamed:@"barbuttonicon_add"] forState:UIControlStateNormal];
+    [self.addButton addTarget:self action:@selector(addMessage) forControlEvents:UIControlEventTouchUpInside];
     //设置尺寸
-    addButton.size = addButton.currentBackgroundImage.size;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:addButton];
+    self.addButton.size = self.addButton.currentBackgroundImage.size;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:self.addButton];
     // 设置背景颜色
     self.view.backgroundColor = [UIColor clearColor]; //DEFAULT_BACKGROUND_COLOR;
     //设置 cell 的高度
@@ -88,8 +91,26 @@
 
 // 发布任务的按钮
 - (void)addMessage {
-    NSLog(@"%s",__FUNCTION__);
+    
+    self.menuView = [[XNPopViewController alloc]init];
+    //初始化
+    self.menuView.modalPresentationStyle = UIModalPresentationPopover;
+    
+    UIPopoverPresentationController *popVC = self.menuView.popoverPresentationController;
+    //设置代理
+    popVC.delegate = self;
+    popVC.backgroundColor = DEFAULT_NAVBAR_COLOR;
+    popVC.sourceView = self.addButton;
+    popVC.sourceRect = CGRectMake(0, 5, self.addButton.width, self.addButton.height);
+ 
+    //退出视图
+    [self presentViewController:self.menuView animated:YES completion:nil];
+    
 
+}
+
+- (UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller{
+    return UIModalPresentationNone;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

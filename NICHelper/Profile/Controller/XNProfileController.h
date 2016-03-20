@@ -10,6 +10,5 @@
 
 @interface XNProfileController : UITableViewController
 
-@property (nonatomic, copy) NSString *plistName;
 
 @end

@@ -44,7 +44,6 @@
         // 添加控件
         [self.contentView addSubview:messageView];
         self.messageView = messageView;
-
     }
     
     return self;
