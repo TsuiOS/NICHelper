@@ -16,8 +16,10 @@
 #import <MJRefresh.h>
 #import "NetworkTools.h"
 #import "XNWeatherView.h"
-#import "XNTableView.h"
+#import "XNLocationController.h"
 #import "UIView+Extension.h"
+#import "XNBaseNavigationController.h"
+
 
 
 #define  ViewDidScrollOffset   394.0
@@ -28,9 +30,12 @@ static NSString *ID = @"discover_cell";
 
 @property (strong, nonatomic) UIImageView *parallaxHeaderView;
 @property (strong, nonatomic) XNCoverView *coverView;
-@property (strong, nonatomic) XNTableView *tableView;
+@property (nonatomic, strong) UITableView *tableView;
 @property (strong, nonatomic) MASConstraint *parallaxHeaderHeightConstraint;
 @property (nonatomic, strong) XNWeatherModel *CurrentWeatherData;
+@property (nonatomic, strong) XNLocationController *locationVC;
+@property (nonatomic, copy) NSString *city;
+@property (nonatomic, copy) NSString *province;
 
 
 @end
@@ -48,13 +53,25 @@ static NSString *ID = @"discover_cell";
     [self configTableView];
     [self setupUI];
     
-//    UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//    [rightBtn setBackgroundImage:[UIImage imageNamed:@"locationt"] forState:UIControlStateNormal];
-//    rightBtn.size = CGSizeMake(30, 30);
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:rightBtn];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"定位" style: UIBarButtonItemStylePlain target:self action:@selector(chooseCity)];
 
 
 }
+#pragma mark - 跳转到定位视图
+- (void)chooseCity {
+    
+    self.locationVC = [XNLocationController new];
+    XNBaseNavigationController *nvc=[[XNBaseNavigationController alloc]initWithRootViewController:self.locationVC];
+    __weak typeof(self) weakSelf = self;
+    self.locationVC.completion = ^(NSString *city,NSString *province) {
+        weakSelf.city = city;
+        weakSelf.province = province;
+    };
+    
+    [self presentViewController:nvc animated:YES completion:nil];
+}
+
+
 #pragma mark - 生命周期的方法
 /**
  *  当视图出现时, tableView 向下滚动ParallaxHeaderHeight的高度
@@ -66,7 +83,7 @@ static NSString *ID = @"discover_cell";
 #pragma mark - Private methods
 - (void)configTableView {
     
-    _tableView = [[XNTableView alloc]init];
+    _tableView = [[UITableView alloc]init];
     [self.view addSubview:_tableView];
     _tableView.backgroundColor = [UIColor clearColor];
     _tableView.showsVerticalScrollIndicator = NO;
@@ -183,9 +200,11 @@ static NSString *ID = @"discover_cell";
  */
 - (void)loadWeatherJSON {
     
+    NSLog(@"%@,%@",self.city,self.province);
+    if (self.city == nil || self.province == nil) return;
     [XNProgressHUD show];
 
-    [[NetworkTools sharedTools]loadWeatherWithCity:@"聊城" province:@"山东" finished:^(NSDictionary *results, NSError *error) {
+    [[NetworkTools sharedTools]loadWeatherWithCity:self.city province:self.province finished:^(NSDictionary *results, NSError *error) {
         
         [XNProgressHUD dismiss];
         if (error) {

@@ -12,6 +12,7 @@ pod 'SVProgressHUD'
 pod 'UMengSocial', '~> 5.0'
 pod 'YYModel'
 pod 'MJRefresh'
+pod 'BaiduMapKit'
 
 
 
