@@ -52,7 +52,6 @@ static NSString *ID = @"discover_cell";
     [super viewDidLoad];
     [self configTableView];
     [self setupUI];
-    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"定位" style: UIBarButtonItemStylePlain target:self action:@selector(chooseCity)];
 
 
@@ -64,8 +63,12 @@ static NSString *ID = @"discover_cell";
     XNBaseNavigationController *nvc=[[XNBaseNavigationController alloc]initWithRootViewController:self.locationVC];
     __weak typeof(self) weakSelf = self;
     self.locationVC.completion = ^(NSString *city,NSString *province) {
-        weakSelf.city = city;
+        weakSelf.city = [city substringToIndex:[city length] - 1];
         weakSelf.province = province;
+        //偏好设置
+        [[NSUserDefaults standardUserDefaults] setObject:weakSelf.city forKey:@"city"];
+        [[NSUserDefaults standardUserDefaults] setObject:weakSelf.province forKey:@"province"];
+        [[NSUserDefaults standardUserDefaults]synchronize];
     };
     
     [self presentViewController:nvc animated:YES completion:nil];
@@ -200,11 +203,15 @@ static NSString *ID = @"discover_cell";
  */
 - (void)loadWeatherJSON {
     
-    NSLog(@"%@,%@",self.city,self.province);
-    if (self.city == nil || self.province == nil) return;
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *city = [userDefaults objectForKey:@"city"];
+    NSString *province = [userDefaults objectForKey:@"province"];
+    
+    if (city == nil || province == nil) return;
     [XNProgressHUD show];
 
-    [[NetworkTools sharedTools]loadWeatherWithCity:self.city province:self.province finished:^(NSDictionary *results, NSError *error) {
+    [[NetworkTools sharedTools]loadWeatherWithCity:city province:province finished:^(NSDictionary *results, NSError *error) {
         
         [XNProgressHUD dismiss];
         if (error) {

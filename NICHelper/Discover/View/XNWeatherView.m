@@ -39,6 +39,7 @@
     if (_weatherBtn == nil) {
         _weatherBtn = [[UIButton alloc]init];
         [_weatherBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_weatherBtn setTitle:@"Loading..." forState:UIControlStateNormal];
     }
     return _weatherBtn;
 }
@@ -47,6 +48,7 @@
     if (_temperatureBtn == nil) {
         _temperatureBtn = [[UIButton alloc]init];
         [_temperatureBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_temperatureBtn setTitle:@"Loading..." forState:UIControlStateNormal];
     }
     return _temperatureBtn;
 }
@@ -55,6 +57,7 @@
     if (_windBtn == nil) {
         _windBtn = [[UIButton alloc]init];
         [_windBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_windBtn setTitle:@"Loading..." forState:UIControlStateNormal];
     }
     return _windBtn;
 }
@@ -63,6 +66,7 @@
     if (_airConditionBtn == nil) {
         _airConditionBtn = [[UIButton alloc]init];
         [_airConditionBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_airConditionBtn setTitle:@"Loading..." forState:UIControlStateNormal];
     }
     return _airConditionBtn;
 }
@@ -114,7 +118,6 @@
     
     // 添加监听
     [_loactionBtn addTarget:self action:@selector(loactionClick) forControlEvents:UIControlEventTouchUpInside];
-
 }
 
 - (void)setCurrentWeatherData:(XNWeatherModel *)CurrentWeatherData {
@@ -123,6 +126,7 @@
     XNResult *result = self.CurrentWeatherData.result.firstObject;
     XNFuture *todayInfo = result.future.firstObject;
     
+    // 回到主线程更新 UI
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.airConditionBtn setTitle:result.airCondition forState:UIControlStateNormal];
         [self.weatherBtn setTitle:result.weather forState:UIControlStateNormal];

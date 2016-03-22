@@ -32,6 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"btn_back_normal"] style: UIBarButtonItemStylePlain target:self action:@selector(back)];
     self.title = @"开始定位";
     
@@ -75,13 +76,13 @@
 #pragma mark - 返回用户的位置
 - (void)startLocation {
     NSLog(@"进入普通定位态");
+
     // 设置范围 - 包含了经纬度和显示跨度
-    
     CLLocationCoordinate2D center = self.userLocation.location.coordinate;
     BMKCoordinateSpan span = BMKCoordinateSpanMake(0.1, 0.1);
     [_mapView setRegion:BMKCoordinateRegionMake(center, span) animated:YES];
+  
     CLGeocoder *geocoder = [CLGeocoder new];
-    
     //2. 调用方法 传入当前位置
     [geocoder reverseGeocodeLocation:self.userLocation.location completionHandler:^(NSArray *placemarks, NSError *error) {
         
