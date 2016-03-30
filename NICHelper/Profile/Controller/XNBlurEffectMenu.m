@@ -12,12 +12,17 @@
 #import "UIButton+Extension.h"
 #import <UMSocial.h>
 
+#define kLoginW     DEFAULT_WIDTH * 0.8
+#define kLoginX     (DEFAULT_WIDTH - kLoginW) / 2
+#define kLoginH     44
+
+
 @interface XNBlurEffectMenu ()
 
-///** QQ登录按钮 */
-//@property (nonatomic, strong) UIButton *QQLogin;
-///** 微信登录按钮 */
-//@property (nonatomic, strong) UIButton *weChatLogin;
+/** QQ登录按钮 */
+@property (nonatomic, strong) UIButton *QQLogin;
+/** 微信登录按钮 */
+@property (nonatomic, strong) UIButton *weChatLogin;
 
 @end
 
@@ -33,6 +38,23 @@
     //设置毛玻璃效果
     [self setupView];
     
+    // 添加手势
+    [self addGesture];
+    
+}
+
+- (void)addGesture {
+
+    //• UITapGestureRecognizer(敲击)
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(didTapOnBackground)];
+    [self.view addGestureRecognizer:tapGesture];
+    //• UISwipeGestureRecognizer(轻扫)
+    UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(didTapOnBackground)];
+    // 上下滑动
+    [swipeGesture setDirection:UISwipeGestureRecognizerDirectionUp | UISwipeGestureRecognizerDirectionDown];
+    [self.view addGestureRecognizer:swipeGesture];
+
+
 }
 
 #pragma mark - 设置毛玻璃效果
@@ -53,33 +75,57 @@
     // 3. 将UIVisualEffectView类的实例置于待毛玻璃化的视图之上即可。
     [self.view addSubview:visualEffectView];
     
+    // 4. 创建子控件
     UIButton *QQLogin = [UIButton creatWithImageName:@"qq" title:@"QQ登录" backgroundColor:XNColor(67, 158, 241, 1)];
     [QQLogin addTarget:self action:@selector(QQLoginClick) forControlEvents:UIControlEventTouchUpInside];
+    QQLogin.frame = CGRectMake(kLoginX, -300, kLoginW, kLoginH);
+    self.QQLogin = QQLogin;
     
     UIButton *weChatLogin = [UIButton creatWithImageName:@"appwx_logo" title:@"微信登录" backgroundColor: XNColor(83, 209, 14, 1)];
     [weChatLogin addTarget:self action:@selector(weChatLoginClick) forControlEvents:UIControlEventTouchUpInside];
-    // 4. 创建子控件
+    weChatLogin.frame = CGRectMake(kLoginX, CGRectGetMaxY(QQLogin.frame) + 20, kLoginW, kLoginH);
+    self.weChatLogin = weChatLogin;
+    
     [self.view addSubview:QQLogin];
     [self.view addSubview:weChatLogin];
     
-    CGFloat loginW = DEFAULT_WIDTH * 0.8;
-    CGFloat loginH = 44;
     
-    [weChatLogin mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.view);
-        make.bottom.equalTo(self.view.mas_centerY).offset(-10);
-        make.width.equalTo(@(loginW));
-        make.height.equalTo(@(loginH));
-    }];
+    // 自定义 button 出现动画
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.05 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [UIView animateWithDuration:1.0                                  //动画时长
+                              delay:0.2                                  //延迟时间
+             usingSpringWithDamping:1.0                                  //弹力洗漱
+              initialSpringVelocity:15.0                                 //初始速度
+                            options:UIViewAnimationOptionCurveEaseOut
+                         animations:^{
+                             
+            [QQLogin setFrame:CGRectMake(kLoginX, DEFAULT_HEIGTH / 2, kLoginW, kLoginH)];
+            [weChatLogin setFrame:CGRectMake(kLoginX, CGRectGetMaxY(QQLogin.frame) + 20, kLoginW, kLoginH)];
+            
+        } completion:nil];
+        
+    });
     
-    [QQLogin mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.view);
-        make.top.equalTo(self.view.mas_centerY).offset(10);
-        make.width.equalTo(@(loginW));
-        make.height.equalTo(@(loginH));
+}
 
-    }];
+#pragma mark - private method
+- (void)didTapOnBackground {
     
+    [UIView animateWithDuration:1.0
+                          delay:0.2
+         usingSpringWithDamping:1.0
+          initialSpringVelocity:15.0
+                        options:UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                         self.QQLogin.frame = CGRectMake(kLoginX, -300, kLoginW, kLoginH);
+                         self.weChatLogin.frame = CGRectMake(kLoginX, CGRectGetMaxY(self.QQLogin.frame) + 20, kLoginW, kLoginH);
+                     } completion:nil];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self dismissViewControllerAnimated:YES completion:nil];
+
+    });
+
 }
 
 - (void)QQLoginClick {

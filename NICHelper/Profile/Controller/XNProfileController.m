@@ -62,6 +62,13 @@
     
     XNBlurEffectMenu *loginMenu = [[XNBlurEffectMenu alloc]init];
     loginMenu.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    /**
+     UIModalTransitionStyleCoverVertical    底部向上 默认的动画方式
+     UIModalTransitionStyleFlipHorizontal   翻转
+     UIModalTransitionStyleCrossDissolve    渐变
+     UIModalTransitionStylePartialCurl      翻半页
+     */
+    [loginMenu setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
 
     [self presentViewController:loginMenu animated:YES completion:nil];
 
