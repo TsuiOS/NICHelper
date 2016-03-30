@@ -10,6 +10,8 @@
 
 @interface XNProfileDetailCell : UITableViewCell
 
+@property (nonatomic, strong) NSDictionary *userDict;
+
 + (instancetype)tableViewCellWithTableView:(UITableView *)tableView;
 
 @end

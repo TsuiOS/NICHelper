@@ -15,6 +15,7 @@
 @interface XNProfileController ()
 
 @property (nonatomic, strong) NSArray *infoSettings;
+@property (nonatomic, strong) NSDictionary *userDict;
 
 @end
 
@@ -47,13 +48,21 @@
     [super viewDidLoad];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"登录" style: UIBarButtonItemStylePlain target:self action:@selector(loginClick)];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess:) name:kQQLoginNotification object:nil];
+    
+}
+
+- (void)loginSuccess:(NSNotification *)notification {
+    
+    self.userDict = notification.userInfo;
+    [self.tableView reloadData];
 }
 
 - (void)loginClick {
     
     XNBlurEffectMenu *loginMenu = [[XNBlurEffectMenu alloc]init];
     loginMenu.modalPresentationStyle = UIModalPresentationOverFullScreen;
-    
+
     [self presentViewController:loginMenu animated:YES completion:nil];
 
 }
@@ -77,6 +86,7 @@
     
     if (indexPath.section == 0) {
         XNProfileDetailCell *cell = [XNProfileDetailCell tableViewCellWithTableView:tableView];
+        cell.userDict = self.userDict;
         return cell;
     }
     XNProfileCell *cell = [XNProfileCell tableViewCellWithTableView:tableView];

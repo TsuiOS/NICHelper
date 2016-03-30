@@ -8,6 +8,7 @@
 
 #import "XNProfileDetailCell.h"
 #import <Masonry.h>
+#import <UIImageView+WebCache.h>
 
 @interface XNProfileDetailCell ()
 
@@ -24,7 +25,7 @@
 - (UILabel *)userNameLabel {
     if (_userNameLabel == nil) {
         _userNameLabel = [[UILabel alloc]init];
-        _userNameLabel.text = @"昵称";
+        _userNameLabel.text = @"";
         
     }
     return _userNameLabel;
@@ -32,7 +33,7 @@
 - (UILabel *)userIDLabel {
     if (_userIDLabel == nil) {
         _userIDLabel = [[UILabel alloc]init];
-        _userIDLabel.text = @"1111";
+        _userIDLabel.text = @"";
         _userIDLabel.textColor = [UIColor grayColor];
         _userIDLabel.font = [UIFont systemFontOfSize:14];
         
@@ -44,7 +45,7 @@
 
     if (_avatarImageView == nil) {
         _avatarImageView = [[UIImageView alloc]init];
-        [_avatarImageView setImage:[UIImage imageNamed:@"avatar_default_big"]];
+//        [_avatarImageView setImage:[UIImage imageNamed:@"avatar_default_big"]];
         _avatarImageView.layer.cornerRadius = 30;
         _avatarImageView.layer.masksToBounds = YES;
     }
@@ -88,6 +89,14 @@
         make.bottom.equalTo(self.avatarImageView.mas_bottom);
         make.left.equalTo(self.userNameLabel);
     }];
+
+}
+
+- (void)setUserDict:(NSDictionary *)userDict {
+    
+    _userDict = userDict;    
+    self.userNameLabel.text = userDict[@"username"];
+    [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:userDict[@"iconURL"]] placeholderImage:[UIImage imageNamed:@"avatar_default_big"]];
 
 }
 

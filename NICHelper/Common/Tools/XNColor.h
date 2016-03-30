@@ -35,4 +35,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 #define kParallaxHeaderHeight      200
 
 
+// 通知
+#define kQQLoginNotification @"QQLoginNotification"
+
 #endif /* XNColor_h */
