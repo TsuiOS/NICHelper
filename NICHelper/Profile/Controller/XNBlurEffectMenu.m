@@ -1,23 +1,23 @@
 //
-//  XNLoginController.m
+//  XNBlurEffectMenu.m
 //  NICHelper
 //
-//  Created by mac on 16/3/9.
+//  Created by mac on 16/3/30.
 //  Copyright © 2016年 Hsu. All rights reserved.
 //
 
-#import "XNLoginController.h"
-#import "XNColor.h"
+#import "XNBlurEffectMenu.h"
 
-@interface XNLoginController ()
+@interface XNBlurEffectMenu ()
 
 @end
 
-@implementation XNLoginController
+@implementation XNBlurEffectMenu
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = XNColor(255, 255, 255, 0.5);
+    
+    [self.view setBackgroundColor:[UIColor clearColor]];
 }
 
 - (void)didReceiveMemoryWarning {

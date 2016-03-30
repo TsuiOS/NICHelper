@@ -7,6 +7,7 @@
 //
 
 #import "XNProfileDetailCell.h"
+#import <Masonry.h>
 
 @interface XNProfileDetailCell ()
 
@@ -19,6 +20,36 @@
 
 @implementation XNProfileDetailCell
 
+#pragma mark - 懒加载
+- (UILabel *)userNameLabel {
+    if (_userNameLabel == nil) {
+        _userNameLabel = [[UILabel alloc]init];
+        _userNameLabel.text = @"昵称";
+        
+    }
+    return _userNameLabel;
+}
+- (UILabel *)userIDLabel {
+    if (_userIDLabel == nil) {
+        _userIDLabel = [[UILabel alloc]init];
+        _userIDLabel.text = @"1111";
+        _userIDLabel.textColor = [UIColor grayColor];
+        _userIDLabel.font = [UIFont systemFontOfSize:14];
+        
+    }
+    return _userIDLabel;
+}
+
+- (UIImageView *)avatarImageView {
+
+    if (_avatarImageView == nil) {
+        _avatarImageView = [[UIImageView alloc]init];
+        [_avatarImageView setImage:[UIImage imageNamed:@"avatar_default_big"]];
+        _avatarImageView.layer.cornerRadius = 30;
+        _avatarImageView.layer.masksToBounds = YES;
+    }
+    return _avatarImageView;
+}
 
 + (instancetype)tableViewCellWithTableView:(UITableView *)tableView {
     static NSString *ID = @"message_cell";
@@ -43,7 +74,20 @@
 }
 
 - (void)layoutSubviews {
-
+    
+    [_avatarImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.and.left.equalTo(self).offset(15);
+        make.width.equalTo(@(60));
+        make.height.equalTo(@(60));
+    }];
+    [_userNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.avatarImageView);
+        make.left.equalTo(self.avatarImageView.mas_right).offset(15);
+    }];
+    [_userIDLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.avatarImageView.mas_bottom);
+        make.left.equalTo(self.userNameLabel);
+    }];
 
 }
 

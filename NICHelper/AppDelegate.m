@@ -9,7 +9,6 @@
 #import "AppDelegate.h"
 #import "XNMainTabBarViewController.h"
 #import "XNColor.h"
-#import "XNLoginController.h"
 #import <AFNetworkActivityIndicatorManager.h>
 #import <UMSocial.h>
 #import <UMSocialWechatHandler.h>

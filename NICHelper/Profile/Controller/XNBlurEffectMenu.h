@@ -1,13 +1,13 @@
 //
-//  XNLoginController.h
+//  XNBlurEffectMenu.h
 //  NICHelper
 //
-//  Created by mac on 16/3/9.
+//  Created by mac on 16/3/30.
 //  Copyright © 2016年 Hsu. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface XNLoginController : UIViewController
+@interface XNBlurEffectMenu : UIViewController
 
 @end

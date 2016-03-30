@@ -10,7 +10,7 @@
 #import "XNColor.h"
 #import "XNProfileCell.h"
 #import "XNProfileDetailCell.h"
-
+#import "XNBlurEffectMenu.h"
 
 @interface XNProfileController ()
 
@@ -45,7 +45,17 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"登录" style: UIBarButtonItemStylePlain target:self action:@selector(loginClick)];
     
+}
+
+- (void)loginClick {
+    
+    XNBlurEffectMenu *loginMenu = [[XNBlurEffectMenu alloc]init];
+    loginMenu.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    
+    [self presentViewController:loginMenu animated:YES completion:nil];
+
 }
 
 #pragma mark - UITableViewDataSource
@@ -70,7 +80,6 @@
         return cell;
     }
     XNProfileCell *cell = [XNProfileCell tableViewCellWithTableView:tableView];
-    
     // 获取数据
     NSDictionary *group = self.infoSettings[indexPath.section];
     NSDictionary *item = [group[@"items"] objectAtIndex:indexPath.row];
@@ -78,6 +87,7 @@
     cell.item = item;
     return cell;
 }
+
 
 #pragma mark - UITableViewDelegate
 
@@ -91,7 +101,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    NSLog(@"%zd",indexPath.row);
+
     UIViewController *destVC = nil;
     
     // 获取数据

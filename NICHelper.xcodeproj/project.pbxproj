@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		040439D41C9EE7EE002137D7 /* XNLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040439D31C9EE7EE002137D7 /* XNLocationController.m */; };
-		040FDBFE1C90523A00935EBF /* XNLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FDBFD1C90523A00935EBF /* XNLoginController.m */; };
 		041173141C925CE7009AC6F9 /* NSString+XNTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 041173131C925CE7009AC6F9 /* NSString+XNTool.m */; };
 		0417F5F91C8DCF430071A6F0 /* XNMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0417F5F81C8DCF430071A6F0 /* XNMessage.m */; };
 		0417F5FC1C8DCF680071A6F0 /* XNMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0417F5FB1C8DCF680071A6F0 /* XNMessageCell.m */; };
@@ -26,7 +25,6 @@
 		04529A4D1C8D9D3B0081CF4E /* XNBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04529A3A1C8D9D3B0081CF4E /* XNBaseNavigationController.m */; };
 		04529A4E1C8D9D3B0081CF4E /* XNMainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04529A3C1C8D9D3B0081CF4E /* XNMainTabBarViewController.m */; };
 		04529A4F1C8D9D3B0081CF4E /* XNMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04529A431C8D9D3B0081CF4E /* XNMessageController.m */; };
-		04529A501C8D9D3B0081CF4E /* XNProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04529A491C8D9D3B0081CF4E /* XNProfileController.m */; };
 		04529A571C8DA0FB0081CF4E /* XNDiscoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04529A561C8DA0FB0081CF4E /* XNDiscoverController.m */; };
 		046913721C959E7F00AA440D /* XNWeatherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 046913711C959E7F00AA440D /* XNWeatherModel.m */; };
 		0473B5D51C9C3E33009DB447 /* Profile.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0473B5D41C9C3E33009DB447 /* Profile.plist */; };
@@ -47,6 +45,8 @@
 		047D328D1C93FB9D00CEEFC6 /* NetworkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 047D328C1C93FB9D00CEEFC6 /* NetworkTools.m */; };
 		047D32931C94186E00CEEFC6 /* XNWeatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = 047D32921C94186E00CEEFC6 /* XNWeatherView.m */; };
 		049621E11C9D59EF0063AAAA /* XNPopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049621E01C9D59EF0063AAAA /* XNPopViewController.m */; };
+		04D463661CAB84FB00C95E01 /* XNBlurEffectMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D463651CAB84FB00C95E01 /* XNBlurEffectMenu.m */; };
+		04D463681CAB852300C95E01 /* XNProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D463671CAB852300C95E01 /* XNProfileController.m */; };
 		04FEBB431C98584600FC5E79 /* XNDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FEBB421C98584600FC5E79 /* XNDetailViewController.m */; };
 		69FCE9E6D3DD3D66C4ADA64F /* libPods-NICHelper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2048FF99DFEEDACCE6FBD5 /* libPods-NICHelper.a */; };
 /* End PBXBuildFile section */
@@ -54,8 +54,6 @@
 /* Begin PBXFileReference section */
 		040439D21C9EE7EE002137D7 /* XNLocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNLocationController.h; sourceTree = "<group>"; };
 		040439D31C9EE7EE002137D7 /* XNLocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNLocationController.m; sourceTree = "<group>"; };
-		040FDBFC1C90523A00935EBF /* XNLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XNLoginController.h; path = ../../Main/Controller/XNLoginController.h; sourceTree = "<group>"; };
-		040FDBFD1C90523A00935EBF /* XNLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XNLoginController.m; path = ../../Main/Controller/XNLoginController.m; sourceTree = "<group>"; };
 		041173121C925CE7009AC6F9 /* NSString+XNTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+XNTool.h"; sourceTree = "<group>"; };
 		041173131C925CE7009AC6F9 /* NSString+XNTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XNTool.m"; sourceTree = "<group>"; };
 		0417F5F61C8DBA400071A6F0 /* XNColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XNColor.h; sourceTree = "<group>"; };
@@ -90,7 +88,6 @@
 		04529A421C8D9D3B0081CF4E /* XNMessageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNMessageController.h; sourceTree = "<group>"; };
 		04529A431C8D9D3B0081CF4E /* XNMessageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNMessageController.m; sourceTree = "<group>"; };
 		04529A481C8D9D3B0081CF4E /* XNProfileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNProfileController.h; sourceTree = "<group>"; };
-		04529A491C8D9D3B0081CF4E /* XNProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNProfileController.m; sourceTree = "<group>"; };
 		04529A551C8DA0FB0081CF4E /* XNDiscoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNDiscoverController.h; sourceTree = "<group>"; };
 		04529A561C8DA0FB0081CF4E /* XNDiscoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNDiscoverController.m; sourceTree = "<group>"; };
 		046913701C959E7F00AA440D /* XNWeatherModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNWeatherModel.h; sourceTree = "<group>"; };
@@ -122,6 +119,9 @@
 		047D32921C94186E00CEEFC6 /* XNWeatherView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNWeatherView.m; sourceTree = "<group>"; };
 		049621DF1C9D59EF0063AAAA /* XNPopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNPopViewController.h; sourceTree = "<group>"; };
 		049621E01C9D59EF0063AAAA /* XNPopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNPopViewController.m; sourceTree = "<group>"; };
+		04D463641CAB84FB00C95E01 /* XNBlurEffectMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNBlurEffectMenu.h; sourceTree = "<group>"; };
+		04D463651CAB84FB00C95E01 /* XNBlurEffectMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNBlurEffectMenu.m; sourceTree = "<group>"; };
+		04D463671CAB852300C95E01 /* XNProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNProfileController.m; sourceTree = "<group>"; };
 		04FEBB411C98584600FC5E79 /* XNDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNDetailViewController.h; sourceTree = "<group>"; };
 		04FEBB421C98584600FC5E79 /* XNDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNDetailViewController.m; sourceTree = "<group>"; };
 		0FB5A7758DDA5DD0D4598680 /* Pods-NICHelper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NICHelper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NICHelper/Pods-NICHelper.debug.xcconfig"; sourceTree = "<group>"; };
@@ -149,39 +149,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		040FDBFF1C90538E00935EBF /* Visitor */ = {
-			isa = PBXGroup;
-			children = (
-				040FDC001C90538E00935EBF /* Controller */,
-				040FDC011C90538E00935EBF /* Model */,
-				040FDC021C90538E00935EBF /* View */,
-			);
-			path = Visitor;
-			sourceTree = "<group>";
-		};
-		040FDC001C90538E00935EBF /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				040FDBFC1C90523A00935EBF /* XNLoginController.h */,
-				040FDBFD1C90523A00935EBF /* XNLoginController.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		040FDC011C90538E00935EBF /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		040FDC021C90538E00935EBF /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		04529A0C1C8D9C400081CF4E = {
 			isa = PBXGroup;
 			children = (
@@ -204,7 +171,6 @@
 			isa = PBXGroup;
 			children = (
 				04529A2F1C8D9D3B0081CF4E /* Common */,
-				040FDBFF1C90538E00935EBF /* Visitor */,
 				04529A511C8DA0C00081CF4E /* Discover */,
 				04529A311C8D9D3B0081CF4E /* Compose */,
 				04529A371C8D9D3B0081CF4E /* Main */,
@@ -391,7 +357,9 @@
 			isa = PBXGroup;
 			children = (
 				04529A481C8D9D3B0081CF4E /* XNProfileController.h */,
-				04529A491C8D9D3B0081CF4E /* XNProfileController.m */,
+				04D463671CAB852300C95E01 /* XNProfileController.m */,
+				04D463641CAB84FB00C95E01 /* XNBlurEffectMenu.h */,
+				04D463651CAB84FB00C95E01 /* XNBlurEffectMenu.m */,
 				0473B5D61C9C425E009DB447 /* XNCollectController.h */,
 				0473B5D71C9C425E009DB447 /* XNCollectController.m */,
 				0473B5D91C9C4350009DB447 /* XNShakeViewController.h */,
@@ -629,6 +597,7 @@
 			files = (
 				04529A4C1C8D9D3B0081CF4E /* XNComposeController.m in Sources */,
 				0417F5F91C8DCF430071A6F0 /* XNMessage.m in Sources */,
+				04D463681CAB852300C95E01 /* XNProfileController.m in Sources */,
 				04529A4D1C8D9D3B0081CF4E /* XNBaseNavigationController.m in Sources */,
 				042711791C95863100E6EFBB /* ShareManager.m in Sources */,
 				0417F5FF1C8DE2EA0071A6F0 /* XNMessageView.m in Sources */,
@@ -638,13 +607,11 @@
 				046913721C959E7F00AA440D /* XNWeatherModel.m in Sources */,
 				04529A571C8DA0FB0081CF4E /* XNDiscoverController.m in Sources */,
 				0473B5D81C9C425E009DB447 /* XNCollectController.m in Sources */,
-				040FDBFE1C90523A00935EBF /* XNLoginController.m in Sources */,
 				047D328D1C93FB9D00CEEFC6 /* NetworkTools.m in Sources */,
 				0477EA971C990C8C009F9394 /* XNProgressHUD.m in Sources */,
 				0473B5DE1C9C437F009DB447 /* XNScanViewController.m in Sources */,
 				041173141C925CE7009AC6F9 /* NSString+XNTool.m in Sources */,
 				041E586F1C8EEA8E00E55132 /* UIView+Extension.m in Sources */,
-				04529A501C8D9D3B0081CF4E /* XNProfileController.m in Sources */,
 				0473B5E41C9C5004009DB447 /* XNProfileDetailCell.m in Sources */,
 				04FEBB431C98584600FC5E79 /* XNDetailViewController.m in Sources */,
 				04529A4F1C8D9D3B0081CF4E /* XNMessageController.m in Sources */,
@@ -655,6 +622,7 @@
 				04529A1A1C8D9C400081CF4E /* main.m in Sources */,
 				04529A4E1C8D9D3B0081CF4E /* XNMainTabBarViewController.m in Sources */,
 				047D32931C94186E00CEEFC6 /* XNWeatherView.m in Sources */,
+				04D463661CAB84FB00C95E01 /* XNBlurEffectMenu.m in Sources */,
 				0473B5DB1C9C4350009DB447 /* XNShakeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
