@@ -48,6 +48,7 @@
     [super viewDidLoad];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"登录" style: UIBarButtonItemStylePlain target:self action:@selector(loginClick)];
     
+    // 注册通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess:) name:kQQLoginNotification object:nil];
     
 }
@@ -56,6 +57,11 @@
     
     self.userDict = notification.userInfo;
     [self.tableView reloadData];
+}
+
+- (void)dealloc {
+    // 移除注册通知
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)loginClick {

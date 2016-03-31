@@ -49,7 +49,7 @@
 		04D463661CAB84FB00C95E01 /* XNBlurEffectMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D463651CAB84FB00C95E01 /* XNBlurEffectMenu.m */; };
 		04D463681CAB852300C95E01 /* XNProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D463671CAB852300C95E01 /* XNProfileController.m */; };
 		04FEBB431C98584600FC5E79 /* XNDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FEBB421C98584600FC5E79 /* XNDetailViewController.m */; };
-		69FCE9E6D3DD3D66C4ADA64F /* libPods-NICHelper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2048FF99DFEEDACCE6FBD5 /* libPods-NICHelper.a */; };
+		F84FB01BD5DFC15E9E1CA8A3 /* libPods-NICHelper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D89FB310D41FA4F5B3B1AA8A /* libPods-NICHelper.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,6 +118,7 @@
 		047D328C1C93FB9D00CEEFC6 /* NetworkTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkTools.m; sourceTree = "<group>"; };
 		047D32911C94186E00CEEFC6 /* XNWeatherView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNWeatherView.h; sourceTree = "<group>"; };
 		047D32921C94186E00CEEFC6 /* XNWeatherView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNWeatherView.m; sourceTree = "<group>"; };
+		048991291CAD048900B572BF /* LeanCloud.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeanCloud.pch; sourceTree = "<group>"; };
 		049621DF1C9D59EF0063AAAA /* XNPopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNPopViewController.h; sourceTree = "<group>"; };
 		049621E01C9D59EF0063AAAA /* XNPopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNPopViewController.m; sourceTree = "<group>"; };
 		04A759461CABC1840051D223 /* UIButton+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Extension.h"; sourceTree = "<group>"; };
@@ -129,7 +130,7 @@
 		04FEBB421C98584600FC5E79 /* XNDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNDetailViewController.m; sourceTree = "<group>"; };
 		0FB5A7758DDA5DD0D4598680 /* Pods-NICHelper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NICHelper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NICHelper/Pods-NICHelper.debug.xcconfig"; sourceTree = "<group>"; };
 		3D375FE0AE9D5F211C4C51CA /* Pods-NICHelper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NICHelper.release.xcconfig"; path = "Pods/Target Support Files/Pods-NICHelper/Pods-NICHelper.release.xcconfig"; sourceTree = "<group>"; };
-		EB2048FF99DFEEDACCE6FBD5 /* libPods-NICHelper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NICHelper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D89FB310D41FA4F5B3B1AA8A /* libPods-NICHelper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NICHelper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,7 +146,7 @@
 				0477D7401C918688003C32DF /* SystemConfiguration.framework in Frameworks */,
 				0477D73E1C91867E003C32DF /* libiconv.tbd in Frameworks */,
 				0477D73C1C91866F003C32DF /* Security.framework in Frameworks */,
-				69FCE9E6D3DD3D66C4ADA64F /* libPods-NICHelper.a in Frameworks */,
+				F84FB01BD5DFC15E9E1CA8A3 /* libPods-NICHelper.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +295,7 @@
 			children = (
 				04529A1B1C8D9C400081CF4E /* AppDelegate.h */,
 				04529A1C1C8D9C400081CF4E /* AppDelegate.m */,
+				048991291CAD048900B572BF /* LeanCloud.pch */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -470,7 +472,7 @@
 				0477D73F1C918688003C32DF /* SystemConfiguration.framework */,
 				0477D73D1C91867E003C32DF /* libiconv.tbd */,
 				0477D73B1C91866F003C32DF /* Security.framework */,
-				EB2048FF99DFEEDACCE6FBD5 /* libPods-NICHelper.a */,
+				D89FB310D41FA4F5B3B1AA8A /* libPods-NICHelper.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

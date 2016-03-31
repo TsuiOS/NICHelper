@@ -78,10 +78,10 @@
         
                 UIView *likeView = (UIView *)[subview.subviews firstObject];
                 UIButton *likeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+                likeButton.frame = likeView.bounds;
                 [likeButton setImage:[UIImage imageNamed:@"icon_tabbar_like"] forState:UIControlStateNormal];
                 [likeButton setImage:[UIImage imageNamed:@"icon_tabbar_like_active"] forState:UIControlStateSelected];
-                [likeButton sizeToFit];
-//                [likeButton addTarget:self action:@selector(likeBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+                [likeButton addTarget:self action:@selector(likeBtnClick:) forControlEvents:UIControlEventTouchUpInside];
                 // 需要转换坐标
                 CGPoint childSetP = [subview convertPoint:likeView.center toView:likeView];
                 likeButton.center = childSetP;
@@ -104,10 +104,6 @@
     button.selected = !button.selected;
 
 }
-//- (void)didTransitionToState:(UITableViewCellStateMask)state {
-//
-//}
-
 
 
 @end

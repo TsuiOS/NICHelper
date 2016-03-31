@@ -8,7 +8,6 @@
 
 #import "XNBlurEffectMenu.h"
 #import "XNColor.h"
-#import <Masonry.h>
 #import "UIButton+Extension.h"
 #import <UMSocial.h>
 
@@ -142,6 +141,7 @@
             
             NSDictionary *userDict = @{@"username":snsAccount.userName,
                                        @"iconURL":snsAccount.iconURL};
+            // 发布通知
             [[NSNotificationCenter defaultCenter] postNotificationName:kQQLoginNotification object:nil userInfo:userDict];
             
 //            NSLog(@"username is %@, uid is %@, token is %@ url is %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
@@ -153,7 +153,11 @@
 }
 
 - (void)weChatLoginClick {
-    
+    /**
+     微信登录需要开发者资质认证
+     认证有效期：一年，有效期最后两个月可申请年审即可续期
+     审核费用：300元
+     */
     NSLog(@"%s",__FUNCTION__);
 }
 

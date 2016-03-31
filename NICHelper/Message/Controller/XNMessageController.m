@@ -13,7 +13,7 @@
 #import "XNMessage.h"
 #import "ShareManager.h"
 #import "UIView+Extension.h"
-#import <MJRefresh.h>
+#import "MJRefresh.h"
 #import "XNPopViewController.h"
 
 @interface XNMessageController () <UITableViewDelegate,UIPopoverPresentationControllerDelegate>
