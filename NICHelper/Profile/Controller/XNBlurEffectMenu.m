@@ -10,6 +10,9 @@
 #import "XNColor.h"
 #import "UIButton+Extension.h"
 #import <UMSocial.h>
+#import <AVOSCloudSNS.h>
+#import <LeanCloudSocial/AVUser+SNS.h>
+#import "XNProgressHUD.h"
 
 #define kLoginW     DEFAULT_WIDTH * 0.8
 #define kLoginX     (DEFAULT_WIDTH - kLoginW) / 2
@@ -94,7 +97,7 @@
         [UIView animateWithDuration:1.0                                  //动画时长
                               delay:0.2                                  //延迟时间
              usingSpringWithDamping:1.0                                  //弹力洗漱
-              initialSpringVelocity:15.0                                 //初始速度
+              initialSpringVelocity:10.0                                 //初始速度
                             options:UIViewAnimationOptionCurveEaseOut
                          animations:^{
                              
@@ -113,7 +116,7 @@
     [UIView animateWithDuration:1.0
                           delay:0.2
          usingSpringWithDamping:1.0
-          initialSpringVelocity:15.0
+          initialSpringVelocity:10.0
                         options:UIViewAnimationOptionCurveEaseOut
                      animations:^{
                          self.QQLogin.frame = CGRectMake(kLoginX, -300, kLoginW, kLoginH);
@@ -129,6 +132,40 @@
 
 - (void)QQLoginClick {
     
+    [AVOSCloudSNS setupPlatform:AVOSCloudSNSQQ withAppKey:@"1105241256" andAppSecret:@"HwpE6vKKoQfe8Dhg" andRedirectURI:nil];
+    [AVOSCloudSNS loginWithCallback:^(id object, NSError *error) {
+        if (error) {
+            NSLog(@"授权失败");
+        } else {
+            NSLog(@"%@",object);
+            
+            
+            [AVUser loginWithAuthData:object platform:AVOSCloudSNSPlatformQQ block:^(AVUser *user, NSError *error) {
+                if ([self filterError:error]) {
+                    
+                    NSDictionary *userDict = @{@"username":object[@"username"],
+                                               @"iconURL":object[@"avatar"]};
+                    // 发布通知
+                    [[NSNotificationCenter defaultCenter] postNotificationName:kQQLoginNotification object:nil userInfo:userDict];
+                    [self dismissViewControllerAnimated:YES completion:nil];
+
+                }
+            }];
+        }
+    } toPlatform:AVOSCloudSNSQQ];
+    
+
+}
+- (BOOL)filterError:(NSError *)error {
+    if (error) {
+        [XNProgressHUD showInfoWithStatus:@"授权失败"];
+        return NO;
+    }
+    return YES;
+}
+
+- (void)weChatLoginClick {
+    
     UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToQQ];
     
     snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
@@ -138,27 +175,17 @@
             
             UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:UMShareToQQ];
             
-            
             NSDictionary *userDict = @{@"username":snsAccount.userName,
                                        @"iconURL":snsAccount.iconURL};
             // 发布通知
             [[NSNotificationCenter defaultCenter] postNotificationName:kQQLoginNotification object:nil userInfo:userDict];
             
-//            NSLog(@"username is %@, uid is %@, token is %@ url is %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
-            
         }});
     
     [self dismissViewControllerAnimated:YES completion:nil];
-
 }
 
-- (void)weChatLoginClick {
-    /**
-     微信登录需要开发者资质认证
-     认证有效期：一年，有效期最后两个月可申请年审即可续期
-     审核费用：300元
-     */
-    NSLog(@"%s",__FUNCTION__);
-}
+
+
 
 @end

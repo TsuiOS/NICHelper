@@ -194,7 +194,7 @@ extern NSString *const UMSCustomAccountGenderFeMale;
 @interface UMSocialAccountManager : NSObject
 
 /**
- 存放用户在各个微博平台账户信息的哈希对象，以各个平台名为key，以`UMSocialAccountEntity`对象为value
+ 存放用户在各个微博平台账户信息的哈希对象，以各个平台∆名为key，以`UMSocialAccountEntity`对象为value
  
  */
 +(NSDictionary *)socialAccountDictionary;

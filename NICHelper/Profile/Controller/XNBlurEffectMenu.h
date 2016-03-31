@@ -8,14 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-
-@protocol XNBlurEffectMenuDelegate <NSObject>
-
-/** 点击背景 dissmiss */
-
-@end
-
-
 @interface XNBlurEffectMenu : UIViewController
 
 

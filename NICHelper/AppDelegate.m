@@ -15,6 +15,9 @@
 #import <UMSocialQQHandler.h>
 #import <UMSocialSinaSSOHandler.h>
 #import <BaiduMapAPI_Base/BMKBaseComponent.h>
+#import <AVOSCloud.h>
+#import <AVOSCloudSNS.h>
+
 
 
 @interface AppDelegate () {
@@ -86,6 +89,8 @@
 // 设置相关的 appkey
 - (void)setUMShare {
     
+    
+    [AVOSCloud setApplicationId:@"GqBvABDwSuDar68lH0EivqMG" clientKey:@"ySnAYTO5niWSetWW6qBXFE0Y"];
     //0.设置友盟AppKey
     [UMSocialData setAppKey:@"56dfe2a467e58e8423002a33"];
     //如果不添加下面的代码，则分享列表中不会出现对应的图标
@@ -106,14 +111,21 @@
     
 }
 
-//系统回调方法
+
+-(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+    return [AVOSCloudSNS handleOpenURL:url];
+}
+
+// When Build with IOS 9 SDK
+// For application on system below ios 9
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-    BOOL result = [UMSocialSnsService handleOpenURL:url];
-    if (result == FALSE) {
-        //调用其他SDK，例如支付宝SDK等
-    }
-    return result;
+    return [AVOSCloudSNS handleOpenURL:url];
+}
+// For application on system equals or larger ios 9
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options
+{
+    return [AVOSCloudSNS handleOpenURL:url];
 }
 
 @end

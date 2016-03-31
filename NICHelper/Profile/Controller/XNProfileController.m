@@ -114,13 +114,31 @@
 
 #pragma mark - UITableViewDelegate
 
+// 设置 row 高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    if (indexPath.section == 0) {
+    if (indexPath.section == 0 && indexPath.row == 0) {
         return 90.0f;
     }
     
     return [super tableView:tableView heightForRowAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section - 1]];
+}
+
+// 设置头视图高度
+//设置头视图高度
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (section == 0)
+    {
+        return 15;
+    }
+    return 10;
+}
+
+//设置脚视图高度
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 10;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

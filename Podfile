@@ -6,7 +6,6 @@ platform :ios, ‘8.0’
 target 'NICHelper' do
 
 pod 'Masonry'
-pod 'AFNetworking'
 pod 'SDWebImage'
 pod 'SVProgressHUD'
 pod 'UMengSocial'
@@ -14,6 +13,7 @@ pod 'YYModel'
 pod 'MJRefresh'
 pod 'BaiduMapKit'
 pod 'AVOSCloud'
+pod 'LeanCloudSocial'
 
 
 end

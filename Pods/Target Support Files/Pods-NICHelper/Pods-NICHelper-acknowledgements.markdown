@@ -54,6 +54,10 @@ SOFTWARE.
 
 
 
+## LeanCloudSocial
+
+© Copyright 2015 LeanCloud, Inc. See https://leancloud.cn/terms.html
+
 ## MJRefresh
 
 Copyright (c) 2013-2015 MJRefresh (https://github.com/CoderMJLee/MJRefresh)
