@@ -30,8 +30,6 @@
 - (NSURLSessionDataTask *)dataTaskWithHTTPMethod:(NSString *)method
                                        URLString:(NSString *)URLString
                                       parameters:(id)parameters
-                                  uploadProgress:(nullable void (^)(NSProgress *uploadProgress)) uploadProgress
-                                downloadProgress:(nullable void (^)(NSProgress *downloadProgress)) downloadProgress
                                          success:(void (^)(NSURLSessionDataTask *, id))success
                                          failure:(void (^)(NSURLSessionDataTask *, NSError *))failure;
 
@@ -87,8 +85,6 @@
     [[self dataTaskWithHTTPMethod:methodName
                         URLString:URLString
                        parameters:parameters
-                   uploadProgress:nil
-                 downloadProgress:nil
                           success:^(NSURLSessionDataTask *task, id responseObject) {
       
                               finished(responseObject, nil);
@@ -98,6 +94,24 @@
         
                               NSLog(@"error--%@",error);
                           }] resume];
+    
+    
+    //判断请求方式
+//    if (method == GET) {
+//        // GET
+//        [self GET:URLString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//            finished(responseObject, nil);
+//        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//            finished(nil,error);
+//        }];
+//    } else {
+//        [self POST:URLString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//            finished(responseObject, nil);
+//        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//            finished(nil,error);
+//        }];
+//    }
+
     
 }
 #pragma mark - 天气相关的方法
