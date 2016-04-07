@@ -15,7 +15,7 @@
                  backgroundColor:(UIColor *)color {
 
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.layer.cornerRadius = 10;
+    button.layer.cornerRadius = 5;
     button.layer.masksToBounds = YES;
     
     [button setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];

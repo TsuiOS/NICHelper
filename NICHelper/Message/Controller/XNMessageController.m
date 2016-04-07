@@ -26,6 +26,7 @@
 @end
 
 @implementation XNMessageController
+static NSString *ID = @"message_cell";
 
 #pragma mark 懒加载数据
 - (NSArray *)message {
@@ -82,10 +83,13 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:self.addButton];
     // 设置背景颜色
     self.view.backgroundColor = [UIColor clearColor]; //DEFAULT_BACKGROUND_COLOR;
+    // 注册 cell
+    [self.tableView registerClass:[XNMessageCell class] forCellReuseIdentifier:ID];
     //设置 cell 的高度
     self.tableView.rowHeight = 180;
     //取消分割线
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
 
 }
 
@@ -124,9 +128,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    XNMessageCell *cell = [XNMessageCell tableViewCellWithTableView:tableView];
-    cell.messageView.message = self.message[indexPath.row];
-
+    XNMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:ID forIndexPath:indexPath];
+    cell.message = self.message[indexPath.row];
+    cell.tableview = tableView;
     return cell;
 }
 
@@ -163,12 +167,9 @@
     }];
     UITableViewRowAction *likeAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"    " handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
         NSLog(@"收藏");
-        // 在最后希望cell可以自动回到默认状态，所以需要退出编辑模式
-//            tableView.editing = NO;
-
     }];
     //换成图片最简单的方式,但是需要素材合适
-//    settingAction.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"barbuttonicon_Operate"]];
+//    likeAction.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"barbuttonicon_Operate"]];
     likeAction.backgroundColor = [UIColor clearColor];
     sharedAction.backgroundColor = [UIColor clearColor];
     return @[likeAction,sharedAction];

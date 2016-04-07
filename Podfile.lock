@@ -26,6 +26,7 @@ PODS:
     - AFNetworking (~> 2.0)
     - AVOSCloud (~> 3.1)
   - Masonry (0.6.4)
+  - MJExtension (3.0.10)
   - MJRefresh (3.1.0)
   - SDWebImage (3.7.5):
     - SDWebImage/Core (= 3.7.5)
@@ -39,6 +40,7 @@ DEPENDENCIES:
   - BaiduMapKit
   - LeanCloudSocial
   - Masonry
+  - MJExtension
   - MJRefresh
   - SDWebImage
   - SVProgressHUD
@@ -51,6 +53,7 @@ SPEC CHECKSUMS:
   BaiduMapKit: 5df028c6b455d29e68e89694adbcf9d37a4bcc99
   LeanCloudSocial: f7787dfc1559dc47263bbfd37a03c870352ad98a
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
+  MJExtension: d86aacb740c87519d20e3cca55b6fa4be6cc7548
   MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1

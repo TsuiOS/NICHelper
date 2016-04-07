@@ -6,12 +6,11 @@
 //  Copyright © 2016年 Hsu. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "XNMessageView.h"
+#import "XNTableViewCell.h"
 
-@interface XNMessageCell : UITableViewCell
-@property (nonatomic, strong) XNMessageView *messageView;
+@interface XNMessageCell : XNTableViewCell
 
-+ (instancetype)tableViewCellWithTableView:(UITableView *)tableView;
+@property (nonatomic, strong) UITableView *tableview;
+
 
 @end

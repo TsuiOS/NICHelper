@@ -93,7 +93,7 @@
 
 - (void)setUserDict:(NSDictionary *)userDict {
     
-    _userDict = userDict;
+        _userDict = userDict;
     self.userNameLabel.text = userDict[@"username"];
     [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:userDict[@"iconURL"]] placeholderImage:[UIImage imageNamed:@"avatar_default_big"]];
 

@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "appwx_logo.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "appwx_logo.png",
       "scale" : "2x"
     },
     {

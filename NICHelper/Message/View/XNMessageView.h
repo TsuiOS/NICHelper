@@ -10,6 +10,7 @@
 @class XNMessage;
 
 @interface XNMessageView : UIView
+
 @property (nonatomic, strong) XNMessage *message;
 
 @end

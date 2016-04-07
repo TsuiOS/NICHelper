@@ -26,6 +26,8 @@
 		04529A4E1C8D9D3B0081CF4E /* XNMainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04529A3C1C8D9D3B0081CF4E /* XNMainTabBarViewController.m */; };
 		04529A4F1C8D9D3B0081CF4E /* XNMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04529A431C8D9D3B0081CF4E /* XNMessageController.m */; };
 		04529A571C8DA0FB0081CF4E /* XNDiscoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04529A561C8DA0FB0081CF4E /* XNDiscoverController.m */; };
+		045716101CB65B5E0030E924 /* XNMessageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0457160F1CB65B5E0030E924 /* XNMessageTool.m */; };
+		045716131CB66BAD0030E924 /* XNTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 045716121CB66BAD0030E924 /* XNTableViewCell.m */; };
 		046913721C959E7F00AA440D /* XNWeatherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 046913711C959E7F00AA440D /* XNWeatherModel.m */; };
 		0473B5D51C9C3E33009DB447 /* Profile.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0473B5D41C9C3E33009DB447 /* Profile.plist */; };
 		0473B5D81C9C425E009DB447 /* XNCollectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0473B5D71C9C425E009DB447 /* XNCollectController.m */; };
@@ -48,6 +50,7 @@
 		04A759481CABC1840051D223 /* UIButton+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A759471CABC1840051D223 /* UIButton+Extension.m */; };
 		04D463661CAB84FB00C95E01 /* XNBlurEffectMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D463651CAB84FB00C95E01 /* XNBlurEffectMenu.m */; };
 		04D463681CAB852300C95E01 /* XNProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D463671CAB852300C95E01 /* XNProfileController.m */; };
+		04F4D75E1CAE5B380080C7D2 /* XNUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F4D75D1CAE5B380080C7D2 /* XNUserManager.m */; };
 		04FEBB431C98584600FC5E79 /* XNDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FEBB421C98584600FC5E79 /* XNDetailViewController.m */; };
 		F84FB01BD5DFC15E9E1CA8A3 /* libPods-NICHelper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D89FB310D41FA4F5B3B1AA8A /* libPods-NICHelper.a */; };
 /* End PBXBuildFile section */
@@ -91,6 +94,10 @@
 		04529A481C8D9D3B0081CF4E /* XNProfileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNProfileController.h; sourceTree = "<group>"; };
 		04529A551C8DA0FB0081CF4E /* XNDiscoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNDiscoverController.h; sourceTree = "<group>"; };
 		04529A561C8DA0FB0081CF4E /* XNDiscoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNDiscoverController.m; sourceTree = "<group>"; };
+		0457160E1CB65B5E0030E924 /* XNMessageTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNMessageTool.h; sourceTree = "<group>"; };
+		0457160F1CB65B5E0030E924 /* XNMessageTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNMessageTool.m; sourceTree = "<group>"; };
+		045716111CB66BAD0030E924 /* XNTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNTableViewCell.h; sourceTree = "<group>"; };
+		045716121CB66BAD0030E924 /* XNTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNTableViewCell.m; sourceTree = "<group>"; };
 		046913701C959E7F00AA440D /* XNWeatherModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNWeatherModel.h; sourceTree = "<group>"; };
 		046913711C959E7F00AA440D /* XNWeatherModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNWeatherModel.m; sourceTree = "<group>"; };
 		0473B5D41C9C3E33009DB447 /* Profile.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Profile.plist; sourceTree = "<group>"; };
@@ -126,6 +133,8 @@
 		04D463641CAB84FB00C95E01 /* XNBlurEffectMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNBlurEffectMenu.h; sourceTree = "<group>"; };
 		04D463651CAB84FB00C95E01 /* XNBlurEffectMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNBlurEffectMenu.m; sourceTree = "<group>"; };
 		04D463671CAB852300C95E01 /* XNProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNProfileController.m; sourceTree = "<group>"; };
+		04F4D75C1CAE5B380080C7D2 /* XNUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNUserManager.h; sourceTree = "<group>"; };
+		04F4D75D1CAE5B380080C7D2 /* XNUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNUserManager.m; sourceTree = "<group>"; };
 		04FEBB411C98584600FC5E79 /* XNDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNDetailViewController.h; sourceTree = "<group>"; };
 		04FEBB421C98584600FC5E79 /* XNDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNDetailViewController.m; sourceTree = "<group>"; };
 		0FB5A7758DDA5DD0D4598680 /* Pods-NICHelper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NICHelper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NICHelper/Pods-NICHelper.debug.xcconfig"; sourceTree = "<group>"; };
@@ -310,6 +319,7 @@
 		04529A401C8D9D3B0081CF4E /* Message */ = {
 			isa = PBXGroup;
 			children = (
+				0457160D1CB65B4D0030E924 /* Tool */,
 				04529A411C8D9D3B0081CF4E /* Controller */,
 				04529A441C8D9D3B0081CF4E /* Model */,
 				04529A451C8D9D3B0081CF4E /* View */,
@@ -342,6 +352,8 @@
 		04529A451C8D9D3B0081CF4E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				045716111CB66BAD0030E924 /* XNTableViewCell.h */,
+				045716121CB66BAD0030E924 /* XNTableViewCell.m */,
 				0417F5FA1C8DCF680071A6F0 /* XNMessageCell.h */,
 				0417F5FB1C8DCF680071A6F0 /* XNMessageCell.m */,
 				0417F5FD1C8DE2EA0071A6F0 /* XNMessageView.h */,
@@ -353,6 +365,7 @@
 		04529A461C8D9D3B0081CF4E /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				04F4D75B1CAE5AC40080C7D2 /* Tools */,
 				04529A471C8D9D3B0081CF4E /* Controller */,
 				04529A4A1C8D9D3B0081CF4E /* Model */,
 				04529A4B1C8D9D3B0081CF4E /* View */,
@@ -436,6 +449,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		0457160D1CB65B4D0030E924 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				0457160E1CB65B5E0030E924 /* XNMessageTool.h */,
+				0457160F1CB65B5E0030E924 /* XNMessageTool.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
 		047D328A1C93FB3000CEEFC6 /* HTTP */ = {
 			isa = PBXGroup;
 			children = (
@@ -450,6 +472,15 @@
 			children = (
 			);
 			path = Lib;
+			sourceTree = "<group>";
+		};
+		04F4D75B1CAE5AC40080C7D2 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				04F4D75C1CAE5B380080C7D2 /* XNUserManager.h */,
+				04F4D75D1CAE5B380080C7D2 /* XNUserManager.m */,
+			);
+			path = Tools;
 			sourceTree = "<group>";
 		};
 		0AF9D912A5E122598A85BA86 /* Pods */ = {
@@ -621,8 +652,11 @@
 				041E586F1C8EEA8E00E55132 /* UIView+Extension.m in Sources */,
 				0473B5E41C9C5004009DB447 /* XNProfileDetailCell.m in Sources */,
 				04FEBB431C98584600FC5E79 /* XNDetailViewController.m in Sources */,
+				045716101CB65B5E0030E924 /* XNMessageTool.m in Sources */,
 				04529A4F1C8D9D3B0081CF4E /* XNMessageController.m in Sources */,
+				04F4D75E1CAE5B380080C7D2 /* XNUserManager.m in Sources */,
 				049621E11C9D59EF0063AAAA /* XNPopViewController.m in Sources */,
+				045716131CB66BAD0030E924 /* XNTableViewCell.m in Sources */,
 				040439D41C9EE7EE002137D7 /* XNLocationController.m in Sources */,
 				044218701C93C20C008B1F50 /* XNCoverView.m in Sources */,
 				04529A1D1C8D9C400081CF4E /* AppDelegate.m in Sources */,

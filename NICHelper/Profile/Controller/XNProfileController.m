@@ -142,7 +142,6 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"%zd",indexPath.row);
 
     UIViewController *destVC = nil;
     

@@ -11,6 +11,7 @@
 @implementation XNProfileCell
 
 + (instancetype)tableViewCellWithTableView:(UITableView *)tableView {
+    
     static NSString *ID = @"message_cell";
     
     XNProfileCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];

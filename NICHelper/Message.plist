@@ -3,6 +3,8 @@
 <plist version="1.0">
 <array>
 	<dict>
+		<key>time</key>
+		<string>0</string>
 		<key>source</key>
 		<string>网络中心</string>
 		<key>title</key>
@@ -17,6 +19,8 @@
 事情不落在自己身上，其实完全没必要生气，可是还是忍不住。设身处地地想，如果我们遇到了这样的事儿，到底怎样处理才算周全，才最妥当？</string>
 	</dict>
 	<dict>
+		<key>time</key>
+		<string>1</string>
 		<key>source</key>
 		<string>网络中心</string>
 		<key>title</key>
@@ -31,6 +35,8 @@
 事情不落在自己身上，其实完全没必要生气，可是还是忍不住。设身处地地想，如果我们遇到了这样的事儿，到底怎样处理才算周全，才最妥当？</string>
 	</dict>
 	<dict>
+		<key>time</key>
+		<string>2</string>
 		<key>source</key>
 		<string>网络中心</string>
 		<key>title</key>
@@ -45,6 +51,8 @@
 事情不落在自己身上，其实完全没必要生气，可是还是忍不住。设身处地地想，如果我们遇到了这样的事儿，到底怎样处理才算周全，才最妥当？</string>
 	</dict>
 	<dict>
+		<key>time</key>
+		<string>3</string>
 		<key>source</key>
 		<string>网络中心</string>
 		<key>title</key>
@@ -59,6 +67,8 @@
 事情不落在自己身上，其实完全没必要生气，可是还是忍不住。设身处地地想，如果我们遇到了这样的事儿，到底怎样处理才算周全，才最妥当？</string>
 	</dict>
 	<dict>
+		<key>time</key>
+		<string>4</string>
 		<key>source</key>
 		<string>网络中心</string>
 		<key>title</key>
@@ -73,6 +83,8 @@
 事情不落在自己身上，其实完全没必要生气，可是还是忍不住。设身处地地想，如果我们遇到了这样的事儿，到底怎样处理才算周全，才最妥当？</string>
 	</dict>
 	<dict>
+		<key>time</key>
+		<string>5</string>
 		<key>source</key>
 		<string>网络中心</string>
 		<key>title</key>
@@ -87,6 +99,8 @@
 事情不落在自己身上，其实完全没必要生气，可是还是忍不住。设身处地地想，如果我们遇到了这样的事儿，到底怎样处理才算周全，才最妥当？</string>
 	</dict>
 	<dict>
+		<key>time</key>
+		<string>6</string>
 		<key>source</key>
 		<string>网络中心</string>
 		<key>title</key>
@@ -101,6 +115,8 @@
 事情不落在自己身上，其实完全没必要生气，可是还是忍不住。设身处地地想，如果我们遇到了这样的事儿，到底怎样处理才算周全，才最妥当？</string>
 	</dict>
 	<dict>
+		<key>time</key>
+		<string>7</string>
 		<key>source</key>
 		<string>网络中心</string>
 		<key>title</key>
@@ -115,6 +131,8 @@
 事情不落在自己身上，其实完全没必要生气，可是还是忍不住。设身处地地想，如果我们遇到了这样的事儿，到底怎样处理才算周全，才最妥当？</string>
 	</dict>
 	<dict>
+		<key>time</key>
+		<string>8</string>
 		<key>source</key>
 		<string>网络中心</string>
 		<key>title</key>
@@ -129,6 +147,8 @@
 事情不落在自己身上，其实完全没必要生气，可是还是忍不住。设身处地地想，如果我们遇到了这样的事儿，到底怎样处理才算周全，才最妥当？</string>
 	</dict>
 	<dict>
+		<key>time</key>
+		<string>9</string>
 		<key>source</key>
 		<string>网络中心</string>
 		<key>title</key>
@@ -143,6 +163,8 @@
 事情不落在自己身上，其实完全没必要生气，可是还是忍不住。设身处地地想，如果我们遇到了这样的事儿，到底怎样处理才算周全，才最妥当？</string>
 	</dict>
 	<dict>
+		<key>time</key>
+		<string>10</string>
 		<key>source</key>
 		<string>网络中心</string>
 		<key>title</key>
@@ -157,6 +179,8 @@
 事情不落在自己身上，其实完全没必要生气，可是还是忍不住。设身处地地想，如果我们遇到了这样的事儿，到底怎样处理才算周全，才最妥当？</string>
 	</dict>
 	<dict>
+		<key>time</key>
+		<string>11</string>
 		<key>source</key>
 		<string>网络中心</string>
 		<key>title</key>
@@ -171,6 +195,8 @@
 事情不落在自己身上，其实完全没必要生气，可是还是忍不住。设身处地地想，如果我们遇到了这样的事儿，到底怎样处理才算周全，才最妥当？</string>
 	</dict>
 	<dict>
+		<key>time</key>
+		<string>12</string>
 		<key>source</key>
 		<string>网络中心</string>
 		<key>title</key>
@@ -185,6 +211,8 @@
 事情不落在自己身上，其实完全没必要生气，可是还是忍不住。设身处地地想，如果我们遇到了这样的事儿，到底怎样处理才算周全，才最妥当？</string>
 	</dict>
 	<dict>
+		<key>time</key>
+		<string>13</string>
 		<key>source</key>
 		<string>网络中心</string>
 		<key>title</key>
@@ -199,6 +227,8 @@
 事情不落在自己身上，其实完全没必要生气，可是还是忍不住。设身处地地想，如果我们遇到了这样的事儿，到底怎样处理才算周全，才最妥当？</string>
 	</dict>
 	<dict>
+		<key>time</key>
+		<string>14</string>
 		<key>source</key>
 		<string>网络中心</string>
 		<key>title</key>
@@ -213,6 +243,8 @@
 事情不落在自己身上，其实完全没必要生气，可是还是忍不住。设身处地地想，如果我们遇到了这样的事儿，到底怎样处理才算周全，才最妥当？</string>
 	</dict>
 	<dict>
+		<key>time</key>
+		<string>15</string>
 		<key>source</key>
 		<string>网络中心</string>
 		<key>title</key>
@@ -227,6 +259,8 @@
 事情不落在自己身上，其实完全没必要生气，可是还是忍不住。设身处地地想，如果我们遇到了这样的事儿，到底怎样处理才算周全，才最妥当？</string>
 	</dict>
 	<dict>
+		<key>time</key>
+		<string>16</string>
 		<key>source</key>
 		<string>网络中心</string>
 		<key>title</key>
@@ -241,6 +275,8 @@
 事情不落在自己身上，其实完全没必要生气，可是还是忍不住。设身处地地想，如果我们遇到了这样的事儿，到底怎样处理才算周全，才最妥当？</string>
 	</dict>
 	<dict>
+		<key>time</key>
+		<string>17</string>
 		<key>source</key>
 		<string>网络中心</string>
 		<key>title</key>
@@ -255,6 +291,8 @@
 事情不落在自己身上，其实完全没必要生气，可是还是忍不住。设身处地地想，如果我们遇到了这样的事儿，到底怎样处理才算周全，才最妥当？</string>
 	</dict>
 	<dict>
+		<key>time</key>
+		<string>18</string>
 		<key>source</key>
 		<string>网络中心</string>
 		<key>title</key>
@@ -269,6 +307,8 @@
 事情不落在自己身上，其实完全没必要生气，可是还是忍不住。设身处地地想，如果我们遇到了这样的事儿，到底怎样处理才算周全，才最妥当？</string>
 	</dict>
 	<dict>
+		<key>time</key>
+		<string>19</string>
 		<key>source</key>
 		<string>网络中心</string>
 		<key>title</key>

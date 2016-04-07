@@ -13,6 +13,7 @@
 #import <AVOSCloudSNS.h>
 #import <LeanCloudSocial/AVUser+SNS.h>
 #import "XNProgressHUD.h"
+#import "XNUserManager.h"
 
 #define kLoginW     DEFAULT_WIDTH * 0.8
 #define kLoginX     (DEFAULT_WIDTH - kLoginW) / 2
@@ -26,10 +27,20 @@
 /** 微信登录按钮 */
 @property (nonatomic, strong) UIButton *weChatLogin;
 
+@property (nonatomic, strong) XNUserManager *manager;
+
 @end
 
 @implementation XNBlurEffectMenu
 
+
+- (XNUserManager *)manager {
+
+    if (!_manager) {
+        _manager = [[XNUserManager alloc]init];
+    }
+    return _manager;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -72,7 +83,7 @@
     UIVisualEffectView *visualEffectView = [[UIVisualEffectView alloc]initWithEffect:blurEffect];
     visualEffectView.frame = self.view.bounds;
     // 设置透明度
-    visualEffectView.alpha = 0.6f;
+    visualEffectView.alpha = 0.6f; 
     
     // 3. 将UIVisualEffectView类的实例置于待毛玻璃化的视图之上即可。
     [self.view addSubview:visualEffectView];
@@ -133,24 +144,26 @@
 - (void)QQLoginClick {
     
     [AVOSCloudSNS setupPlatform:AVOSCloudSNSQQ withAppKey:@"1105241256" andAppSecret:@"HwpE6vKKoQfe8Dhg" andRedirectURI:nil];
+   
     [AVOSCloudSNS loginWithCallback:^(id object, NSError *error) {
         if (error) {
             NSLog(@"授权失败");
         } else {
             NSLog(@"%@",object);
             
-            
-            [AVUser loginWithAuthData:object platform:AVOSCloudSNSPlatformQQ block:^(AVUser *user, NSError *error) {
-                if ([self filterError:error]) {
-                    
-                    NSDictionary *userDict = @{@"username":object[@"username"],
-                                               @"iconURL":object[@"avatar"]};
-                    // 发布通知
-                    [[NSNotificationCenter defaultCenter] postNotificationName:kQQLoginNotification object:nil userInfo:userDict];
-                    [self dismissViewControllerAnimated:YES completion:nil];
+            NSDictionary *userDict = @{@"username":object[@"username"],
+                                       @"iconURL":object[@"avatar"]};
+            // 发布通知
+            [[NSNotificationCenter defaultCenter] postNotificationName:kQQLoginNotification object:nil userInfo:userDict];
+            [self dismissViewControllerAnimated:YES completion:nil];
+//            //注册用户
+//            [self.manager registerWithUserName:object[@"username"] password:object[@"avatar"]finished:^(BOOL succeeded, NSError *error) {
+//                if ([self filterError:error]) {
+//                    
+//                }
+//                //注册失败
+//            }];
 
-                }
-            }];
         }
     } toPlatform:AVOSCloudSNSQQ];
     

@@ -7,6 +7,8 @@
 //
 
 #import "XNMessage.h"
+#import <MJExtension.h>
+
 
 @implementation XNMessage
 
@@ -32,4 +34,21 @@
     
     return [arrayM copy];
 }
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super init]) {
+        [self mj_decode:aDecoder];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [self mj_encode:aCoder];
+}
+
+
+- (BOOL)isEqual:(XNMessage *)object {
+
+    return [self.time isEqual:object.time];
+}
+
 @end
