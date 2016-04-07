@@ -10,11 +10,15 @@
 #import "XNMessageTool.h"
 #import "XNTableViewCell.h"
 #import "XNColor.h"
+#import <Masonry.h>
+
 
 @interface XNCollectController ()
 
 /** 存放收藏的任务 */
 @property (nonatomic, strong) NSMutableArray *collectMessage;
+/** 没有收藏时显示的提醒图片 */
+@property(nonatomic, strong) UIImageView *noDataView;
 
 @end
 
@@ -29,6 +33,21 @@ static NSString * const ID = @"collect_cell";
         _collectMessage = [NSMutableArray array];
     }
     return _collectMessage;
+}
+- (UIImageView *)noDataView
+{
+    if (_noDataView == nil) {
+        _noDataView = [[UIImageView alloc] init];
+        _noDataView.image = [UIImage imageNamed:@"icon_collects_empty"];
+        [self.view addSubview:_noDataView];
+        // 约束
+        [_noDataView sizeToFit];
+        [_noDataView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.view.mas_centerX);
+            make.centerY.equalTo(self.view.mas_centerY).offset(-64);
+        }];;
+    }
+    return _noDataView;
 }
 
 #pragma mark - 初始化
@@ -57,14 +76,12 @@ static NSString * const ID = @"collect_cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSLog(@"%@",self.collectMessage);
-     self.navigationItem.rightBarButtonItem = self.editButtonItem;
-
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    self.noDataView.hidden = (self.collectMessage.count > 0);
     return self.collectMessage.count;
 }
 
