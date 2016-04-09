@@ -49,7 +49,7 @@
     self.messageView.message = self.message;
     
     // 自动布局
-    UIEdgeInsets padding = UIEdgeInsetsMake(5, 10, 5, 10);
+    UIEdgeInsets padding = UIEdgeInsetsMake(5, 20, 5, 0);
     [self.messageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self).insets(padding);
         

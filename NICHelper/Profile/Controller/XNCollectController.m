@@ -62,6 +62,7 @@ static NSString * const ID = @"collect_cell";
     [self.tableView registerClass:[XNTableViewCell class] forCellReuseIdentifier:ID];
     //设置 cell 的高度
     self.tableView.rowHeight = 180;
+    self.tableView.contentInset = UIEdgeInsetsMake(0, -10, 0, 0);
     //取消分割线
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     // 移除收据

@@ -9,18 +9,7 @@
 		<string></string>
 		<key>items</key>
 		<array>
-			<dict>
-				<key>accessory_img</key>
-				<string>arrow_right</string>
-				<key>accessory</key>
-				<string>UIImageView</string>
-				<key>icon</key>
-				<string>MoreMyFavorites</string>
-				<key>title</key>
-				<string>收藏</string>
-				<key>target_vc</key>
-				<string>XNCollectController</string>
-			</dict>
+			<dict/>
 		</array>
 	</dict>
 	<dict>
@@ -86,9 +75,11 @@
 		<array>
 			<dict>
 				<key>icon</key>
-				<string>MoreMyFavorites</string>
+				<string>ff_IconShowAlbum</string>
 				<key>title</key>
 				<string>清除缓存</string>
+				<key>function_name</key>
+				<string>clearMemory</string>
 			</dict>
 			<dict>
 				<key>accessory</key>
@@ -96,7 +87,7 @@
 				<key>accessory_img</key>
 				<string>arrow_right</string>
 				<key>icon</key>
-				<string>MoreSetting</string>
+				<string>MoreMyBankCard</string>
 				<key>title</key>
 				<string>帮助和反馈</string>
 				<key>target_vc</key>
@@ -104,9 +95,11 @@
 			</dict>
 			<dict>
 				<key>icon</key>
-				<string>MoreSetting</string>
+				<string>MoreGame</string>
 				<key>title</key>
 				<string>分享</string>
+				<key>function_name</key>
+				<string>shareAPP</string>
 			</dict>
 			<dict>
 				<key>accessory</key>
@@ -130,8 +123,12 @@
 		<key>items</key>
 		<array>
 			<dict>
+				<key>icon</key>
+				<string>ProfileLockOn</string>
 				<key>title</key>
-				<string>        退出登录</string>
+				<string>退出登录</string>
+				<key>function_name</key>
+				<string>Logout</string>
 			</dict>
 		</array>
 	</dict>

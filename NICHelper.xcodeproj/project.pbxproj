@@ -48,6 +48,7 @@
 		047D32931C94186E00CEEFC6 /* XNWeatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = 047D32921C94186E00CEEFC6 /* XNWeatherView.m */; };
 		049621E11C9D59EF0063AAAA /* XNPopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049621E01C9D59EF0063AAAA /* XNPopViewController.m */; };
 		04A759481CABC1840051D223 /* UIButton+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A759471CABC1840051D223 /* UIButton+Extension.m */; };
+		04D1A7631CB96576001743E6 /* XNMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D1A7621CB96576001743E6 /* XNMineViewController.m */; };
 		04D463661CAB84FB00C95E01 /* XNBlurEffectMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D463651CAB84FB00C95E01 /* XNBlurEffectMenu.m */; };
 		04D463681CAB852300C95E01 /* XNProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D463671CAB852300C95E01 /* XNProfileController.m */; };
 		04F4D75E1CAE5B380080C7D2 /* XNUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F4D75D1CAE5B380080C7D2 /* XNUserManager.m */; };
@@ -58,8 +59,8 @@
 /* Begin PBXFileReference section */
 		040439D21C9EE7EE002137D7 /* XNLocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNLocationController.h; sourceTree = "<group>"; };
 		040439D31C9EE7EE002137D7 /* XNLocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNLocationController.m; sourceTree = "<group>"; };
-		041173121C925CE7009AC6F9 /* NSString+XNTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+XNTool.h"; sourceTree = "<group>"; };
-		041173131C925CE7009AC6F9 /* NSString+XNTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XNTool.m"; sourceTree = "<group>"; };
+		041173121C925CE7009AC6F9 /* NSString+XNTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+XNTool.h"; path = "../Tools/NSString+XNTool.h"; sourceTree = "<group>"; };
+		041173131C925CE7009AC6F9 /* NSString+XNTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+XNTool.m"; path = "../Tools/NSString+XNTool.m"; sourceTree = "<group>"; };
 		0417F5F61C8DBA400071A6F0 /* XNColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XNColor.h; sourceTree = "<group>"; };
 		0417F5F71C8DCF430071A6F0 /* XNMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNMessage.h; sourceTree = "<group>"; };
 		0417F5F81C8DCF430071A6F0 /* XNMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNMessage.m; sourceTree = "<group>"; };
@@ -67,11 +68,11 @@
 		0417F5FB1C8DCF680071A6F0 /* XNMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNMessageCell.m; sourceTree = "<group>"; };
 		0417F5FD1C8DE2EA0071A6F0 /* XNMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNMessageView.h; sourceTree = "<group>"; };
 		0417F5FE1C8DE2EA0071A6F0 /* XNMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNMessageView.m; sourceTree = "<group>"; };
-		041E586D1C8EEA8E00E55132 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
-		041E586E1C8EEA8E00E55132 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		041E586D1C8EEA8E00E55132 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Extension.h"; path = "../Tools/UIView+Extension.h"; sourceTree = "<group>"; };
+		041E586E1C8EEA8E00E55132 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Extension.m"; path = "../Tools/UIView+Extension.m"; sourceTree = "<group>"; };
 		041E58701C8EF09300E55132 /* Message.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Message.plist; sourceTree = "<group>"; };
-		042226251C97940D004F1140 /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Log.h"; sourceTree = "<group>"; };
-		042226261C97940D004F1140 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
+		042226251C97940D004F1140 /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+Log.h"; path = "../Tools/NSArray+Log.h"; sourceTree = "<group>"; };
+		042226261C97940D004F1140 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+Log.m"; path = "../Tools/NSArray+Log.m"; sourceTree = "<group>"; };
 		042711751C9581BE00E6EFBB /* Weather.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Weather.json; sourceTree = "<group>"; };
 		042711771C95863100E6EFBB /* ShareManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareManager.h; sourceTree = "<group>"; };
 		042711781C95863100E6EFBB /* ShareManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareManager.m; sourceTree = "<group>"; };
@@ -128,8 +129,10 @@
 		048991291CAD048900B572BF /* LeanCloud.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeanCloud.pch; sourceTree = "<group>"; };
 		049621DF1C9D59EF0063AAAA /* XNPopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNPopViewController.h; sourceTree = "<group>"; };
 		049621E01C9D59EF0063AAAA /* XNPopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNPopViewController.m; sourceTree = "<group>"; };
-		04A759461CABC1840051D223 /* UIButton+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Extension.h"; sourceTree = "<group>"; };
-		04A759471CABC1840051D223 /* UIButton+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Extension.m"; sourceTree = "<group>"; };
+		04A759461CABC1840051D223 /* UIButton+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIButton+Extension.h"; path = "../Tools/UIButton+Extension.h"; sourceTree = "<group>"; };
+		04A759471CABC1840051D223 /* UIButton+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+Extension.m"; path = "../Tools/UIButton+Extension.m"; sourceTree = "<group>"; };
+		04D1A7611CB96576001743E6 /* XNMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNMineViewController.h; sourceTree = "<group>"; };
+		04D1A7621CB96576001743E6 /* XNMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNMineViewController.m; sourceTree = "<group>"; };
 		04D463641CAB84FB00C95E01 /* XNBlurEffectMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNBlurEffectMenu.h; sourceTree = "<group>"; };
 		04D463651CAB84FB00C95E01 /* XNBlurEffectMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNBlurEffectMenu.m; sourceTree = "<group>"; };
 		04D463671CAB852300C95E01 /* XNProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNProfileController.m; sourceTree = "<group>"; };
@@ -210,6 +213,7 @@
 		04529A2F1C8D9D3B0081CF4E /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				04AA98051CB8AA970087410F /* Category */,
 				047D328A1C93FB3000CEEFC6 /* HTTP */,
 				04EBA4BC1C931EE500BAEDA5 /* Lib */,
 				04529A301C8D9D3B0081CF4E /* Tools */,
@@ -220,19 +224,11 @@
 		04529A301C8D9D3B0081CF4E /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				042226251C97940D004F1140 /* NSArray+Log.h */,
-				042226261C97940D004F1140 /* NSArray+Log.m */,
 				0417F5F61C8DBA400071A6F0 /* XNColor.h */,
-				041173121C925CE7009AC6F9 /* NSString+XNTool.h */,
-				041173131C925CE7009AC6F9 /* NSString+XNTool.m */,
-				041E586D1C8EEA8E00E55132 /* UIView+Extension.h */,
-				041E586E1C8EEA8E00E55132 /* UIView+Extension.m */,
 				042711771C95863100E6EFBB /* ShareManager.h */,
 				042711781C95863100E6EFBB /* ShareManager.m */,
 				0477EA951C990C8C009F9394 /* XNProgressHUD.h */,
 				0477EA961C990C8C009F9394 /* XNProgressHUD.m */,
-				04A759461CABC1840051D223 /* UIButton+Extension.h */,
-				04A759471CABC1840051D223 /* UIButton+Extension.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -380,6 +376,8 @@
 				04D463671CAB852300C95E01 /* XNProfileController.m */,
 				04D463641CAB84FB00C95E01 /* XNBlurEffectMenu.h */,
 				04D463651CAB84FB00C95E01 /* XNBlurEffectMenu.m */,
+				04D1A7611CB96576001743E6 /* XNMineViewController.h */,
+				04D1A7621CB96576001743E6 /* XNMineViewController.m */,
 				0473B5D61C9C425E009DB447 /* XNCollectController.h */,
 				0473B5D71C9C425E009DB447 /* XNCollectController.m */,
 				0473B5D91C9C4350009DB447 /* XNShakeViewController.h */,
@@ -465,6 +463,21 @@
 				047D328C1C93FB9D00CEEFC6 /* NetworkTools.m */,
 			);
 			path = HTTP;
+			sourceTree = "<group>";
+		};
+		04AA98051CB8AA970087410F /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				042226251C97940D004F1140 /* NSArray+Log.h */,
+				042226261C97940D004F1140 /* NSArray+Log.m */,
+				041173121C925CE7009AC6F9 /* NSString+XNTool.h */,
+				041173131C925CE7009AC6F9 /* NSString+XNTool.m */,
+				041E586D1C8EEA8E00E55132 /* UIView+Extension.h */,
+				041E586E1C8EEA8E00E55132 /* UIView+Extension.m */,
+				04A759461CABC1840051D223 /* UIButton+Extension.h */,
+				04A759471CABC1840051D223 /* UIButton+Extension.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 		04EBA4BC1C931EE500BAEDA5 /* Lib */ = {
@@ -664,6 +677,7 @@
 				04A759481CABC1840051D223 /* UIButton+Extension.m in Sources */,
 				04529A4E1C8D9D3B0081CF4E /* XNMainTabBarViewController.m in Sources */,
 				047D32931C94186E00CEEFC6 /* XNWeatherView.m in Sources */,
+				04D1A7631CB96576001743E6 /* XNMineViewController.m in Sources */,
 				04D463661CAB84FB00C95E01 /* XNBlurEffectMenu.m in Sources */,
 				0473B5DB1C9C4350009DB447 /* XNShakeViewController.m in Sources */,
 			);

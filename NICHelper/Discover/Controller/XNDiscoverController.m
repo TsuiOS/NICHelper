@@ -24,6 +24,8 @@
 
 #define  ViewDidScrollOffset   394.0
 static NSString *ID = @"discover_cell";
+NSString *const cityKey = @"cityKey";
+NSString *const provinceKey = @"provinceKey";
 
 
 @interface XNDiscoverController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
@@ -66,8 +68,8 @@ static NSString *ID = @"discover_cell";
         weakSelf.city = [city substringToIndex:[city length] - 1];
         weakSelf.province = province;
         //偏好设置
-        [[NSUserDefaults standardUserDefaults] setObject:weakSelf.city forKey:@"city"];
-        [[NSUserDefaults standardUserDefaults] setObject:weakSelf.province forKey:@"province"];
+        [[NSUserDefaults standardUserDefaults] setObject:weakSelf.city forKey:cityKey];
+        [[NSUserDefaults standardUserDefaults] setObject:weakSelf.province forKey:provinceKey];
         [[NSUserDefaults standardUserDefaults]synchronize];
     };
     
@@ -205,8 +207,8 @@ static NSString *ID = @"discover_cell";
     
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *city = [userDefaults objectForKey:@"city"];
-    NSString *province = [userDefaults objectForKey:@"province"];
+    NSString *city = [userDefaults objectForKey:cityKey];
+    NSString *province = [userDefaults objectForKey:provinceKey];
     
     if (city == nil || province == nil) return;
     [XNProgressHUD show];
@@ -215,7 +217,6 @@ static NSString *ID = @"discover_cell";
         
         [XNProgressHUD dismiss];
         if (error) {
-            NSLog(@"%@",error);
             [XNProgressHUD showInfoWithStatus:@"世界上最遥远的距离就是没网"];
             return;
         }

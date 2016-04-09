@@ -11,6 +11,8 @@
 #import "XNProfileCell.h"
 #import "XNProfileDetailCell.h"
 #import "XNBlurEffectMenu.h"
+#import "XNMineViewController.h"
+#import "ShareManager.h"
 
 @interface XNProfileController ()
 
@@ -47,7 +49,7 @@
     
     [super viewDidLoad];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"登录" style: UIBarButtonItemStylePlain target:self action:@selector(loginClick)];
-    
+
     // 注册通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess:) name:kQQLoginNotification object:nil];
     
@@ -142,8 +144,15 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    
+    
     UIViewController *destVC = nil;
+    
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        destVC = [[XNMineViewController alloc]init];
+        [self.navigationController pushViewController:destVC animated:YES];
+        return;
+    }
     
     // 获取数据
     NSDictionary *group = self.infoSettings[indexPath.section];
@@ -156,10 +165,43 @@
         //把字符串转换成类名
         Class TargetClass = NSClassFromString(targetClassName);
         destVC = [TargetClass new];
+        
+        destVC.navigationItem.title = item[@"title"];
+        
+        [self.navigationController pushViewController:destVC animated:YES];
     }
-    destVC.navigationController.title = item[@"title"];
-    
-    [self.navigationController pushViewController:destVC animated:YES];
+   
+    //判断是否需要执行一段代码
+    //1.判断是否有function_name这个key
+    if ([item[@"function_name"] length] > 0) {
+        //表示有对应的函数执行
+        SEL func = NSSelectorFromString(item[@"function_name"]);
+        
+        //执行这个方法
+        //调用func之前,有先判断当前控制器中是否实现了这个方法
+        if ([self respondsToSelector:func]) {
+            [self performSelector:func];
+        }
+        
+    }
+
+}
+
+// 清理缓存
+- (void)clearMemory {
+
+    NSLog(@"清理缓存");
+}
+// 分享 APP
+- (void)shareAPP {
+
+    [ShareManager shareToPlatform:self shareText:@"我正在使用聊城大学网络中心助手" shareImage:nil delegate:nil];
+
+}
+
+// 退出登录
+- (void)Logout {
+    NSLog(@"退出登录");
 
 }
 

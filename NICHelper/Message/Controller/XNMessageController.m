@@ -54,12 +54,12 @@ static NSString *ID = @"message_cell";
         [weakSelf.tableView.mj_header endRefreshing];
     }];
     
-    //设置 header
-    self.tableView.mj_header = header;
     [header setTitle:@"我不耐烦,我要的我现在就要" forState:MJRefreshStateIdle];
     [header setTitle:@"我不耐烦,我要的我现在就要" forState:MJRefreshStatePulling];
     [header setTitle:@"正在加载..." forState:MJRefreshStateRefreshing];
     
+    //设置 header
+    self.tableView.mj_header = header;
     //上拉加载
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         // 进入刷新状态后会自动调用这个block
@@ -82,11 +82,12 @@ static NSString *ID = @"message_cell";
     self.addButton.size = self.addButton.currentBackgroundImage.size;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:self.addButton];
     // 设置背景颜色
-    self.view.backgroundColor = [UIColor clearColor]; //DEFAULT_BACKGROUND_COLOR;
+    self.tableView.backgroundColor = [UIColor clearColor]; //DEFAULT_BACKGROUND_COLOR;
     // 注册 cell
     [self.tableView registerClass:[XNMessageCell class] forCellReuseIdentifier:ID];
     //设置 cell 的高度
     self.tableView.rowHeight = 180;
+    self.tableView.contentInset = UIEdgeInsetsMake(0, -10, 0, 0);
     //取消分割线
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
@@ -103,7 +104,6 @@ static NSString *ID = @"message_cell";
     UIPopoverPresentationController *popVC = self.menuView.popoverPresentationController;
     //设置代理
     popVC.delegate = self;
-    popVC.backgroundColor = DEFAULT_NAVBAR_COLOR;
     popVC.sourceView = self.addButton;
     popVC.sourceRect = CGRectMake(0, 5, self.addButton.width, self.addButton.height);
  
@@ -160,14 +160,13 @@ static NSString *ID = @"message_cell";
     UITableViewRowAction *sharedAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"    " handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
         //相关逻辑
         [self UMSharedToPlatform];
-
         // 在最后希望cell可以自动回到默认状态，所以需要退出编辑模式
         tableView.editing = NO;
-        NSLog(@"分享");
     }];
     UITableViewRowAction *likeAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"    " handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
-        NSLog(@"收藏");
+        
     }];
+    
     //换成图片最简单的方式,但是需要素材合适
 //    likeAction.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"barbuttonicon_Operate"]];
     likeAction.backgroundColor = [UIColor clearColor];
@@ -175,6 +174,7 @@ static NSString *ID = @"message_cell";
     return @[likeAction,sharedAction];
 
 }
+
 /**
  *  友盟分享
  */

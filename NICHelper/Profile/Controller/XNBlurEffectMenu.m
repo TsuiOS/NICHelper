@@ -19,6 +19,8 @@
 #define kLoginX     (DEFAULT_WIDTH - kLoginW) / 2
 #define kLoginH     44
 
+// 通知字符串定义
+NSString *const kQQLoginNotification = @"kQQLoginNotification";
 
 @interface XNBlurEffectMenu ()
 
@@ -154,7 +156,7 @@
             NSDictionary *userDict = @{@"username":object[@"username"],
                                        @"iconURL":object[@"avatar"]};
             // 发布通知
-            [[NSNotificationCenter defaultCenter] postNotificationName:kQQLoginNotification object:nil userInfo:userDict];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kQQLoginNotification object:@(YES) userInfo:userDict];
             [self dismissViewControllerAnimated:YES completion:nil];
 //            //注册用户
 //            [self.manager registerWithUserName:object[@"username"] password:object[@"avatar"]finished:^(BOOL succeeded, NSError *error) {

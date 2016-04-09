@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-
+extern NSString *const cityKey;
+extern NSString *const provinceKey;
 @interface XNDiscoverController : UIViewController
 
 

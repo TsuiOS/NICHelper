@@ -11,7 +11,6 @@
 
 @interface XNMessageCell ()
 
-
 @end
 
 @implementation XNMessageCell
@@ -70,7 +69,6 @@
         [XNMessageTool collect:self.message];
     
     }
-    
     button.selected = !button.selected;
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -78,6 +76,8 @@
     });
 
 }
+
+
 
 
 @end
