@@ -206,5 +206,10 @@ static NSString *ID = @"message_cell";
 }
 
 
+- (void)dealloc {
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 
 @end
