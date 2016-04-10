@@ -15,6 +15,8 @@
 #import "UIView+Extension.h"
 #import "MJRefresh.h"
 #import "XNPopViewController.h"
+#import "XNComposeController.h"
+#import "XNBaseNavigationController.h"
 
 @interface XNMessageController () <UITableViewDelegate,UIPopoverPresentationControllerDelegate>
 
@@ -40,6 +42,7 @@ static NSString *ID = @"message_cell";
     [self configTableView];
     [self refreshCustom];
     
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(addMessage:) name:kDismissNotification object:nil];
     
 }
 // 刷新
@@ -111,6 +114,20 @@ static NSString *ID = @"message_cell";
     [self presentViewController:self.menuView animated:YES completion:nil];
     
 
+}
+
+- (void)addMessage:(NSNotification *)notification {
+    
+    // 由通知把跳转控制器以字符串传过来,这边把字符串转换成类
+    NSString *targetClassName = notification.userInfo[@"viewControllerName"];
+    
+    Class targetClass = NSClassFromString(targetClassName);
+    
+    UIViewController *desVC = [targetClass new];
+    
+    XNBaseNavigationController *nvc = [[XNBaseNavigationController alloc]initWithRootViewController:desVC];
+    [self presentViewController:nvc animated:YES completion:nil];
+    
 }
 
 - (UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller{

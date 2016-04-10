@@ -23,7 +23,6 @@
 		04529A1A1C8D9C400081CF4E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04529A191C8D9C400081CF4E /* main.m */; };
 		04529A1D1C8D9C400081CF4E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04529A1C1C8D9C400081CF4E /* AppDelegate.m */; };
 		04529A251C8D9C400081CF4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04529A241C8D9C400081CF4E /* Assets.xcassets */; };
-		04529A4C1C8D9D3B0081CF4E /* XNComposeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04529A341C8D9D3B0081CF4E /* XNComposeController.m */; };
 		04529A4D1C8D9D3B0081CF4E /* XNBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04529A3A1C8D9D3B0081CF4E /* XNBaseNavigationController.m */; };
 		04529A4E1C8D9D3B0081CF4E /* XNMainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04529A3C1C8D9D3B0081CF4E /* XNMainTabBarViewController.m */; };
 		04529A4F1C8D9D3B0081CF4E /* XNMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04529A431C8D9D3B0081CF4E /* XNMessageController.m */; };
@@ -49,6 +48,13 @@
 		047D328D1C93FB9D00CEEFC6 /* NetworkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 047D328C1C93FB9D00CEEFC6 /* NetworkTools.m */; };
 		047D32931C94186E00CEEFC6 /* XNWeatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = 047D32921C94186E00CEEFC6 /* XNWeatherView.m */; };
 		049621E11C9D59EF0063AAAA /* XNPopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049621E01C9D59EF0063AAAA /* XNPopViewController.m */; };
+		049D8E7A1CBA4921001D1C67 /* XNAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D8E791CBA4921001D1C67 /* XNAboutViewController.m */; };
+		049D8E7D1CBA4945001D1C67 /* XNAboutHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D8E7C1CBA4945001D1C67 /* XNAboutHeader.m */; };
+		049D8E7F1CBA4950001D1C67 /* XNAboutHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049D8E7E1CBA4950001D1C67 /* XNAboutHeader.xib */; };
+		049D8E821CBA5084001D1C67 /* XNHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D8E811CBA5084001D1C67 /* XNHelpViewController.m */; };
+		049D8E841CBA51BD001D1C67 /* XNCompseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049D8E831CBA51BD001D1C67 /* XNCompseView.xib */; };
+		049D8E881CBA5443001D1C67 /* XNComposeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D8E861CBA5443001D1C67 /* XNComposeController.m */; };
+		049D8E891CBA5443001D1C67 /* XNComposeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049D8E871CBA5443001D1C67 /* XNComposeController.xib */; };
 		04A759481CABC1840051D223 /* UIButton+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A759471CABC1840051D223 /* UIButton+Extension.m */; };
 		04D1A7631CB96576001743E6 /* XNMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D1A7621CB96576001743E6 /* XNMineViewController.m */; };
 		04D463661CAB84FB00C95E01 /* XNBlurEffectMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D463651CAB84FB00C95E01 /* XNBlurEffectMenu.m */; };
@@ -90,8 +96,6 @@
 		04529A1C1C8D9C400081CF4E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../../AppDelegate.m; sourceTree = "<group>"; };
 		04529A241C8D9C400081CF4E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04529A291C8D9C400081CF4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		04529A331C8D9D3B0081CF4E /* XNComposeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XNComposeController.h; path = ../../Compose/Controller/XNComposeController.h; sourceTree = "<group>"; };
-		04529A341C8D9D3B0081CF4E /* XNComposeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XNComposeController.m; path = ../../Compose/Controller/XNComposeController.m; sourceTree = "<group>"; };
 		04529A391C8D9D3B0081CF4E /* XNBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNBaseNavigationController.h; sourceTree = "<group>"; };
 		04529A3A1C8D9D3B0081CF4E /* XNBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNBaseNavigationController.m; sourceTree = "<group>"; };
 		04529A3B1C8D9D3B0081CF4E /* XNMainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNMainTabBarViewController.h; sourceTree = "<group>"; };
@@ -135,6 +139,17 @@
 		048991291CAD048900B572BF /* LeanCloud.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeanCloud.pch; sourceTree = "<group>"; };
 		049621DF1C9D59EF0063AAAA /* XNPopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNPopViewController.h; sourceTree = "<group>"; };
 		049621E01C9D59EF0063AAAA /* XNPopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNPopViewController.m; sourceTree = "<group>"; };
+		049D8E781CBA4921001D1C67 /* XNAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNAboutViewController.h; sourceTree = "<group>"; };
+		049D8E791CBA4921001D1C67 /* XNAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNAboutViewController.m; sourceTree = "<group>"; };
+		049D8E7B1CBA4945001D1C67 /* XNAboutHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNAboutHeader.h; sourceTree = "<group>"; };
+		049D8E7C1CBA4945001D1C67 /* XNAboutHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNAboutHeader.m; sourceTree = "<group>"; };
+		049D8E7E1CBA4950001D1C67 /* XNAboutHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XNAboutHeader.xib; sourceTree = "<group>"; };
+		049D8E801CBA5084001D1C67 /* XNHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNHelpViewController.h; sourceTree = "<group>"; };
+		049D8E811CBA5084001D1C67 /* XNHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNHelpViewController.m; sourceTree = "<group>"; };
+		049D8E831CBA51BD001D1C67 /* XNCompseView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XNCompseView.xib; sourceTree = "<group>"; };
+		049D8E851CBA5443001D1C67 /* XNComposeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNComposeController.h; sourceTree = "<group>"; };
+		049D8E861CBA5443001D1C67 /* XNComposeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNComposeController.m; sourceTree = "<group>"; };
+		049D8E871CBA5443001D1C67 /* XNComposeController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XNComposeController.xib; sourceTree = "<group>"; };
 		04A759461CABC1840051D223 /* UIButton+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIButton+Extension.h"; path = "../Tools/UIButton+Extension.h"; sourceTree = "<group>"; };
 		04A759471CABC1840051D223 /* UIButton+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+Extension.m"; path = "../Tools/UIButton+Extension.m"; sourceTree = "<group>"; };
 		04D1A7611CB96576001743E6 /* XNMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNMineViewController.h; sourceTree = "<group>"; };
@@ -306,8 +321,9 @@
 				049621E01C9D59EF0063AAAA /* XNPopViewController.m */,
 				0438ABC71CB9FC7B00D888F2 /* XNRepairsController.h */,
 				0438ABC81CB9FC7B00D888F2 /* XNRepairsController.m */,
-				04529A331C8D9D3B0081CF4E /* XNComposeController.h */,
-				04529A341C8D9D3B0081CF4E /* XNComposeController.m */,
+				049D8E851CBA5443001D1C67 /* XNComposeController.h */,
+				049D8E861CBA5443001D1C67 /* XNComposeController.m */,
+				049D8E871CBA5443001D1C67 /* XNComposeController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -330,6 +346,7 @@
 				0417F5FB1C8DCF680071A6F0 /* XNMessageCell.m */,
 				0417F5FD1C8DE2EA0071A6F0 /* XNMessageView.h */,
 				0417F5FE1C8DE2EA0071A6F0 /* XNMessageView.m */,
+				049D8E831CBA51BD001D1C67 /* XNCompseView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -360,6 +377,10 @@
 				0473B5DA1C9C4350009DB447 /* XNShakeViewController.m */,
 				0473B5DC1C9C437F009DB447 /* XNScanViewController.h */,
 				0473B5DD1C9C437F009DB447 /* XNScanViewController.m */,
+				049D8E781CBA4921001D1C67 /* XNAboutViewController.h */,
+				049D8E791CBA4921001D1C67 /* XNAboutViewController.m */,
+				049D8E801CBA5084001D1C67 /* XNHelpViewController.h */,
+				049D8E811CBA5084001D1C67 /* XNHelpViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -380,6 +401,9 @@
 				0473B5E01C9C4C4A009DB447 /* XNProfileCell.m */,
 				0473B5E21C9C5004009DB447 /* XNProfileDetailCell.h */,
 				0473B5E31C9C5004009DB447 /* XNProfileDetailCell.m */,
+				049D8E7B1CBA4945001D1C67 /* XNAboutHeader.h */,
+				049D8E7C1CBA4945001D1C67 /* XNAboutHeader.m */,
+				049D8E7E1CBA4950001D1C67 /* XNAboutHeader.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -566,6 +590,9 @@
 				041E58711C8EF09300E55132 /* Message.plist in Resources */,
 				042711761C9581BE00E6EFBB /* Weather.json in Resources */,
 				04529A251C8D9C400081CF4E /* Assets.xcassets in Resources */,
+				049D8E891CBA5443001D1C67 /* XNComposeController.xib in Resources */,
+				049D8E7F1CBA4950001D1C67 /* XNAboutHeader.xib in Resources */,
+				049D8E841CBA51BD001D1C67 /* XNCompseView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -624,7 +651,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04529A4C1C8D9D3B0081CF4E /* XNComposeController.m in Sources */,
 				0417F5F91C8DCF430071A6F0 /* XNMessage.m in Sources */,
 				04D463681CAB852300C95E01 /* XNProfileController.m in Sources */,
 				04529A4D1C8D9D3B0081CF4E /* XNBaseNavigationController.m in Sources */,
@@ -650,13 +676,17 @@
 				049621E11C9D59EF0063AAAA /* XNPopViewController.m in Sources */,
 				045716131CB66BAD0030E924 /* XNTableViewCell.m in Sources */,
 				040439D41C9EE7EE002137D7 /* XNLocationController.m in Sources */,
+				049D8E7A1CBA4921001D1C67 /* XNAboutViewController.m in Sources */,
 				044218701C93C20C008B1F50 /* XNCoverView.m in Sources */,
 				04529A1D1C8D9C400081CF4E /* AppDelegate.m in Sources */,
 				04529A1A1C8D9C400081CF4E /* main.m in Sources */,
 				04A759481CABC1840051D223 /* UIButton+Extension.m in Sources */,
 				0438ABCE1CBA311F00D888F2 /* XNUserInfoModel.m in Sources */,
 				04529A4E1C8D9D3B0081CF4E /* XNMainTabBarViewController.m in Sources */,
+				049D8E881CBA5443001D1C67 /* XNComposeController.m in Sources */,
+				049D8E821CBA5084001D1C67 /* XNHelpViewController.m in Sources */,
 				047D32931C94186E00CEEFC6 /* XNWeatherView.m in Sources */,
+				049D8E7D1CBA4945001D1C67 /* XNAboutHeader.m in Sources */,
 				04D1A7631CB96576001743E6 /* XNMineViewController.m in Sources */,
 				04D463661CAB84FB00C95E01 /* XNBlurEffectMenu.m in Sources */,
 				0473B5DB1C9C4350009DB447 /* XNShakeViewController.m in Sources */,

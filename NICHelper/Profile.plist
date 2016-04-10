@@ -91,7 +91,7 @@
 				<key>title</key>
 				<string>帮助和反馈</string>
 				<key>target_vc</key>
-				<string>XNCollectController</string>
+				<string>XNHelpViewController</string>
 			</dict>
 			<dict>
 				<key>icon</key>
@@ -111,7 +111,7 @@
 				<key>title</key>
 				<string>关于</string>
 				<key>target_vc</key>
-				<string>XNCollectController</string>
+				<string>XNAboutViewController</string>
 			</dict>
 		</array>
 	</dict>

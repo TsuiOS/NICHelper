@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="请输入标题" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c7J-oJ-QdA">
+                    <rect key="frame" x="30" y="30" width="545" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Fcu-xk-FTm"/>
+                    </constraints>
+                    <attributedString key="attributedText"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tn9-e2-tUQ">
+                    <rect key="frame" x="30" y="65" width="540" height="1"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="T4D-HQ-vvW"/>
+                    </constraints>
+                </view>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t2g-VF-Wr2">
+                    <rect key="frame" x="30" y="71" width="545" height="499"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <attributedString key="attributedText">
+                        <fragment content="请输入正文">
+                            <attributes>
+                                <font key="NSFont" size="14" name="STHeitiSC-Light"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="c7J-oJ-QdA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="2Ed-wR-12R"/>
+                <constraint firstItem="Tn9-e2-tUQ" firstAttribute="top" secondItem="c7J-oJ-QdA" secondAttribute="bottom" constant="5" id="31e-rl-hjU"/>
+                <constraint firstAttribute="trailing" secondItem="c7J-oJ-QdA" secondAttribute="trailing" constant="25" id="6rN-Xz-XSj"/>
+                <constraint firstAttribute="trailing" secondItem="Tn9-e2-tUQ" secondAttribute="trailing" constant="30" id="8vy-g1-6sA"/>
+                <constraint firstItem="c7J-oJ-QdA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="Nmq-jh-ple"/>
+                <constraint firstItem="t2g-VF-Wr2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="YfO-eJ-KHn"/>
+                <constraint firstItem="Tn9-e2-tUQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="dU0-OA-GZi"/>
+                <constraint firstAttribute="bottom" secondItem="t2g-VF-Wr2" secondAttribute="bottom" constant="30" id="e26-gz-sZO"/>
+                <constraint firstItem="t2g-VF-Wr2" firstAttribute="top" secondItem="Tn9-e2-tUQ" secondAttribute="bottom" constant="5" id="fx1-Kg-DBa"/>
+                <constraint firstAttribute="trailing" secondItem="t2g-VF-Wr2" secondAttribute="trailing" constant="25" id="jx9-yW-4c7"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

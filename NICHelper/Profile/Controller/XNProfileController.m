@@ -172,7 +172,7 @@
         //把字符串转换成类名
         Class TargetClass = NSClassFromString(targetClassName);
         destVC = [TargetClass new];
-        
+                
         destVC.navigationItem.title = item[@"title"];
         
         [self.navigationController pushViewController:destVC animated:YES];
@@ -183,11 +183,14 @@
     if ([item[@"function_name"] length] > 0) {
         //表示有对应的函数执行
         SEL func = NSSelectorFromString(item[@"function_name"]);
-        
+
         //执行这个方法
         //调用func之前,有先判断当前控制器中是否实现了这个方法
         if ([self respondsToSelector:func]) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored"-Warc-performSelector-leaks"
             [self performSelector:func];
+#pragma clang diagnostic pop       
         }
         
     }
@@ -205,7 +208,6 @@
     [ShareManager shareToPlatform:self shareText:@"我正在使用聊城大学网络中心助手" shareImage:nil delegate:nil];
 
 }
-
 // 退出登录
 - (void)Logout {
     NSLog(@"退出登录");

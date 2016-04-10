@@ -13,6 +13,8 @@
 #import "XNRepairsController.h"
 #import "XNComposeController.h"
 
+NSString *const kDismissNotification = @"kDismissNotification";
+
 @interface XNPopViewController ()
 
 @property (nonatomic, strong) NSArray *arrayList;
@@ -65,21 +67,23 @@
     
     if (indexPath.row == 0) {
         
-        [self presentViewController:[XNRepairsController new]];
+        [self presentViewController:@"XNRepairsController"];
 
     } else if (indexPath.row == 1) {
         
-        [self presentViewController:[XNComposeController new]];
+        [self presentViewController:@"XNComposeController"];
 
     } else {
-        [self presentViewController:[XNCollectController new]];
+        [self presentViewController:@"XNCollectController"];
     }
 }
 
-- (void)presentViewController:(UIViewController *)viewController {
+- (void)presentViewController:(NSString *)viewControllerName {
 
-    XNBaseNavigationController *nvc = [[XNBaseNavigationController alloc]initWithRootViewController:viewController];
-    [self presentViewController:nvc animated:YES completion:nil];
+    NSDictionary *userInfo = @{@"viewControllerName":viewControllerName};
+    [self dismissViewControllerAnimated:YES completion:^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:kDismissNotification object:nil userInfo:userInfo];
+    }];
 }
 
 
