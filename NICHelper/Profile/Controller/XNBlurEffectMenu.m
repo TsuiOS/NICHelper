@@ -22,14 +22,16 @@
 // 通知字符串定义
 NSString *const kQQLoginNotification = @"kQQLoginNotification";
 
-@interface XNBlurEffectMenu ()
+@interface XNBlurEffectMenu ()<UITextFieldDelegate>
 
 /** QQ登录按钮 */
 @property (nonatomic, strong) UIButton *QQLogin;
 /** 微信登录按钮 */
-@property (nonatomic, strong) UIButton *weChatLogin;
+@property (nonatomic, strong) UIButton *tokenLogin;
 
+@property (nonatomic, strong) UITextField *tokenText;
 @property (nonatomic, strong) XNUserManager *manager;
+@property (nonatomic, strong) NSString *token;
 
 @end
 
@@ -91,18 +93,28 @@ NSString *const kQQLoginNotification = @"kQQLoginNotification";
     [self.view addSubview:visualEffectView];
     
     // 4. 创建子控件
-    UIButton *QQLogin = [UIButton creatWithImageName:@"qq" title:@"QQ登录" backgroundColor:XNColor(67, 158, 241, 1)];
-    [QQLogin addTarget:self action:@selector(QQLoginClick) forControlEvents:UIControlEventTouchUpInside];
-    QQLogin.frame = CGRectMake(kLoginX, -300, kLoginW, kLoginH);
-    self.QQLogin = QQLogin;
+    UITextField *tokenText = [[UITextField alloc]init];
+    [tokenText becomeFirstResponder];
+    tokenText.layer.borderColor = XNColor(67, 158, 241, 1).CGColor;
+    tokenText.layer.borderWidth = 1.0;
+    tokenText.layer.cornerRadius = 5.0;
+    tokenText.delegate = self;
+    NSString *userToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"token"];
+    if (userToken.length) {
+      tokenText.text = userToken;
+    }
+    tokenText.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"请输入Token登录" attributes:@{NSForegroundColorAttributeName:[UIColor blackColor],NSFontAttributeName:[UIFont systemFontOfSize:14]}];
     
-    UIButton *weChatLogin = [UIButton creatWithImageName:@"appwx_logo" title:@"微信登录" backgroundColor: XNColor(83, 209, 14, 1)];
-    [weChatLogin addTarget:self action:@selector(weChatLoginClick) forControlEvents:UIControlEventTouchUpInside];
-    weChatLogin.frame = CGRectMake(kLoginX, CGRectGetMaxY(QQLogin.frame) + 20, kLoginW, kLoginH);
-    self.weChatLogin = weChatLogin;
+    tokenText.frame = CGRectMake(kLoginX, -300, kLoginW, kLoginH);
+    self.tokenText = tokenText;
     
-    [self.view addSubview:QQLogin];
-    [self.view addSubview:weChatLogin];
+    UIButton *tokenLogin = [UIButton creatWithTitle:@"登  录" backgroundColor: XNColor(83, 209, 14, 1)];
+    [tokenLogin addTarget:self action:@selector(tokenLoginClick) forControlEvents:UIControlEventTouchUpInside];
+    tokenLogin.frame = CGRectMake(kLoginX, CGRectGetMaxY(tokenText.frame) + 20, kLoginW, kLoginH);
+    self.tokenLogin = tokenLogin;
+    
+    [self.view addSubview:tokenText];
+    [self.view addSubview:tokenLogin];
     
     
     // 自定义 button 出现动画
@@ -114,8 +126,8 @@ NSString *const kQQLoginNotification = @"kQQLoginNotification";
                             options:UIViewAnimationOptionCurveEaseOut
                          animations:^{
                              
-            [QQLogin setFrame:CGRectMake(kLoginX, DEFAULT_HEIGTH / 2, kLoginW, kLoginH)];
-            [weChatLogin setFrame:CGRectMake(kLoginX, CGRectGetMaxY(QQLogin.frame) + 20, kLoginW, kLoginH)];
+            [tokenText setFrame:CGRectMake(kLoginX, DEFAULT_HEIGTH / 2 - 44, kLoginW, kLoginH)];
+            [tokenLogin setFrame:CGRectMake(kLoginX, CGRectGetMaxY(tokenText.frame) + 20, kLoginW, kLoginH)];
             
         } completion:nil];
         
@@ -126,14 +138,16 @@ NSString *const kQQLoginNotification = @"kQQLoginNotification";
 #pragma mark - private method
 - (void)didTapOnBackground {
     
+    [self.tokenText resignFirstResponder];
+    
     [UIView animateWithDuration:1.0
                           delay:0.2
          usingSpringWithDamping:1.0
           initialSpringVelocity:10.0
                         options:UIViewAnimationOptionCurveEaseOut
                      animations:^{
-                         self.QQLogin.frame = CGRectMake(kLoginX, -300, kLoginW, kLoginH);
-                         self.weChatLogin.frame = CGRectMake(kLoginX, CGRectGetMaxY(self.QQLogin.frame) + 20, kLoginW, kLoginH);
+                         self.tokenText.frame = CGRectMake(kLoginX, -300, kLoginW, kLoginH);
+                         self.tokenLogin.frame = CGRectMake(kLoginX, CGRectGetMaxY(self.tokenText.frame) + 20, kLoginW, kLoginH);
                      } completion:nil];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -143,62 +157,29 @@ NSString *const kQQLoginNotification = @"kQQLoginNotification";
 
 }
 
-- (void)QQLoginClick {
-    
-    [AVOSCloudSNS setupPlatform:AVOSCloudSNSQQ withAppKey:@"1105241256" andAppSecret:@"HwpE6vKKoQfe8Dhg" andRedirectURI:nil];
-   
-    [AVOSCloudSNS loginWithCallback:^(id object, NSError *error) {
-        if (error) {
-            NSLog(@"授权失败");
-        } else {
-            NSLog(@"%@",object);
-            
-            NSDictionary *userDict = @{@"username":object[@"username"],
-                                       @"iconURL":object[@"avatar"]};
-            // 发布通知
-            [[NSNotificationCenter defaultCenter] postNotificationName:kQQLoginNotification object:@(YES) userInfo:userDict];
-            [self dismissViewControllerAnimated:YES completion:nil];
-//            //注册用户
-//            [self.manager registerWithUserName:object[@"username"] password:object[@"avatar"]finished:^(BOOL succeeded, NSError *error) {
-//                if ([self filterError:error]) {
-//                    
-//                }
-//                //注册失败
-//            }];
 
-        }
-    } toPlatform:AVOSCloudSNSQQ];
-    
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
 
+    
 }
-- (BOOL)filterError:(NSError *)error {
-    if (error) {
-        [XNProgressHUD showInfoWithStatus:@"授权失败"];
-        return NO;
-    }
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    
+    self.token = textField.text;
+    [[NSUserDefaults standardUserDefaults] setObject:textField.text forKey:@"token"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+
+    [textField resignFirstResponder];
     return YES;
 }
-
-- (void)weChatLoginClick {
+- (void)tokenLoginClick {
     
-    UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToQQ];
-    
-    snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
-        
-        // 获取QQ用户名、uid、token等
-        if (response.responseCode == UMSResponseCodeSuccess) {
-            
-            UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:UMShareToQQ];
-            
-            NSDictionary *userDict = @{@"username":snsAccount.userName,
-                                       @"iconURL":snsAccount.iconURL};
-            // 发布通知
-            [[NSNotificationCenter defaultCenter] postNotificationName:kQQLoginNotification object:nil userInfo:userDict];
-            
-        }});
-    
+    [[NSNotificationCenter defaultCenter]postNotificationName:kQQLoginNotification object:nil userInfo:@{@"token":self.token}];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+
 
 
 

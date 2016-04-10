@@ -45,6 +45,7 @@
 
     if (_avatarImageView == nil) {
         _avatarImageView = [[UIImageView alloc]init];
+        _avatarImageView.image = [UIImage imageNamed:@"avatar_default_big"];
         _avatarImageView.layer.cornerRadius = 30;
         _avatarImageView.layer.masksToBounds = YES;
     }
@@ -90,13 +91,14 @@
     }];
 
 }
-
-- (void)setUserDict:(NSDictionary *)userDict {
+- (void)setUserInfo:(XNUserInfoModel *)userInfo {
     
-        _userDict = userDict;
-    self.userNameLabel.text = userDict[@"username"];
-    [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:userDict[@"iconURL"]] placeholderImage:[UIImage imageNamed:@"avatar_default_big"]];
-
+    NSLog(@"%@",userInfo);
+    _userInfo = userInfo;
+    self.userNameLabel.text = userInfo.nickname;
+    
+//    [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:nil] placeholderImage:[UIImage imageNamed:@"avatar_default_big"]];
+    self.userIDLabel.text = userInfo.phone;
 }
 
 

@@ -10,15 +10,13 @@
 
 @implementation UIButton (Extension)
 
-+ (UIButton *)creatWithImageName:(NSString *)imageName
-                           title:(NSString *)title
++ (UIButton *)creatWithTitle:(NSString *)title
                  backgroundColor:(UIColor *)color {
 
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.layer.cornerRadius = 5;
     button.layer.masksToBounds = YES;
     
-    [button setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
     [button setTitle:title forState:UIControlStateNormal];
     [button setBackgroundColor:color];
     [button setTintColor:[UIColor whiteColor]];

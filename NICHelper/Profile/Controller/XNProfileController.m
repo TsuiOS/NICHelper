@@ -13,11 +13,14 @@
 #import "XNBlurEffectMenu.h"
 #import "XNMineViewController.h"
 #import "ShareManager.h"
+#import "NetworkTools.h"
+#import <MJExtension.h>
+#import "XNUserInfoModel.h"
 
 @interface XNProfileController ()
 
 @property (nonatomic, strong) NSArray *infoSettings;
-@property (nonatomic, strong) NSDictionary *userDict;
+@property (nonatomic, strong) NSArray *userArray;
 
 @end
 
@@ -57,8 +60,12 @@
 
 - (void)loginSuccess:(NSNotification *)notification {
     
-    self.userDict = notification.userInfo;
-    [self.tableView reloadData];
+    
+    [[NetworkTools sharedTools]loadUserInfoWithToken:notification.userInfo[@"token"] finished:^(id result, NSError *error) {
+ 
+        self.userArray = [XNUserInfoModel mj_objectArrayWithKeyValuesArray:result];
+        [self.tableView reloadData];
+    }];
 }
 
 - (void)dealloc {
@@ -101,7 +108,7 @@
     
     if (indexPath.section == 0) {
         XNProfileDetailCell *cell = [XNProfileDetailCell tableViewCellWithTableView:tableView];
-        cell.userDict = self.userDict;
+        cell.userInfo = self.userArray[0];
         return cell;
     }
     XNProfileCell *cell = [XNProfileCell tableViewCellWithTableView:tableView];

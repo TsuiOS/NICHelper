@@ -8,6 +8,7 @@
 
 #import "NetworkTools.h"
 
+
 /**
  *  网络工具协议
  */
@@ -42,6 +43,7 @@
 
 @end
 
+
 @implementation NetworkTools
 
 + (instancetype)sharedTools {
@@ -59,7 +61,8 @@
          [NSURL URLWithString:@"/foo/" relativeToURL:baseURL];// http://example.com/foo/
          [NSURL URLWithString:@"http://example2.com/" relativeToURL:baseURL];// http://example2.com/
          */
-        tools = [[self alloc] init];
+//        NSURL *baseURL = [NSURL URLWithString:@"http://192.168.31.139:3000/api/"];
+        tools = [[self alloc]init];;
         
         // 设置反序列化格式
         tools.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", nil];
@@ -95,24 +98,6 @@
                               NSLog(@"error--%@",error);
                           }] resume];
     
-    
-    //判断请求方式
-//    if (method == GET) {
-//        // GET
-//        [self GET:URLString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//            finished(responseObject, nil);
-//        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//            finished(nil,error);
-//        }];
-//    } else {
-//        [self POST:URLString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//            finished(responseObject, nil);
-//        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//            finished(nil,error);
-//        }];
-//    }
-
-    
 }
 #pragma mark - 天气相关的方法
 /**
@@ -128,6 +113,7 @@
     
     NSString *appKey = @"10557a5d75b9c";
     NSString *URLString = @"http://apicloud.mob.com/v1/weather/query";
+    
     NSDictionary *parameters = @{@"key":appKey,
                                  @"city":city,
                                  @"province":province};
@@ -136,10 +122,76 @@
 
 }
 
-
-   
+- (void)loadUserInfoWithToken:(NSString *)tokenString finished:XNRequesCallBack {
     
+    
+    [self request:POST URLString:@"http://192.168.31.139:3000/api/user/info" parameters:@{@"token":tokenString} finished:finished];
 
+
+}
+
+/**
+ *  发布 Tips
+ *
+ *  @param title    标题
+ *  @param content 内容
+ *  @param from    来源
+ */
+- (void)composeTipsWithTitle:(NSString *)title content:(NSString *)content from:(NSString *)from finished:XNRequesCallBack {
+    
+    NSDictionary *params = @{@"title":title,
+                             @"content":content,
+                             @"from":from};
+
+    [self request:POST URLString:@"http://192.168.31.139:3000/api/user/tips/save" parameters:params finished:XNRequesCallBack];
+}
+   
+/**
+ *  发布任务
+ *
+ *  @param title       标题
+ *  @param address     地址
+ *  @param phone       电话
+ *  @param number      账号
+ *  @param studentName 姓名
+ *  @param reason      原因(可空)
+ */
+- (void)composeMessageWithTitle:(NSString *)title
+                        address:(NSString *)address
+                          phone:(NSString *)phone
+                         number:(NSString *)number
+                    studentName:(NSString *)studentName
+                         reason:(NSString *)reason
+                       finished:XNRequesCallBack {
+
+    NSDictionary *params = @{@"title":title,
+                             @"address":address,
+                             @"phone":phone,
+                             @"number":number,
+                             @"student_name":studentName,
+                             @"reason":reason};
+    [self request:POST URLString:@"http://192.168.31.139:3000/api/user/tasks/save" parameters:params finished:XNRequesCallBack];
+    
+}
+
+/**
+ *  更新维系进度
+ *
+ *  @param finish     是否完成 1 完成 0 未完成
+ *  @param result     故障原因
+ *  @param finishName 完成人员
+ *  @param progress   维修进度  稍后出发  正在路上 已完成
+ */
+- (void)updateMessageWithFinish:(NSInteger)finish result:(NSString *)result finishName:(NSString *)finishName progress:(NSString *)progress uid:(NSString *)uid finished:XNRequesCallBack{
+    
+    NSDictionary *params = @{@"finish":@(finish),
+                             @"result":result,
+                             @"finish_name":finishName,
+                             @"progress":progress,
+                             @"uid":uid};
+    
+    [self request:POST URLString:@"http://192.168.31.139:3000/api/user/tasks/update" parameters:params finished:XNRequesCallBack];
+}
 
 
 

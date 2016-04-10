@@ -17,6 +17,8 @@
 		042226271C97940D004F1140 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 042226261C97940D004F1140 /* NSArray+Log.m */; };
 		042711761C9581BE00E6EFBB /* Weather.json in Resources */ = {isa = PBXBuildFile; fileRef = 042711751C9581BE00E6EFBB /* Weather.json */; };
 		042711791C95863100E6EFBB /* ShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 042711781C95863100E6EFBB /* ShareManager.m */; };
+		0438ABCA1CB9FC7B00D888F2 /* XNRepairsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0438ABC81CB9FC7B00D888F2 /* XNRepairsController.m */; };
+		0438ABCE1CBA311F00D888F2 /* XNUserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0438ABCD1CBA311F00D888F2 /* XNUserInfoModel.m */; };
 		044218701C93C20C008B1F50 /* XNCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0442186F1C93C20C008B1F50 /* XNCoverView.m */; };
 		04529A1A1C8D9C400081CF4E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04529A191C8D9C400081CF4E /* main.m */; };
 		04529A1D1C8D9C400081CF4E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04529A1C1C8D9C400081CF4E /* AppDelegate.m */; };
@@ -76,6 +78,10 @@
 		042711751C9581BE00E6EFBB /* Weather.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Weather.json; sourceTree = "<group>"; };
 		042711771C95863100E6EFBB /* ShareManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareManager.h; sourceTree = "<group>"; };
 		042711781C95863100E6EFBB /* ShareManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareManager.m; sourceTree = "<group>"; };
+		0438ABC71CB9FC7B00D888F2 /* XNRepairsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNRepairsController.h; sourceTree = "<group>"; };
+		0438ABC81CB9FC7B00D888F2 /* XNRepairsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNRepairsController.m; sourceTree = "<group>"; };
+		0438ABCC1CBA311F00D888F2 /* XNUserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNUserInfoModel.h; sourceTree = "<group>"; };
+		0438ABCD1CBA311F00D888F2 /* XNUserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNUserInfoModel.m; sourceTree = "<group>"; };
 		0442186E1C93C20C008B1F50 /* XNCoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNCoverView.h; sourceTree = "<group>"; };
 		0442186F1C93C20C008B1F50 /* XNCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNCoverView.m; sourceTree = "<group>"; };
 		04529A151C8D9C400081CF4E /* NICHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NICHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,8 +90,8 @@
 		04529A1C1C8D9C400081CF4E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../../AppDelegate.m; sourceTree = "<group>"; };
 		04529A241C8D9C400081CF4E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04529A291C8D9C400081CF4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		04529A331C8D9D3B0081CF4E /* XNComposeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNComposeController.h; sourceTree = "<group>"; };
-		04529A341C8D9D3B0081CF4E /* XNComposeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNComposeController.m; sourceTree = "<group>"; };
+		04529A331C8D9D3B0081CF4E /* XNComposeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XNComposeController.h; path = ../../Compose/Controller/XNComposeController.h; sourceTree = "<group>"; };
+		04529A341C8D9D3B0081CF4E /* XNComposeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XNComposeController.m; path = ../../Compose/Controller/XNComposeController.m; sourceTree = "<group>"; };
 		04529A391C8D9D3B0081CF4E /* XNBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNBaseNavigationController.h; sourceTree = "<group>"; };
 		04529A3A1C8D9D3B0081CF4E /* XNBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNBaseNavigationController.m; sourceTree = "<group>"; };
 		04529A3B1C8D9D3B0081CF4E /* XNMainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNMainTabBarViewController.h; sourceTree = "<group>"; };
@@ -188,7 +194,6 @@
 			children = (
 				04529A2F1C8D9D3B0081CF4E /* Common */,
 				04529A511C8DA0C00081CF4E /* Discover */,
-				04529A311C8D9D3B0081CF4E /* Compose */,
 				04529A371C8D9D3B0081CF4E /* Main */,
 				04529A401C8D9D3B0081CF4E /* Message */,
 				04529A461C8D9D3B0081CF4E /* Profile */,
@@ -231,39 +236,6 @@
 				0477EA961C990C8C009F9394 /* XNProgressHUD.m */,
 			);
 			path = Tools;
-			sourceTree = "<group>";
-		};
-		04529A311C8D9D3B0081CF4E /* Compose */ = {
-			isa = PBXGroup;
-			children = (
-				04529A321C8D9D3B0081CF4E /* Controller */,
-				04529A351C8D9D3B0081CF4E /* Model */,
-				04529A361C8D9D3B0081CF4E /* View */,
-			);
-			path = Compose;
-			sourceTree = "<group>";
-		};
-		04529A321C8D9D3B0081CF4E /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				04529A331C8D9D3B0081CF4E /* XNComposeController.h */,
-				04529A341C8D9D3B0081CF4E /* XNComposeController.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		04529A351C8D9D3B0081CF4E /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		04529A361C8D9D3B0081CF4E /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		04529A371C8D9D3B0081CF4E /* Main */ = {
@@ -332,6 +304,10 @@
 				04FEBB421C98584600FC5E79 /* XNDetailViewController.m */,
 				049621DF1C9D59EF0063AAAA /* XNPopViewController.h */,
 				049621E01C9D59EF0063AAAA /* XNPopViewController.m */,
+				0438ABC71CB9FC7B00D888F2 /* XNRepairsController.h */,
+				0438ABC81CB9FC7B00D888F2 /* XNRepairsController.m */,
+				04529A331C8D9D3B0081CF4E /* XNComposeController.h */,
+				04529A341C8D9D3B0081CF4E /* XNComposeController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -391,6 +367,8 @@
 		04529A4A1C8D9D3B0081CF4E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0438ABCC1CBA311F00D888F2 /* XNUserInfoModel.h */,
+				0438ABCD1CBA311F00D888F2 /* XNUserInfoModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -663,6 +641,7 @@
 				0473B5DE1C9C437F009DB447 /* XNScanViewController.m in Sources */,
 				041173141C925CE7009AC6F9 /* NSString+XNTool.m in Sources */,
 				041E586F1C8EEA8E00E55132 /* UIView+Extension.m in Sources */,
+				0438ABCA1CB9FC7B00D888F2 /* XNRepairsController.m in Sources */,
 				0473B5E41C9C5004009DB447 /* XNProfileDetailCell.m in Sources */,
 				04FEBB431C98584600FC5E79 /* XNDetailViewController.m in Sources */,
 				045716101CB65B5E0030E924 /* XNMessageTool.m in Sources */,
@@ -675,6 +654,7 @@
 				04529A1D1C8D9C400081CF4E /* AppDelegate.m in Sources */,
 				04529A1A1C8D9C400081CF4E /* main.m in Sources */,
 				04A759481CABC1840051D223 /* UIButton+Extension.m in Sources */,
+				0438ABCE1CBA311F00D888F2 /* XNUserInfoModel.m in Sources */,
 				04529A4E1C8D9D3B0081CF4E /* XNMainTabBarViewController.m in Sources */,
 				047D32931C94186E00CEEFC6 /* XNWeatherView.m in Sources */,
 				04D1A7631CB96576001743E6 /* XNMineViewController.m in Sources */,

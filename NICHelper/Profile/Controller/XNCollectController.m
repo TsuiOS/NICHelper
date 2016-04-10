@@ -11,6 +11,7 @@
 #import "XNTableViewCell.h"
 #import "XNColor.h"
 #import <Masonry.h>
+#import "XNProfileController.h"
 
 
 @interface XNCollectController ()
@@ -19,6 +20,7 @@
 @property (nonatomic, strong) NSMutableArray *collectMessage;
 /** 没有收藏时显示的提醒图片 */
 @property(nonatomic, strong) UIImageView *noDataView;
+
 
 @end
 
@@ -34,6 +36,7 @@ static NSString * const ID = @"collect_cell";
     }
     return _collectMessage;
 }
+
 - (UIImageView *)noDataView
 {
     if (_noDataView == nil) {
@@ -50,11 +53,13 @@ static NSString * const ID = @"collect_cell";
     return _noDataView;
 }
 
+
 #pragma mark - 初始化
 
 - (void)viewWillAppear:(BOOL)animated {
 
     [super viewWillAppear:animated];
+
     
     // 设置背景颜色
     self.view.backgroundColor = DEFAULT_BACKGROUND_COLOR;
@@ -62,7 +67,6 @@ static NSString * const ID = @"collect_cell";
     [self.tableView registerClass:[XNTableViewCell class] forCellReuseIdentifier:ID];
     //设置 cell 的高度
     self.tableView.rowHeight = 180;
-    self.tableView.contentInset = UIEdgeInsetsMake(0, -10, 0, 0);
     //取消分割线
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     // 移除收据
@@ -77,6 +81,17 @@ static NSString * const ID = @"collect_cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // modal 的时候执行下面的代码
+    if ([self.navigationController viewControllers].count == 1) {
+        self.title = @"收藏";
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"btn_back_normal"] style: UIBarButtonItemStylePlain target:self action:@selector(back)];
+    }
+    self.tableView.contentInset = UIEdgeInsetsMake(0, -10, 0, 0);
+
+    
+}
+- (void)back {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Table view data source

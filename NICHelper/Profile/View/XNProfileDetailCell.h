@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XNUserInfoModel.h"
 
 @interface XNProfileDetailCell : UITableViewCell
 
-@property (nonatomic, strong) NSDictionary *userDict;
+@property (nonatomic, strong) XNUserInfoModel *userInfo;
 
 + (instancetype)tableViewCellWithTableView:(UITableView *)tableView;
 

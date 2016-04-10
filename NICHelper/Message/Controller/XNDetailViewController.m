@@ -7,6 +7,7 @@
 //
 
 #import "XNDetailViewController.h"
+#import "NetworkTools.h"
 
 @interface XNDetailViewController ()
 
@@ -17,12 +18,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"详情";
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.title = @"详情/更新";
+    [[NetworkTools sharedTools] updateMessageWithFinish:1 result:@"失败" finishName:@"宁" progress:@"已完成" uid:@"33" finished:^(id result, NSError *error) {
+        NSLog(@"%@",result);
+    }];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {

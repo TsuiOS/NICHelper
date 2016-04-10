@@ -19,8 +19,7 @@
  *
  *  @return 自定义的 UIButton
  */
-+ (UIButton *)creatWithImageName:(NSString *)imageName
-                           title:(NSString *)title
++ (UIButton *)creatWithTitle:(NSString *)title
                  backgroundColor:(UIColor *) color;
 
 @end

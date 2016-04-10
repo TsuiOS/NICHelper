@@ -1,29 +1,29 @@
 //
-//  XNComposeController.m
+//  XNRepairsController.m
 //  NICHelper
 //
-//  Created by mac on 16/3/4.
+//  Created by mac on 16/4/10.
 //  Copyright © 2016年 Hsu. All rights reserved.
 //
 
-#import "XNComposeController.h"
+#import "XNRepairsController.h"
 #import "NetworkTools.h"
 
-@interface XNComposeController ()
+@interface XNRepairsController ()
 
 @end
 
-@implementation XNComposeController
+@implementation XNRepairsController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
-    [[NetworkTools sharedTools]composeTipsWithTitle:@"呵呵呵" content:@"&content=未未未未未未未未未未未未未未未未未" from:@"NIC" finished:^(id result, NSError *error) {
+
+    self.title = @"在线报修";
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"btn_back_normal"] style: UIBarButtonItemStylePlain target:self action:@selector(back)];
+    [[NetworkTools sharedTools]composeMessageWithTitle:@"hhh" address:@"北京" phone:@"110" number:@"1234" studentName:@"小龙" reason:@"水晶头" finished:^(id result, NSError *error) {
+       
         NSLog(@"%@",result);
     }];
-    self.title = @"Tips";
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"btn_back_normal"] style: UIBarButtonItemStylePlain target:self action:@selector(back)];
 }
 
 - (void)back {

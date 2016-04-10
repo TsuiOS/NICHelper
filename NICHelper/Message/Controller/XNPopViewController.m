@@ -10,6 +10,8 @@
 #import "XNColor.h"
 #import "XNCollectController.h"
 #import "XNBaseNavigationController.h"
+#import "XNRepairsController.h"
+#import "XNComposeController.h"
 
 @interface XNPopViewController ()
 
@@ -22,7 +24,7 @@
 - (NSArray *)arrayList {
 
     if (_arrayList == nil) {
-        _arrayList = [NSArray arrayWithObjects:@"求助攻",@"扫一扫",@"收 藏", nil];
+        _arrayList = [NSArray arrayWithObjects:@"在线报修",@"发布文章",@"我的收藏", nil];
     }
     return _arrayList;
 }
@@ -60,18 +62,26 @@
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    if (indexPath.row == 0) {
-        NSLog(@"发布任务");
-    } else if (indexPath.row == 1) {
     
-    } else {
-        XNCollectController *collectionVC = [XNCollectController new];
-       
-        [self.navigationController pushViewController:collectionVC animated:YES];
+    if (indexPath.row == 0) {
+        
+        [self presentViewController:[XNRepairsController new]];
 
+    } else if (indexPath.row == 1) {
+        
+        [self presentViewController:[XNComposeController new]];
+
+    } else {
+        [self presentViewController:[XNCollectController new]];
     }
 }
+
+- (void)presentViewController:(UIViewController *)viewController {
+
+    XNBaseNavigationController *nvc = [[XNBaseNavigationController alloc]initWithRootViewController:viewController];
+    [self presentViewController:nvc animated:YES completion:nil];
+}
+
 
 //重写preferredContentSize，让popover返回你期望的大小
 - (CGSize)preferredContentSize {

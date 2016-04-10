@@ -8,6 +8,7 @@
 
 #import "XNMineViewController.h"
 #import "XNBlurEffectMenu.h"
+#import "NetworkTools.h"
 
 @interface XNMineViewController ()
 
@@ -15,15 +16,15 @@
 
 @implementation XNMineViewController
 
-- (void)viewWillAppear:(BOOL)animated {
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chooseVC:) name:kQQLoginNotification object:nil];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    [[NetworkTools sharedTools]loadUserInfoWithToken:@"1460198049787" finished:^(id result, NSError *error) {
+       
+        NSLog(@"%@",result);
+    }];
 }
 
 - (void)chooseVC:(NSNotification *)notification {
