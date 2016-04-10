@@ -161,6 +161,7 @@
 
     self.contentString = textView.text;
 }
+
 - (void)back {
     
     [self resignFirstResponder];

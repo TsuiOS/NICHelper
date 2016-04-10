@@ -24,5 +24,8 @@
 + (void)showInfoWithStatus:(NSString *)string {
     [SVProgressHUD showInfoWithStatus:string];
 }
++ (void)showErrorWithStatus:(NSString *)string {
+    [SVProgressHUD showErrorWithStatus:string];
+}
 
 @end

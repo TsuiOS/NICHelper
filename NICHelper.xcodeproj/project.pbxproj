@@ -47,7 +47,7 @@
 		047D328D1C93FB9D00CEEFC6 /* NetworkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 047D328C1C93FB9D00CEEFC6 /* NetworkTools.m */; };
 		047D32931C94186E00CEEFC6 /* XNWeatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = 047D32921C94186E00CEEFC6 /* XNWeatherView.m */; };
 		0485784D1CBA6D2D00DA932E /* XNRepairsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0485784B1CBA6D2D00DA932E /* XNRepairsController.m */; };
-		0485784E1CBA6D2D00DA932E /* XNRepairsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0485784C1CBA6D2D00DA932E /* XNRepairsController.xib */; };
+		048578541CBA89DD00DA932E /* UITextField+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 048578531CBA89DD00DA932E /* UITextField+Extension.m */; };
 		049621E11C9D59EF0063AAAA /* XNPopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049621E01C9D59EF0063AAAA /* XNPopViewController.m */; };
 		049D8E7A1CBA4921001D1C67 /* XNAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D8E791CBA4921001D1C67 /* XNAboutViewController.m */; };
 		049D8E7D1CBA4945001D1C67 /* XNAboutHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D8E7C1CBA4945001D1C67 /* XNAboutHeader.m */; };
@@ -136,7 +136,8 @@
 		047D32921C94186E00CEEFC6 /* XNWeatherView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNWeatherView.m; sourceTree = "<group>"; };
 		0485784A1CBA6D2D00DA932E /* XNRepairsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNRepairsController.h; sourceTree = "<group>"; };
 		0485784B1CBA6D2D00DA932E /* XNRepairsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNRepairsController.m; sourceTree = "<group>"; };
-		0485784C1CBA6D2D00DA932E /* XNRepairsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XNRepairsController.xib; sourceTree = "<group>"; };
+		048578521CBA89DD00DA932E /* UITextField+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Extension.h"; sourceTree = "<group>"; };
+		048578531CBA89DD00DA932E /* UITextField+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Extension.m"; sourceTree = "<group>"; };
 		048991291CAD048900B572BF /* LeanCloud.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeanCloud.pch; sourceTree = "<group>"; };
 		049621DF1C9D59EF0063AAAA /* XNPopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNPopViewController.h; sourceTree = "<group>"; };
 		049621E01C9D59EF0063AAAA /* XNPopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNPopViewController.m; sourceTree = "<group>"; };
@@ -321,7 +322,6 @@
 				049621E01C9D59EF0063AAAA /* XNPopViewController.m */,
 				0485784A1CBA6D2D00DA932E /* XNRepairsController.h */,
 				0485784B1CBA6D2D00DA932E /* XNRepairsController.m */,
-				0485784C1CBA6D2D00DA932E /* XNRepairsController.xib */,
 				049D8E851CBA5443001D1C67 /* XNComposeController.h */,
 				049D8E861CBA5443001D1C67 /* XNComposeController.m */,
 			);
@@ -478,6 +478,8 @@
 				041E586E1C8EEA8E00E55132 /* UIView+Extension.m */,
 				04A759461CABC1840051D223 /* UIButton+Extension.h */,
 				04A759471CABC1840051D223 /* UIButton+Extension.m */,
+				048578521CBA89DD00DA932E /* UITextField+Extension.h */,
+				048578531CBA89DD00DA932E /* UITextField+Extension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -586,7 +588,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0485784E1CBA6D2D00DA932E /* XNRepairsController.xib in Resources */,
 				0473B5D51C9C3E33009DB447 /* Profile.plist in Resources */,
 				041E58711C8EF09300E55132 /* Message.plist in Resources */,
 				042711761C9581BE00E6EFBB /* Weather.json in Resources */,
@@ -668,6 +669,7 @@
 				041173141C925CE7009AC6F9 /* NSString+XNTool.m in Sources */,
 				041E586F1C8EEA8E00E55132 /* UIView+Extension.m in Sources */,
 				0473B5E41C9C5004009DB447 /* XNProfileDetailCell.m in Sources */,
+				048578541CBA89DD00DA932E /* UITextField+Extension.m in Sources */,
 				04FEBB431C98584600FC5E79 /* XNDetailViewController.m in Sources */,
 				0485784D1CBA6D2D00DA932E /* XNRepairsController.m in Sources */,
 				045716101CB65B5E0030E924 /* XNMessageTool.m in Sources */,

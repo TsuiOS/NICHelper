@@ -16,5 +16,6 @@
 + (void)dismiss;
 
 + (void)showInfoWithStatus:(NSString *)string;
++ (void)showErrorWithStatus:(NSString *)string;
 
 @end
