@@ -9,32 +9,55 @@
 #import "XNMineViewController.h"
 #import "XNBlurEffectMenu.h"
 #import "NetworkTools.h"
+static NSString * ID = @"mine_cell";
+
+NSString *kLoginMineCenter = @"kLoginMineCenter";
 
 @interface XNMineViewController ()
+
+@property (nonatomic, strong) NSArray *array;
+@property (nonatomic, strong) NSArray *userInfo;
+
+
 
 @end
 
 @implementation XNMineViewController
 
+#pragma mark - 创建tableView的时候默认是分组样式的
+- (instancetype)init {
+    
+    return [super initWithStyle:UITableViewStyleGrouped];
+}
 
+- (instancetype)initWithStyle:(UITableViewStyle)style {
+    
+    return [super initWithStyle:UITableViewStyleGrouped];
+}
+
+- (NSArray *)array {
+
+    if (_array == nil) {
+        _array = [NSArray arrayWithObjects:@"用户名",
+                  @"手机号码",@"昵称",@"QQ",@"宿舍",@"班级",@"地址", nil];
+    }
+    return _array;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    self.userInfo = [[NSUserDefaults standardUserDefaults] objectForKey:@"userinfo"];
+    
+}
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
     
-    [[NetworkTools sharedTools]loadUserInfoWithToken:@"1460198049787" finished:^(id result, NSError *error) {
-       
-        NSLog(@"%@",result);
-    }];
+    [super viewDidLoad];
+ 
+    
 }
 
-- (void)chooseVC:(NSNotification *)notification {
-    
-    if (![notification.object integerValue]) {
-        XNBlurEffectMenu *menuView = [[XNBlurEffectMenu alloc]init];
-        [self.view addSubview: menuView.view];
-    }
-    
-}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 
@@ -42,63 +65,31 @@
 
 #pragma mark - Table view data source
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return 1;
 }
 
-/*
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.array.count;
+}
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    static NSString * ID = @"mine_cell";
     
-    // Configure the cell...
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:ID];
+    }
+    cell.textLabel.text = self.array[indexPath.row];
+    cell.detailTextLabel.text = self.userInfo[indexPath.row];
     
     return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

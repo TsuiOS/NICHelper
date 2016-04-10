@@ -55,7 +55,7 @@
 
     // 注册通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess:) name:kQQLoginNotification object:nil];
-    
+
 }
 
 - (void)loginSuccess:(NSNotification *)notification {
@@ -64,6 +64,14 @@
     [[NetworkTools sharedTools]loadUserInfoWithToken:notification.userInfo[@"token"] finished:^(id result, NSError *error) {
  
         self.userArray = [XNUserInfoModel mj_objectArrayWithKeyValuesArray:result];
+        
+        //移除
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"userinfo"];
+        
+        // 写入
+        [[NSUserDefaults standardUserDefaults] setObject:self.userArray forKey:@"userinfo"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
         [self.tableView reloadData];
     }];
 }
@@ -152,10 +160,17 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    //0.立刻让cell变成非选中状态
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     UIViewController *destVC = nil;
     
     if (indexPath.section == 0 && indexPath.row == 0) {
+        NSArray *array = [[NSUserDefaults standardUserDefaults] objectForKey:@"userinfo"];
+        if (array.count == 0) {
+            [self loginClick];
+            return;
+        }
         destVC = [[XNMineViewController alloc]init];
         [self.navigationController pushViewController:destVC animated:YES];
         return;

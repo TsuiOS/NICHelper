@@ -46,6 +46,7 @@
 		0477EA971C990C8C009F9394 /* XNProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0477EA961C990C8C009F9394 /* XNProgressHUD.m */; };
 		047D328D1C93FB9D00CEEFC6 /* NetworkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 047D328C1C93FB9D00CEEFC6 /* NetworkTools.m */; };
 		047D32931C94186E00CEEFC6 /* XNWeatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = 047D32921C94186E00CEEFC6 /* XNWeatherView.m */; };
+		04812CB81CBA9EF200D74A5C /* XNRepairsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04812CB71CBA9EF200D74A5C /* XNRepairsCell.m */; };
 		0485784D1CBA6D2D00DA932E /* XNRepairsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0485784B1CBA6D2D00DA932E /* XNRepairsController.m */; };
 		048578541CBA89DD00DA932E /* UITextField+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 048578531CBA89DD00DA932E /* UITextField+Extension.m */; };
 		049621E11C9D59EF0063AAAA /* XNPopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049621E01C9D59EF0063AAAA /* XNPopViewController.m */; };
@@ -53,7 +54,6 @@
 		049D8E7D1CBA4945001D1C67 /* XNAboutHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D8E7C1CBA4945001D1C67 /* XNAboutHeader.m */; };
 		049D8E7F1CBA4950001D1C67 /* XNAboutHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049D8E7E1CBA4950001D1C67 /* XNAboutHeader.xib */; };
 		049D8E821CBA5084001D1C67 /* XNHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D8E811CBA5084001D1C67 /* XNHelpViewController.m */; };
-		049D8E841CBA51BD001D1C67 /* XNCompseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049D8E831CBA51BD001D1C67 /* XNCompseView.xib */; };
 		049D8E881CBA5443001D1C67 /* XNComposeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D8E861CBA5443001D1C67 /* XNComposeController.m */; };
 		04A759481CABC1840051D223 /* UIButton+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A759471CABC1840051D223 /* UIButton+Extension.m */; };
 		04D1A7631CB96576001743E6 /* XNMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D1A7621CB96576001743E6 /* XNMineViewController.m */; };
@@ -134,6 +134,8 @@
 		047D328C1C93FB9D00CEEFC6 /* NetworkTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkTools.m; sourceTree = "<group>"; };
 		047D32911C94186E00CEEFC6 /* XNWeatherView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNWeatherView.h; sourceTree = "<group>"; };
 		047D32921C94186E00CEEFC6 /* XNWeatherView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNWeatherView.m; sourceTree = "<group>"; };
+		04812CB61CBA9EF200D74A5C /* XNRepairsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNRepairsCell.h; sourceTree = "<group>"; };
+		04812CB71CBA9EF200D74A5C /* XNRepairsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNRepairsCell.m; sourceTree = "<group>"; };
 		0485784A1CBA6D2D00DA932E /* XNRepairsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNRepairsController.h; sourceTree = "<group>"; };
 		0485784B1CBA6D2D00DA932E /* XNRepairsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNRepairsController.m; sourceTree = "<group>"; };
 		048578521CBA89DD00DA932E /* UITextField+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Extension.h"; sourceTree = "<group>"; };
@@ -148,7 +150,6 @@
 		049D8E7E1CBA4950001D1C67 /* XNAboutHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XNAboutHeader.xib; sourceTree = "<group>"; };
 		049D8E801CBA5084001D1C67 /* XNHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNHelpViewController.h; sourceTree = "<group>"; };
 		049D8E811CBA5084001D1C67 /* XNHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNHelpViewController.m; sourceTree = "<group>"; };
-		049D8E831CBA51BD001D1C67 /* XNCompseView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XNCompseView.xib; sourceTree = "<group>"; };
 		049D8E851CBA5443001D1C67 /* XNComposeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNComposeController.h; sourceTree = "<group>"; };
 		049D8E861CBA5443001D1C67 /* XNComposeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNComposeController.m; sourceTree = "<group>"; };
 		04A759461CABC1840051D223 /* UIButton+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIButton+Extension.h"; path = "../Tools/UIButton+Extension.h"; sourceTree = "<group>"; };
@@ -346,7 +347,8 @@
 				0417F5FB1C8DCF680071A6F0 /* XNMessageCell.m */,
 				0417F5FD1C8DE2EA0071A6F0 /* XNMessageView.h */,
 				0417F5FE1C8DE2EA0071A6F0 /* XNMessageView.m */,
-				049D8E831CBA51BD001D1C67 /* XNCompseView.xib */,
+				04812CB61CBA9EF200D74A5C /* XNRepairsCell.h */,
+				04812CB71CBA9EF200D74A5C /* XNRepairsCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -593,7 +595,6 @@
 				042711761C9581BE00E6EFBB /* Weather.json in Resources */,
 				04529A251C8D9C400081CF4E /* Assets.xcassets in Resources */,
 				049D8E7F1CBA4950001D1C67 /* XNAboutHeader.xib in Resources */,
-				049D8E841CBA51BD001D1C67 /* XNCompseView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -677,6 +678,7 @@
 				04F4D75E1CAE5B380080C7D2 /* XNUserManager.m in Sources */,
 				049621E11C9D59EF0063AAAA /* XNPopViewController.m in Sources */,
 				045716131CB66BAD0030E924 /* XNTableViewCell.m in Sources */,
+				04812CB81CBA9EF200D74A5C /* XNRepairsCell.m in Sources */,
 				040439D41C9EE7EE002137D7 /* XNLocationController.m in Sources */,
 				049D8E7A1CBA4921001D1C67 /* XNAboutViewController.m in Sources */,
 				044218701C93C20C008B1F50 /* XNCoverView.m in Sources */,

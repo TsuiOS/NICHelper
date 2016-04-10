@@ -1,5 +1,5 @@
 //
-//  XNMineViewController.h
+//  XNRepairsCell.h
 //  NICHelper
 //
 //  Created by mac on 16/4/10.
@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-extern NSString *kLoginMineCenter;
-
-@interface XNMineViewController : UITableViewController
-
+@interface XNRepairsCell : UITableViewCell
 
 @end

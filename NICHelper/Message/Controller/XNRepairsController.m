@@ -39,13 +39,17 @@
     [super viewDidLoad];
     
     self.title = @"在线报修";
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"btn_back_normal"] style: UIBarButtonItemStylePlain target:self action:@selector(back)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"取消" style: UIBarButtonItemStylePlain target:self action:@selector(back)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(composeClick)];
     self.navigationItem.rightBarButtonItem.enabled = NO;
 
 
     [self setupUI];
 }
+
+#pragma mark - Table view data source
+
+
 
 #pragma mark - UITextViewDelegate
 
@@ -122,12 +126,26 @@
 
     
 }
+
+#pragma mark - UIAlertViewDelegate
+//根据被点击按钮的索引处理点击事件
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        [self resignFirstResponder];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    
+}
 #pragma mark - 私有方法
 
 
 - (void)back {
-    [self.view endEditing:YES];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    UIAlertView *alerView = [[UIAlertView alloc]initWithTitle:nil message:@"确定要放弃此次编辑" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    alerView.tag = 0;
+    [alerView show];
+    
 }
 
 - (void)composeClick {
