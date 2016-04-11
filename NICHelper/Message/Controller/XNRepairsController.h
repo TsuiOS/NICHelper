@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XNRepairsController : UIViewController
+@interface XNRepairsController : UITableViewController
 
 @end

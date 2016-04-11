@@ -8,19 +8,14 @@
 
 #import "XNRepairsController.h"
 #import "NetworkTools.h"
-#import <Masonry.h>
 #import "UITextField+Extension.h"
 #import "XNProgressHUD.h"
+#import "UIView+Extension.h"
+#import "XNRepairsCell.h"
 
 
-@interface XNRepairsController ()<UITextViewDelegate,UITextFieldDelegate>
+@interface XNRepairsController ()<XNRepairsCellDelegate>
 
-@property (nonatomic, strong) UITextView *titleView;
-@property (nonatomic, strong) UITextField *addressView;
-@property (nonatomic, strong) UITextField *phoneView;
-@property (nonatomic, strong) UITextField *numberView;
-@property (nonatomic, strong) UITextField *studentNameView;
-@property (nonatomic, strong) UITextView *reasonView;
 
 @property (nonatomic, strong) NSString *titleString;
 @property (nonatomic, strong) NSString *addressString;
@@ -29,10 +24,44 @@
 @property (nonatomic, strong) NSString *studentNameString;
 @property (nonatomic, strong) NSString *reasonString;
 
+@property (nonatomic, strong) NSArray *repairsArray;
+@property (nonatomic, strong) NSArray *data;
+@property (nonatomic, assign) NSInteger oldRow;
+
 
 @end
 
+static NSString *ID = @"repairs_cell";
+
 @implementation XNRepairsController
+
+#pragma mark - 创建tableView的时候默认是分组样式的
+- (instancetype)init {
+    
+    return [super initWithStyle:UITableViewStyleGrouped];
+}
+
+- (instancetype)initWithStyle:(UITableViewStyle)style {
+    
+    return [super initWithStyle:UITableViewStyleGrouped];
+}
+
+#pragma mark - 懒加载
+
+- (NSArray *)repairsArray {
+    if (_repairsArray == nil) {
+        _repairsArray = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"Repairs" ofType:@"plist"]];
+    }
+    return _repairsArray;
+}
+
+- (NSArray *)data {
+
+    if (_data == nil) {
+        _data = [[NSArray alloc]initWithObjects:@"",@"",@"",@"",@"",@"", nil];
+    }
+    return _data;
+}
 
 
 - (void)viewDidLoad {
@@ -42,88 +71,71 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"取消" style: UIBarButtonItemStylePlain target:self action:@selector(back)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(composeClick)];
     self.navigationItem.rightBarButtonItem.enabled = NO;
-
-
-    [self setupUI];
-}
-
-#pragma mark - Table view data source
-
-
-
-#pragma mark - UITextViewDelegate
-
-- (void)textViewDidBeginEditing:(UITextView *)textView {
     
-    if (textView == self.titleView) {
-        if ([textView.text isEqualToString:@"请输入故障描述"]) {
-            textView.text = @"";
-            textView.textColor = [UIColor blackColor];
-        }
-    } else {
-        if ([textView.text isEqualToString:@"请输入故障原因,若不知道可不填"]) {
-            textView.text = @"";
-            textView.textColor = [UIColor blackColor];
-        }
-    }
-}
-
-- (void)textViewDidEndEditing:(UITextView *)textView {
-    
-    if (textView == self.titleView) {
-        if (textView.text.length < 1) {
-            textView.text = @"请输入故障描述";
-            textView.textColor = [UIColor grayColor];
-        }
-    } else {
-        if ([textView.text isEqualToString:@"请输入故障原因,若不知道可不填"]) {
-            textView.text = @"";
-            textView.textColor = [UIColor blackColor];
-        }
-    }
-}
-
-- (void)textViewDidChange:(UITextView *)textView {
-    
-    if (textView == self.titleView) {
-        self.titleString = textView.text;
-    } else {
-        self.reasonString = textView.text;
-    }
+    // 注册 cell
+    [self.tableView registerClass:[XNRepairsCell class] forCellReuseIdentifier:ID];
+    // 取消分割线
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    // 预估行高
+    self.tableView.estimatedRowHeight = 100;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
     
 }
 
-#pragma mark - UITextFieldDelegate
-- (void)textFieldDidEndEditing:(UITextField *)textField {
-    
-    if (self.addressView.text.length) {
-        self.navigationItem.rightBarButtonItem.enabled = YES;
-    } else {
-        self.navigationItem.rightBarButtonItem.enabled = NO;
-    }
-    
-    if (textField == self.studentNameView) {
-        self.studentNameString = textField.text;
-    } else if (textField == self.phoneView) {
-        if (textField.text.length == 0) {
-            [XNProgressHUD showErrorWithStatus:@"请输入联系方式"];
-            return;
-        }
-        self.phoneString = textField.text;
-    } else if (textField == self.numberView) {
-        if (textField.text.length == 0) {
-            [XNProgressHUD showErrorWithStatus:@"请输入上网账号"];
-            return;
-        }
-        self.numberString = textField.text;
-    } else if (textField == self.addressView) {
-        if (textField.text.length == 0) {
-            [XNProgressHUD showErrorWithStatus:@"请输入地址"];
-            return;
-        }
-        self.addressString = textField.text;
-    }
+#pragma mark - UITableViewDataSource
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
+    return [self.repairsArray count];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSDictionary *groups = self.repairsArray[section];
+    return [groups count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    XNRepairsCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    
+    cell.delegate = self;
+    
+    // 注意点:必须根据 section 来获取数据
+    cell.textView.text = self.data[indexPath.section];
+    return cell;
+    
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+
+    NSDictionary *groups = self.repairsArray[section];
+    
+    return groups[@"title"];
+}
+
+
+#pragma mark - XNRepairsCellDelegate
+
+- (void)textViewCell:(XNRepairsCell *)cell didChangeText:(NSString *)text {
+    
+    self.navigationItem.rightBarButtonItem.enabled = YES;
+
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    
+    // mutableCopy创建一个可变的副本 深Copy(内容 copy)
+    NSMutableArray *data = [self.data mutableCopy];
+    data[indexPath.section] = text;
+    
+    //copy 创建一个不可变得副本 (内容 copy)
+    self.data = [data copy];
+}
+
+#pragma mark - 私有方法
+- (void)back {
+    
+    UIAlertView *alerView = [[UIAlertView alloc]initWithTitle:nil message:@"确定要放弃此次编辑" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    alerView.tag = 0;
+    [alerView show];
     
 }
 
@@ -137,18 +149,23 @@
     }
     
 }
-#pragma mark - 私有方法
-
-
-- (void)back {
-    
-    UIAlertView *alerView = [[UIAlertView alloc]initWithTitle:nil message:@"确定要放弃此次编辑" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-    alerView.tag = 0;
-    [alerView show];
-    
-}
 
 - (void)composeClick {
+    
+    
+    for (NSString *text in self.data) {
+        if (text.length == 0) {
+            [XNProgressHUD showInfoWithStatus:@"请把信息填写完整"];
+            
+            return;
+        }
+    }
+    self.studentNameString = self.data[0];
+    self.phoneString = self.data[1];
+    self.numberString = self.data[2];
+    self.addressString = self.data[3];
+    self.titleString = self.data[4];
+    self.reasonString = self.data[5];
     
     [[NetworkTools sharedTools]composeMessageWithTitle:self.titleString
                                                address:self.addressString
@@ -157,131 +174,9 @@
                                            studentName:self.studentNameString
                                                 reason:self.reasonString
                                               finished:^(id result, NSError *error) {
-                                                  
-                                                  
-        
-        NSLog(@"%@",result);
+          
     }];
     
-}
-
-- (void)setupUI {
-    
-    
-    // UITextView 居上
-    if ([self respondsToSelector:@selector(setAutomaticallyAdjustsScrollViewInsets:)]) {
-        self.automaticallyAdjustsScrollViewInsets = NO;
-    }
-    
-    [self.view addSubview:self.titleView];
-    [self.view addSubview:self.studentNameView];
-    [self.view addSubview:self.phoneView];
-    [self.view addSubview:self.addressView];
-    [self.view addSubview:self.numberView];
-    [self.view addSubview:self.reasonView];
-    
-    [self.titleView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view).offset(20);
-        make.right.equalTo(self.view).offset(-20);
-        make.top.equalTo(self.mas_topLayoutGuideBottom).offset(20);
-        make.height.equalTo(@(100));
-    }];
-    
-    [self.studentNameView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.titleView.mas_bottom).offset(10);
-        make.right.and.left.equalTo(self.titleView);
-        make.height.equalTo(@(30));
-    }];
-    
-    [self.phoneView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.studentNameView.mas_bottom).offset(10);
-        make.right.and.left.equalTo(self.titleView);
-        make.height.equalTo(@(30));
-    }];
-    [self.numberView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.phoneView.mas_bottom).offset(10);
-        make.right.and.left.equalTo(self.titleView);
-        make.height.equalTo(@(30));
-    }];
-    [self.addressView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.numberView.mas_bottom).offset(10);
-        make.right.and.left.equalTo(self.titleView);
-        make.height.equalTo(@(30));
-    }];
-    [self.reasonView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.addressView.mas_bottom).offset(10);
-        make.right.and.left.equalTo(self.titleView);
-        make.height.equalTo(@(100));
-    }];
-
-}
-
-#pragma mark - 懒加载
-
-- (UITextView *)titleView {
-    
-    if (_titleView == nil) {
-        _titleView = [UITextView creatWithPlaceholder:@"请输入故障描述"
-                                               target:self];
-    }
-    return _titleView;
-}
-
-- (UITextField *)numberView {
-    
-    if (_numberView == nil) {
-        _numberView = [UITextField creatWithPlaceholder:@"请输入上网账号(不可为空)"
-                                               target:self];
-        _numberView.keyboardType = UIKeyboardTypeASCIICapable;
-    }
-    return _numberView;
-}
-
-- (UITextField *)addressView {
-    if (_addressView == nil) {
-        _addressView = [UITextField creatWithPlaceholder:@"请输入地址(不可为空)"
-                                                  target:self];
-    }
-    
-    return _addressView;
-    
-}
-
-- (UITextField *)phoneView {
-    
-    if (_phoneView == nil) {
-        _phoneView = [UITextField creatWithPlaceholder:@"请输入联系方式(不可为空)"
-                                                target:self];
-        _phoneView.keyboardType = UIKeyboardTypePhonePad;
-
-
-    }
-    return _phoneView;
-}
-
-- (UITextField *)studentNameView {
-    
-    if (_studentNameView == nil) {
-        _studentNameView = [UITextField creatWithPlaceholder:@"请输入姓名"
-                                                      target:self];
-        
-    }
-    return _studentNameView;
-    
-}
-- (UITextView *)reasonView {
-    
-    if (_reasonView == nil) {
-        _reasonView = [UITextView creatWithPlaceholder:@"请输入故障原因,若不知道可不填"
-                                                target:self];
-
-    }
-    return _reasonView;
-}
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
 }
 
 

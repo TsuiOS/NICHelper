@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>title</key>
+		<string>请输入姓名(不可为空)</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>请输入联系方式</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>请输入上网账号</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>请输入地址</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>请输入故障描述</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>请输入故障原因,要是知道的话我自己就可以修了</string>
+	</dict>
+</array>
+</plist>
