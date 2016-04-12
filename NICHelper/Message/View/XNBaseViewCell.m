@@ -1,28 +1,28 @@
 //
-//  XNTableViewCell.m
+//  XNBaseViewCell.m
 //  NICHelper
 //
-//  Created by mac on 16/4/7.
+//  Created by mac on 16/4/12.
 //  Copyright © 2016年 Hsu. All rights reserved.
 //
 
-#import "XNTableViewCell.h"
+#import "XNBaseViewCell.h"
+
+
 #import "XNMessageView.h"
 #import "XNColor.h"
-#import "Masonry.h"
+#import <Masonry.h>
 #import "UIView+Extension.h"
 
-@interface XNTableViewCell ()
+@interface XNBaseViewCell ()
 
 @property (nonatomic, strong) XNMessageView *messageView;
 
 @end
-@implementation XNTableViewCell
 
 
-/**
- *  重写系统的初始化方法
- */
+@implementation XNBaseViewCell
+
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     
@@ -46,6 +46,8 @@
 - (void)layoutSubviews {
     
     
+    [super layoutSubviews];
+    
     self.messageView.message = self.message;
     
     // 自动布局
@@ -58,15 +60,5 @@
     
 }
 
-- (void)willTransitionToState:(UITableViewCellStateMask)state {
-    
-    [super willTransitionToState:state];
-    
-}
-
-- (void)didTransitionToState:(UITableViewCellStateMask)state {
-    
-    [super didTransitionToState:state];
-}
 
 @end

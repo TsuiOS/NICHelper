@@ -161,7 +161,9 @@ static NSString *ID = @"message_cell";
     
     XNDetailViewController *detailVC = [[XNDetailViewController alloc]init];
     
-    [[self navigationController]pushViewController:detailVC animated:YES];
+    detailVC.detailMessage = self.message[indexPath.row];
+    
+    [[self navigationController] pushViewController:detailVC animated:YES];
 
 }
 

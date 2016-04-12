@@ -8,10 +8,13 @@
 
 #import "XNDetailViewController.h"
 #import "NetworkTools.h"
+#import "XNDetailCell.h"
 
 @interface XNDetailViewController ()
 
 @end
+
+
 
 @implementation XNDetailViewController
 
@@ -23,6 +26,9 @@
         NSLog(@"%@",result);
     }];
     
+    
+
+    [self.tableView registerClass:[XNDetailCell class] forCellReuseIdentifier:NSStringFromClass([XNDetailCell class])];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,23 +38,19 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 0;
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return 1;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    XNDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([XNDetailCell class]) forIndexPath:indexPath];
     
-    // Configure the cell...
-    
+    cell.detailMessage = self.detailMessage;
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

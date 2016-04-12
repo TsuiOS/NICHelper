@@ -8,10 +8,10 @@
 
 #import "XNCollectController.h"
 #import "XNMessageTool.h"
-#import "XNTableViewCell.h"
 #import "XNColor.h"
 #import <Masonry.h>
 #import "XNProfileController.h"
+#import "XNCollectCell.h"
 
 
 @interface XNCollectController ()
@@ -64,11 +64,9 @@ static NSString * const ID = @"collect_cell";
     // 设置背景颜色
     self.view.backgroundColor = DEFAULT_BACKGROUND_COLOR;
     // 注册 cell
-    [self.tableView registerClass:[XNTableViewCell class] forCellReuseIdentifier:ID];
+    [self.tableView registerClass:[XNCollectCell class] forCellReuseIdentifier:ID];
     //设置 cell 的高度
     self.tableView.rowHeight = 180;
-    //取消分割线
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     // 移除收据
     [self.collectMessage removeAllObjects];
     // 添加数据
@@ -86,7 +84,6 @@ static NSString * const ID = @"collect_cell";
         self.title = @"收藏";
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"btn_back_normal"] style: UIBarButtonItemStylePlain target:self action:@selector(back)];
     }
-    self.tableView.contentInset = UIEdgeInsetsMake(0, -10, 0, 0);
 
     
 }
@@ -104,7 +101,7 @@ static NSString * const ID = @"collect_cell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    XNTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID forIndexPath:indexPath];
+    XNCollectCell *cell = [tableView dequeueReusableCellWithIdentifier:ID forIndexPath:indexPath];
     cell.message = self.collectMessage[indexPath.row];
     
     return cell;

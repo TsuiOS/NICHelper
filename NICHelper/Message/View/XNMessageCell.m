@@ -9,13 +9,15 @@
 #import "XNMessageCell.h"
 #import "XNMessageTool.h"
 
+
 @interface XNMessageCell ()
+
+
 
 @end
 
 @implementation XNMessageCell
 
-#pragma mark - 懒加载
 
 
 // These methods can be used by subclasses to animate additional changes to the cell when the cell is changing state

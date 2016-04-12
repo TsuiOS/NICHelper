@@ -146,7 +146,7 @@
 #pragma mark - 私有方法
 - (void)back {
     
-    UIAlertView *alerView = [[UIAlertView alloc]initWithTitle:@"提示" message:@"确定要放弃此次编辑" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    UIAlertView *alerView = [[UIAlertView alloc]initWithTitle:nil message:@"确定要放弃此次编辑" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
     alerView.tag = 0;
     [alerView show];
     

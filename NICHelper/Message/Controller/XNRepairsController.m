@@ -75,7 +75,7 @@ static NSString *ID = @"repairs_cell";
     [self.tableView registerClass:[XNRepairsCell class] forCellReuseIdentifier:ID];
     // 取消分割线
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.rowHeight = 100;
+    self.tableView.rowHeight = 40;
     // 预估行高
     self.tableView.estimatedRowHeight = 100;
     self.tableView.rowHeight = UITableViewAutomaticDimension;

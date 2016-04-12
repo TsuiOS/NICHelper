@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XNMessage.h"
 
 @interface XNDetailViewController : UITableViewController
+
+@property (nonatomic,strong) XNMessage *detailMessage;
 
 @end

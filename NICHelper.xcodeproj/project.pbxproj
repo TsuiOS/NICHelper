@@ -27,7 +27,6 @@
 		04529A4F1C8D9D3B0081CF4E /* XNMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04529A431C8D9D3B0081CF4E /* XNMessageController.m */; };
 		04529A571C8DA0FB0081CF4E /* XNDiscoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04529A561C8DA0FB0081CF4E /* XNDiscoverController.m */; };
 		045716101CB65B5E0030E924 /* XNMessageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0457160F1CB65B5E0030E924 /* XNMessageTool.m */; };
-		045716131CB66BAD0030E924 /* XNTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 045716121CB66BAD0030E924 /* XNTableViewCell.m */; };
 		045E1D2C1CBBD16B002124EE /* Repairs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 045E1D2B1CBBD16B002124EE /* Repairs.plist */; };
 		046913721C959E7F00AA440D /* XNWeatherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 046913711C959E7F00AA440D /* XNWeatherModel.m */; };
 		0473B5D51C9C3E33009DB447 /* Profile.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0473B5D41C9C3E33009DB447 /* Profile.plist */; };
@@ -56,6 +55,9 @@
 		049D8E7F1CBA4950001D1C67 /* XNAboutHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049D8E7E1CBA4950001D1C67 /* XNAboutHeader.xib */; };
 		049D8E821CBA5084001D1C67 /* XNHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D8E811CBA5084001D1C67 /* XNHelpViewController.m */; };
 		049D8E881CBA5443001D1C67 /* XNComposeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D8E861CBA5443001D1C67 /* XNComposeController.m */; };
+		04A451751CBCF50F00A5C332 /* XNDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A451741CBCF50F00A5C332 /* XNDetailCell.m */; };
+		04A451781CBD030100A5C332 /* XNCollectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A451771CBD030100A5C332 /* XNCollectCell.m */; };
+		04A4517B1CBD072E00A5C332 /* XNBaseViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A4517A1CBD072E00A5C332 /* XNBaseViewCell.m */; };
 		04A759481CABC1840051D223 /* UIButton+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A759471CABC1840051D223 /* UIButton+Extension.m */; };
 		04D1A7631CB96576001743E6 /* XNMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D1A7621CB96576001743E6 /* XNMineViewController.m */; };
 		04D463661CAB84FB00C95E01 /* XNBlurEffectMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D463651CAB84FB00C95E01 /* XNBlurEffectMenu.m */; };
@@ -106,8 +108,6 @@
 		04529A561C8DA0FB0081CF4E /* XNDiscoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNDiscoverController.m; sourceTree = "<group>"; };
 		0457160E1CB65B5E0030E924 /* XNMessageTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNMessageTool.h; sourceTree = "<group>"; };
 		0457160F1CB65B5E0030E924 /* XNMessageTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNMessageTool.m; sourceTree = "<group>"; };
-		045716111CB66BAD0030E924 /* XNTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNTableViewCell.h; sourceTree = "<group>"; };
-		045716121CB66BAD0030E924 /* XNTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNTableViewCell.m; sourceTree = "<group>"; };
 		045E1D2B1CBBD16B002124EE /* Repairs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Repairs.plist; sourceTree = "<group>"; };
 		046913701C959E7F00AA440D /* XNWeatherModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNWeatherModel.h; sourceTree = "<group>"; };
 		046913711C959E7F00AA440D /* XNWeatherModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNWeatherModel.m; sourceTree = "<group>"; };
@@ -154,6 +154,12 @@
 		049D8E811CBA5084001D1C67 /* XNHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNHelpViewController.m; sourceTree = "<group>"; };
 		049D8E851CBA5443001D1C67 /* XNComposeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNComposeController.h; sourceTree = "<group>"; };
 		049D8E861CBA5443001D1C67 /* XNComposeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNComposeController.m; sourceTree = "<group>"; };
+		04A451731CBCF50F00A5C332 /* XNDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNDetailCell.h; sourceTree = "<group>"; };
+		04A451741CBCF50F00A5C332 /* XNDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNDetailCell.m; sourceTree = "<group>"; };
+		04A451761CBD030100A5C332 /* XNCollectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNCollectCell.h; sourceTree = "<group>"; };
+		04A451771CBD030100A5C332 /* XNCollectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNCollectCell.m; sourceTree = "<group>"; };
+		04A451791CBD072E00A5C332 /* XNBaseViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNBaseViewCell.h; sourceTree = "<group>"; };
+		04A4517A1CBD072E00A5C332 /* XNBaseViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNBaseViewCell.m; sourceTree = "<group>"; };
 		04A759461CABC1840051D223 /* UIButton+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIButton+Extension.h"; path = "../Tools/UIButton+Extension.h"; sourceTree = "<group>"; };
 		04A759471CABC1840051D223 /* UIButton+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+Extension.m"; path = "../Tools/UIButton+Extension.m"; sourceTree = "<group>"; };
 		04D1A7611CB96576001743E6 /* XNMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNMineViewController.h; sourceTree = "<group>"; };
@@ -344,12 +350,14 @@
 		04529A451C8D9D3B0081CF4E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				045716111CB66BAD0030E924 /* XNTableViewCell.h */,
-				045716121CB66BAD0030E924 /* XNTableViewCell.m */,
+				04A451791CBD072E00A5C332 /* XNBaseViewCell.h */,
+				04A4517A1CBD072E00A5C332 /* XNBaseViewCell.m */,
 				0417F5FA1C8DCF680071A6F0 /* XNMessageCell.h */,
 				0417F5FB1C8DCF680071A6F0 /* XNMessageCell.m */,
 				0417F5FD1C8DE2EA0071A6F0 /* XNMessageView.h */,
 				0417F5FE1C8DE2EA0071A6F0 /* XNMessageView.m */,
+				04A451731CBCF50F00A5C332 /* XNDetailCell.h */,
+				04A451741CBCF50F00A5C332 /* XNDetailCell.m */,
 				04812CB61CBA9EF200D74A5C /* XNRepairsCell.h */,
 				04812CB71CBA9EF200D74A5C /* XNRepairsCell.m */,
 			);
@@ -406,6 +414,8 @@
 				0473B5E01C9C4C4A009DB447 /* XNProfileCell.m */,
 				0473B5E21C9C5004009DB447 /* XNProfileDetailCell.h */,
 				0473B5E31C9C5004009DB447 /* XNProfileDetailCell.m */,
+				04A451761CBD030100A5C332 /* XNCollectCell.h */,
+				04A451771CBD030100A5C332 /* XNCollectCell.m */,
 				049D8E7B1CBA4945001D1C67 /* XNAboutHeader.h */,
 				049D8E7C1CBA4945001D1C67 /* XNAboutHeader.m */,
 				049D8E7E1CBA4950001D1C67 /* XNAboutHeader.xib */,
@@ -681,12 +691,14 @@
 				04529A4F1C8D9D3B0081CF4E /* XNMessageController.m in Sources */,
 				04F4D75E1CAE5B380080C7D2 /* XNUserManager.m in Sources */,
 				049621E11C9D59EF0063AAAA /* XNPopViewController.m in Sources */,
-				045716131CB66BAD0030E924 /* XNTableViewCell.m in Sources */,
 				04812CB81CBA9EF200D74A5C /* XNRepairsCell.m in Sources */,
 				040439D41C9EE7EE002137D7 /* XNLocationController.m in Sources */,
+				04A451781CBD030100A5C332 /* XNCollectCell.m in Sources */,
 				049D8E7A1CBA4921001D1C67 /* XNAboutViewController.m in Sources */,
+				04A451751CBCF50F00A5C332 /* XNDetailCell.m in Sources */,
 				044218701C93C20C008B1F50 /* XNCoverView.m in Sources */,
 				04529A1D1C8D9C400081CF4E /* AppDelegate.m in Sources */,
+				04A4517B1CBD072E00A5C332 /* XNBaseViewCell.m in Sources */,
 				04529A1A1C8D9C400081CF4E /* main.m in Sources */,
 				04A759481CABC1840051D223 /* UIButton+Extension.m in Sources */,
 				0438ABCE1CBA311F00D888F2 /* XNUserInfoModel.m in Sources */,
