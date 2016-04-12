@@ -10,7 +10,9 @@
 #import "NetworkTools.h"
 #import "XNDetailCell.h"
 
-@interface XNDetailViewController ()
+@interface XNDetailViewController ()<XNDetailCellDelegate>
+
+@property (nonatomic, strong) XNDetailCell *tempCell;
 
 @end
 
@@ -26,15 +28,10 @@
         NSLog(@"%@",result);
     }];
     
-    
-
     [self.tableView registerClass:[XNDetailCell class] forCellReuseIdentifier:NSStringFromClass([XNDetailCell class])];
+    self.tableView.estimatedRowHeight = 200.0f;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 #pragma mark - Table view data source
 
@@ -47,53 +44,46 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     XNDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([XNDetailCell class]) forIndexPath:indexPath];
     
-    cell.detailMessage = self.detailMessage;
+    [cell setDetailMessage:self.detailMessage indePath:indexPath];
+    cell.delegate = self;
     return cell;
 }
 
+#pragma mark - UITableViewDelegate 
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    if (!_tempCell) {
+        _tempCell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([XNDetailCell class])];
+    }
+    
+    XNMessage *message = self.detailMessage;
+    
+    // 判断高度是否计算过
+    if (message.cellHeight <= 0) {
+        //填充数据
+        [_tempCell setDetailMessage:message indePath:indexPath];
+        // 根据当前数据,计算 cell 的高度
+        message.cellHeight = [_tempCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 1;
+    }
+    
+    return message.cellHeight;
+
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+
+#pragma mark - XNDetailCellDelegate
+
+- (void)detailCell:(XNDetailCell *)cell switchExpandedStateWithIndexPath:(NSIndexPath *)index {
+
+    // 改变数据
+    XNMessage *message = self.detailMessage;
+    message.expanded = ! message.expanded;
+    message.cellHeight = 0;
+    
+    // 刷新数据
+    [self.tableView reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationFade];
+
 }
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
