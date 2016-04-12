@@ -10,6 +10,6 @@
 
 @interface XNComposeHeaderView : UIView
 
-
+//+ (instancetype)composeHeaderWithTableView:(UITableView *)tableView;
 
 @end

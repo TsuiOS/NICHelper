@@ -135,7 +135,7 @@
     [UIView animateWithDuration:duration animations:^{
         
         [self.contentView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(@(transformY));
+            make.bottom.equalTo(@(transformY)).offset(-20);
         }];
     }];
     

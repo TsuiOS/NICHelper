@@ -25,11 +25,38 @@
 @implementation XNComposeHeaderView
 
 
+//+ (instancetype)composeHeaderWithTableView:(UITableView *)tableView {
+//
+//    static NSString *ID = @"composeHeader_view";
+//    XNComposeHeaderView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:ID];
+//    if (headerView == nil) {
+//        headerView = [[XNComposeHeaderView alloc]initWithReuseIdentifier:ID];
+//    }
+//
+//    return headerView;
+//}
+
+//- (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier {
+//
+//    if (self = [super initWithReuseIdentifier:reuseIdentifier]) {
+//        [self addSubview:self.tipsView];
+//        [self addSubview:self.titleView];
+//    }
+//    return self;
+//    
+//}
+
+- (instancetype)initWithFrame:(CGRect)frame {
+
+    if (self = [super initWithFrame:frame]) {
+        [self addSubview:self.tipsView];
+        [self addSubview:self.titleView];
+    }
+    return self;
+}
+
 - (void)layoutSubviews {
     
-    [self addSubview:self.tipsView];
-    [self addSubview:self.titleView];
-
     [super layoutSubviews];
     
     [self.titleView mas_makeConstraints:^(MASConstraintMaker *make) {
