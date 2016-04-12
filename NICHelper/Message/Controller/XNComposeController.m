@@ -9,6 +9,7 @@
 #import "XNComposeController.h"
 #import "NetworkTools.h"
 #import <Masonry.h>
+#import "UIView+Extension.h"
 
 @interface XNComposeController ()<UITextViewDelegate,UITextFieldDelegate,UIAlertViewDelegate>
 @property (strong, nonatomic) UITextField *titleView;
@@ -26,26 +27,24 @@
 - (void)viewWillAppear:(BOOL)animated {
 
     [super viewWillAppear:animated];
-    self.title = @"Tips";
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"取消" style: UIBarButtonItemStylePlain target:self action:@selector(back)];
+ 
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(composeTips)];
-    self.navigationItem.rightBarButtonItem.enabled = NO;
+    //注册通知,监听键盘弹出事件
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    
+
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    self.view.backgroundColor = [UIColor whiteColor];
     [self setupUI];
-    //监听键盘的一些事件
-    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-    //监听键盘frame发生改变的事件
-    [center addObserver:self
-               selector:@selector(keyboardWillChangeFrame:)
-                   name:UIKeyboardWillChangeFrameNotification
-                 object:nil];
-//
+    self.title = @"Tips";
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"取消" style: UIBarButtonItemStylePlain target:self action:@selector(back)];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(composeTips)];
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+
 }
 
 #pragma mark - UITextFieldDelegate
@@ -80,6 +79,7 @@
 - (void)textViewDidChange:(UITextView *)textView {
 
     self.contentString = textView.text;
+    
 }
 
 #pragma mark - UIAlertViewDelegate
@@ -123,6 +123,7 @@
     
 }
 
+
 //回调方法
 - (void)keyboardWillChangeFrame:(NSNotification *)notification
 {
@@ -131,15 +132,11 @@
     //取出键盘最后的frame
     CGRect keyboardFrame = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
     //计算控制器的view需要平移的距离
-    CGFloat transformY = keyboardFrame.origin.y - self.view.frame.size.height;
+    CGFloat deltaY = [UIScreen mainScreen].bounds.size.height - keyboardFrame.size.height;
     [UIView animateWithDuration:duration animations:^{
         
-        [self.contentView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(@(transformY)).offset(-20);
-        }];
+        self.view.height = deltaY;
     }];
-    
-    
     //设置windows的颜色
     self.view.window.backgroundColor = self.view.backgroundColor;
 }
@@ -200,7 +197,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+//销毁观察者
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 
 @end

@@ -75,6 +75,7 @@ static NSString *ID = @"repairs_cell";
     [self.tableView registerClass:[XNRepairsCell class] forCellReuseIdentifier:ID];
     // 取消分割线
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.rowHeight = 100;
     // 预估行高
     self.tableView.estimatedRowHeight = 100;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -143,8 +144,15 @@ static NSString *ID = @"repairs_cell";
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 1) {
+        
         [self resignFirstResponder];
-        [self dismissViewControllerAnimated:YES completion:nil];
+
+        // 等待键盘的隐藏动画完成之后
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self dismissViewControllerAnimated:YES completion:nil];
+        });
+        
+        
     }
     
 }

@@ -14,7 +14,6 @@
 		0417F5FF1C8DE2EA0071A6F0 /* XNMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0417F5FE1C8DE2EA0071A6F0 /* XNMessageView.m */; };
 		041E586F1C8EEA8E00E55132 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 041E586E1C8EEA8E00E55132 /* UIView+Extension.m */; };
 		041E58711C8EF09300E55132 /* Message.plist in Resources */ = {isa = PBXBuildFile; fileRef = 041E58701C8EF09300E55132 /* Message.plist */; };
-		041FC85E1CBB632E0083744B /* XNComposeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 041FC85D1CBB632E0083744B /* XNComposeHeaderView.m */; };
 		042226271C97940D004F1140 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 042226261C97940D004F1140 /* NSArray+Log.m */; };
 		042711761C9581BE00E6EFBB /* Weather.json in Resources */ = {isa = PBXBuildFile; fileRef = 042711751C9581BE00E6EFBB /* Weather.json */; };
 		042711791C95863100E6EFBB /* ShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 042711781C95863100E6EFBB /* ShareManager.m */; };
@@ -81,8 +80,6 @@
 		041E586D1C8EEA8E00E55132 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Extension.h"; path = "../Tools/UIView+Extension.h"; sourceTree = "<group>"; };
 		041E586E1C8EEA8E00E55132 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Extension.m"; path = "../Tools/UIView+Extension.m"; sourceTree = "<group>"; };
 		041E58701C8EF09300E55132 /* Message.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Message.plist; sourceTree = "<group>"; };
-		041FC85C1CBB632E0083744B /* XNComposeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNComposeHeaderView.h; sourceTree = "<group>"; };
-		041FC85D1CBB632E0083744B /* XNComposeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNComposeHeaderView.m; sourceTree = "<group>"; };
 		042226251C97940D004F1140 /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+Log.h"; path = "../Tools/NSArray+Log.h"; sourceTree = "<group>"; };
 		042226261C97940D004F1140 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+Log.m"; path = "../Tools/NSArray+Log.m"; sourceTree = "<group>"; };
 		042711751C9581BE00E6EFBB /* Weather.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Weather.json; sourceTree = "<group>"; };
@@ -355,8 +352,6 @@
 				0417F5FE1C8DE2EA0071A6F0 /* XNMessageView.m */,
 				04812CB61CBA9EF200D74A5C /* XNRepairsCell.h */,
 				04812CB71CBA9EF200D74A5C /* XNRepairsCell.m */,
-				041FC85C1CBB632E0083744B /* XNComposeHeaderView.h */,
-				041FC85D1CBB632E0083744B /* XNComposeHeaderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -684,7 +679,6 @@
 				0485784D1CBA6D2D00DA932E /* XNRepairsController.m in Sources */,
 				045716101CB65B5E0030E924 /* XNMessageTool.m in Sources */,
 				04529A4F1C8D9D3B0081CF4E /* XNMessageController.m in Sources */,
-				041FC85E1CBB632E0083744B /* XNComposeHeaderView.m in Sources */,
 				04F4D75E1CAE5B380080C7D2 /* XNUserManager.m in Sources */,
 				049621E11C9D59EF0063AAAA /* XNPopViewController.m in Sources */,
 				045716131CB66BAD0030E924 /* XNTableViewCell.m in Sources */,
