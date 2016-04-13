@@ -22,7 +22,7 @@
 
 
 
-#define  ViewDidScrollOffset   394.0
+#define  ViewDidScrollOffset   200.0
 static NSString *ID = @"discover_cell";
 NSString *const cityKey = @"cityKey";
 NSString *const provinceKey = @"provinceKey";
@@ -30,10 +30,11 @@ NSString *const provinceKey = @"provinceKey";
 
 @interface XNDiscoverController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 
-@property (strong, nonatomic) UIImageView *parallaxHeaderView;
+@property (strong, nonatomic) UIView *parallaxHeaderView;
 @property (strong, nonatomic) XNCoverView *coverView;
 @property (nonatomic, strong) UITableView *tableView;
 @property (strong, nonatomic) MASConstraint *parallaxHeaderHeightConstraint;
+@property (strong, nonatomic) MASConstraint *parallaxHeaderTopConstraint;
 @property (nonatomic, strong) XNWeatherModel *CurrentWeatherData;
 @property (nonatomic, strong) XNLocationController *locationVC;
 @property (nonatomic, copy) NSString *city;
@@ -52,15 +53,16 @@ NSString *const provinceKey = @"provinceKey";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+//    self.automaticallyAdjustsScrollViewInsets = NO;
     [self configTableView];
     [self setupUI];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"定位" style: UIBarButtonItemStylePlain target:self action:@selector(chooseCity)];
-
-
-}
-#pragma mark - 跳转到定位视图
-- (void)chooseCity {
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chooseCity) name:@"LoactionNotificationCenter" object:nil];
+}
+
+- (void)chooseCity {
+
     self.locationVC = [XNLocationController new];
     XNBaseNavigationController *nvc=[[XNBaseNavigationController alloc]initWithRootViewController:self.locationVC];
     __weak typeof(self) weakSelf = self;
@@ -74,58 +76,54 @@ NSString *const provinceKey = @"provinceKey";
     };
     
     [self presentViewController:nvc animated:YES completion:nil];
+
 }
 
-
-#pragma mark - 生命周期的方法
-/**
- *  当视图出现时, tableView 向下滚动ParallaxHeaderHeight的高度
- */
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    [_tableView setContentOffset:CGPointMake(0, -kParallaxHeaderHeight)];
-}
 #pragma mark - Private methods
 - (void)configTableView {
     
     _tableView = [[UITableView alloc]init];
     [self.view addSubview:_tableView];
-    _tableView.backgroundColor = [UIColor clearColor];
     _tableView.showsVerticalScrollIndicator = NO;
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    _tableView.contentInset = UIEdgeInsetsMake(kParallaxHeaderHeight, 0, 0, 0);
+    _tableView.tableHeaderView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, DEFAULT_WIDTH, kParallaxHeaderHeight)];
 }
 
 
 #pragma mark - 设置界面
 
 - (void)setupUI {
+ 
+    _parallaxHeaderView = [[UIView alloc]init];
+    _parallaxHeaderView.clipsToBounds = YES;
+    _parallaxHeaderView.backgroundColor = [UIColor redColor];
+    UIImageView *imaView = [[UIImageView alloc]init];
+    imaView.contentMode = UIViewContentModeScaleAspectFill;
+    imaView.image = [UIImage imageNamed:@"niclcu"];
     
-    // 添加控件
-    // 把Parallax Header放在UITableView的下面
-    _parallaxHeaderView = [UIImageView new];
-    _parallaxHeaderView.contentMode = UIViewContentModeScaleAspectFill;
-    _parallaxHeaderView.image = [UIImage imageNamed:@"niclcu"];
-    [self.view insertSubview:_parallaxHeaderView belowSubview:_tableView];
     
+    _coverView = [[XNCoverView alloc]init];
 
-    _coverView = [XNCoverView new];
-
-    [self.view insertSubview:_coverView belowSubview:_tableView];
+    [_parallaxHeaderView addSubview:imaView];
+    [_parallaxHeaderView addSubview:_coverView];
     
     
-    // 自动布局
-    [_coverView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(_parallaxHeaderView);
-    }];
+    [self.view addSubview:self.parallaxHeaderView];
+    
     [_parallaxHeaderView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.and.right.equalTo(self.view);
         make.top.equalTo(self.mas_topLayoutGuideBottom);
         _parallaxHeaderHeightConstraint = make.height.equalTo(@(kParallaxHeaderHeight));
     }];
+    [_coverView mas_makeConstraints:^(MASConstraintMaker *make) {
+         make.edges.equalTo(self.parallaxHeaderView);
+    }];
+    [imaView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.parallaxHeaderView);
+    }];
     [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view.mas_top);
+        make.top.equalTo(self.view);
         make.left.and.right.equalTo(self.view);
         make.bottom.equalTo(self.view).offset(-44);
     }];
@@ -137,12 +135,13 @@ NSString *const provinceKey = @"provinceKey";
 }
 // 利用KVO
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
+
     
     if ([keyPath isEqualToString:@"contentOffset"]) {
-        CGPoint contentOffset = ((NSValue *)change[NSKeyValueChangeNewKey]).CGPointValue;
-        if (contentOffset.y < -kParallaxHeaderHeight) {
-            _parallaxHeaderHeightConstraint.equalTo(@(-contentOffset.y));
-
+        CGFloat offsetY = ((NSValue *)change[NSKeyValueChangeNewKey]).CGPointValue.y;
+        
+        if (offsetY < -64){
+            _parallaxHeaderHeightConstraint.equalTo(@(kParallaxHeaderHeight - offsetY -64));
         }
     }
 }
@@ -175,9 +174,11 @@ NSString *const provinceKey = @"provinceKey";
 
     // 当控制器加载时不改变coverView的alpha
      // 往上滚动不改变coverView的alpha
-    if (-scrollView.contentOffset.y <= kParallaxHeaderHeight) return;
+    if (-scrollView.contentOffset.y <=  64) return;
     
     CGFloat alphaY = (ViewDidScrollOffset / -scrollView.contentOffset.y) - 1.5;
+    
+    NSLog(@"%f",alphaY);
     if (alphaY < 0) {
         alphaY = 0;
     }

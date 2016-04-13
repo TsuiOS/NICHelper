@@ -12,6 +12,7 @@
 #import "XNWeatherModel.h"
 
 
+
 @interface XNWeatherView ()
 
 /** 污染状况 */
@@ -138,6 +139,8 @@
 
 }
 - (void)loactionClick {
-    NSLog(@"定位");
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"LoactionNotificationCenter" object:nil];
+    
 }
 @end

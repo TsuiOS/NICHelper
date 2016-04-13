@@ -95,6 +95,12 @@ static NSString * const ID = @"collect_cell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     self.noDataView.hidden = (self.collectMessage.count > 0);
+    if(self.collectMessage.count > 0) {
+        //取消分割线
+        tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    } else {
+        tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    }
     return self.collectMessage.count;
 }
 

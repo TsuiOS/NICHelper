@@ -78,5 +78,24 @@
     
 }
 
+- (CGFloat)bottom {
+    return self.frame.origin.y + self.frame.size.height;
+}
+
+- (void)setBottom:(CGFloat)bottom {
+    CGRect frame = self.frame;
+    frame.origin.y = bottom - frame.size.height;
+    self.frame = frame;
+}
+- (CGFloat)top {
+    return self.frame.origin.y;
+}
+
+- (void)setTop:(CGFloat)y {
+    CGRect frame = self.frame;
+    frame.origin.y = y;
+    self.frame = frame;
+}
+
 
 @end

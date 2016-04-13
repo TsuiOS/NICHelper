@@ -35,4 +35,9 @@
  */
 @property (nonatomic, assign) CGPoint origin;
 
+@property (nonatomic) CGFloat top;
+
+@property (nonatomic) CGFloat bottom;
+
+
 @end

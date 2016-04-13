@@ -14,4 +14,5 @@
 /** 天气 */
 @property (strong, nonatomic) XNWeatherView *temperatureView;
 
+
 @end

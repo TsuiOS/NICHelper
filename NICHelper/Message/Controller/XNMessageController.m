@@ -88,7 +88,7 @@ static NSString *ID = @"message_cell";
     self.tableView.backgroundColor = [UIColor clearColor]; //DEFAULT_BACKGROUND_COLOR;
     // 注册 cell
     [self.tableView registerClass:[XNMessageCell class] forCellReuseIdentifier:ID];
-    //设置 cell 的高度
+    //设置 cell 的高度   
     self.tableView.rowHeight = 180;
     self.tableView.contentInset = UIEdgeInsetsMake(0, -10, 0, 0);
     //取消分割线

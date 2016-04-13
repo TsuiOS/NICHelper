@@ -32,7 +32,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 // 常用宽高
 #define DEFAULT_WIDTH               [UIScreen mainScreen].bounds.size.width
 #define DEFAULT_HEIGTH              [UIScreen mainScreen].bounds.size.height
-#define kParallaxHeaderHeight      200
+#define kParallaxHeaderHeight       136
 
 
 

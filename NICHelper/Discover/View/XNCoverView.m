@@ -35,7 +35,7 @@
     [self addSubview:self.temperatureView];
     CGFloat Xmargin = 20;
     CGFloat width = 100;
-    CGFloat topMargin = (kParallaxHeaderHeight - width - 64) * 0.5;
+    CGFloat topMargin = (kParallaxHeaderHeight - width) * 0.5;
     
     //自动布局
     [_temperatureView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -47,6 +47,7 @@
 
 
 }
+
 
 
 
