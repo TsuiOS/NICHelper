@@ -22,6 +22,9 @@ PODS:
     - AFNetworking/NSURLSession
   - AVOSCloud (3.2.7)
   - BaiduMapKit (2.10.0)
+  - FMDB (2.6.2):
+    - FMDB/standard (= 2.6.2)
+  - FMDB/standard (2.6.2)
   - LeanCloudSocial (0.0.8):
     - AFNetworking (~> 2.0)
     - AVOSCloud (~> 3.1)
@@ -38,6 +41,7 @@ PODS:
 DEPENDENCIES:
   - AVOSCloud
   - BaiduMapKit
+  - FMDB
   - LeanCloudSocial
   - Masonry
   - MJExtension
@@ -51,6 +55,7 @@ SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   AVOSCloud: 957d1508104d7c8ed501df9d9b734d7a98c2e047
   BaiduMapKit: 5df028c6b455d29e68e89694adbcf9d37a4bcc99
+  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   LeanCloudSocial: f7787dfc1559dc47263bbfd37a03c870352ad98a
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
   MJExtension: d86aacb740c87519d20e3cca55b6fa4be6cc7548

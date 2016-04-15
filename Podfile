@@ -15,6 +15,7 @@ pod 'MJRefresh'
 pod 'BaiduMapKit'
 pod 'AVOSCloud'
 pod 'LeanCloudSocial'
+pod 'FMDB'
 
 
 end

@@ -47,6 +47,8 @@
 		047D328D1C93FB9D00CEEFC6 /* NetworkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 047D328C1C93FB9D00CEEFC6 /* NetworkTools.m */; };
 		047D32931C94186E00CEEFC6 /* XNWeatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = 047D32921C94186E00CEEFC6 /* XNWeatherView.m */; };
 		04812CB81CBA9EF200D74A5C /* XNRepairsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04812CB71CBA9EF200D74A5C /* XNRepairsCell.m */; };
+		0481BA061CBF652400C8CC38 /* XNDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0481BA051CBF652400C8CC38 /* XNDataBase.m */; };
+		0481BA0A1CBF68C700C8CC38 /* XNDBTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 0481BA091CBF68C700C8CC38 /* XNDBTools.m */; };
 		0485784D1CBA6D2D00DA932E /* XNRepairsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0485784B1CBA6D2D00DA932E /* XNRepairsController.m */; };
 		048578541CBA89DD00DA932E /* UITextField+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 048578531CBA89DD00DA932E /* UITextField+Extension.m */; };
 		049621E11C9D59EF0063AAAA /* XNPopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049621E01C9D59EF0063AAAA /* XNPopViewController.m */; };
@@ -138,6 +140,10 @@
 		047D32921C94186E00CEEFC6 /* XNWeatherView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNWeatherView.m; sourceTree = "<group>"; };
 		04812CB61CBA9EF200D74A5C /* XNRepairsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNRepairsCell.h; sourceTree = "<group>"; };
 		04812CB71CBA9EF200D74A5C /* XNRepairsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNRepairsCell.m; sourceTree = "<group>"; };
+		0481BA041CBF652400C8CC38 /* XNDataBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNDataBase.h; sourceTree = "<group>"; };
+		0481BA051CBF652400C8CC38 /* XNDataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNDataBase.m; sourceTree = "<group>"; };
+		0481BA081CBF68C700C8CC38 /* XNDBTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNDBTools.h; sourceTree = "<group>"; };
+		0481BA091CBF68C700C8CC38 /* XNDBTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNDBTools.m; sourceTree = "<group>"; };
 		0485784A1CBA6D2D00DA932E /* XNRepairsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNRepairsController.h; sourceTree = "<group>"; };
 		0485784B1CBA6D2D00DA932E /* XNRepairsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNRepairsController.m; sourceTree = "<group>"; };
 		048578521CBA89DD00DA932E /* UITextField+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Extension.h"; sourceTree = "<group>"; };
@@ -244,6 +250,7 @@
 		04529A2F1C8D9D3B0081CF4E /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				0481BA071CBF688200C8CC38 /* DB */,
 				04AA98051CB8AA970087410F /* Category */,
 				047D328A1C93FB3000CEEFC6 /* HTTP */,
 				04EBA4BC1C931EE500BAEDA5 /* Lib */,
@@ -467,6 +474,8 @@
 		0457160D1CB65B4D0030E924 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				0481BA041CBF652400C8CC38 /* XNDataBase.h */,
+				0481BA051CBF652400C8CC38 /* XNDataBase.m */,
 				0457160E1CB65B5E0030E924 /* XNMessageTool.h */,
 				0457160F1CB65B5E0030E924 /* XNMessageTool.m */,
 			);
@@ -480,6 +489,15 @@
 				047D328C1C93FB9D00CEEFC6 /* NetworkTools.m */,
 			);
 			path = HTTP;
+			sourceTree = "<group>";
+		};
+		0481BA071CBF688200C8CC38 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				0481BA081CBF68C700C8CC38 /* XNDBTools.h */,
+				0481BA091CBF68C700C8CC38 /* XNDBTools.m */,
+			);
+			path = DB;
 			sourceTree = "<group>";
 		};
 		04AA98051CB8AA970087410F /* Category */ = {
@@ -693,6 +711,7 @@
 				049621E11C9D59EF0063AAAA /* XNPopViewController.m in Sources */,
 				04812CB81CBA9EF200D74A5C /* XNRepairsCell.m in Sources */,
 				040439D41C9EE7EE002137D7 /* XNLocationController.m in Sources */,
+				0481BA061CBF652400C8CC38 /* XNDataBase.m in Sources */,
 				04A451781CBD030100A5C332 /* XNCollectCell.m in Sources */,
 				049D8E7A1CBA4921001D1C67 /* XNAboutViewController.m in Sources */,
 				04A451751CBCF50F00A5C332 /* XNDetailCell.m in Sources */,
@@ -700,6 +719,7 @@
 				04529A1D1C8D9C400081CF4E /* AppDelegate.m in Sources */,
 				04A4517B1CBD072E00A5C332 /* XNBaseViewCell.m in Sources */,
 				04529A1A1C8D9C400081CF4E /* main.m in Sources */,
+				0481BA0A1CBF68C700C8CC38 /* XNDBTools.m in Sources */,
 				04A759481CABC1840051D223 /* UIButton+Extension.m in Sources */,
 				0438ABCE1CBA311F00D888F2 /* XNUserInfoModel.m in Sources */,
 				04529A4E1C8D9D3B0081CF4E /* XNMainTabBarViewController.m in Sources */,
