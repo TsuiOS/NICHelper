@@ -61,9 +61,11 @@
     [self initData];
     [self initIFly];
 }
+
 -(void)viewWillDisappear:(BOOL)animated{
     [_iFlySpeechSynthesizer stopSpeaking];
 }
+
 - (void)setupUI {
     
     [self.voiceTableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -83,6 +85,9 @@
 
     NSArray *array = [[NSUserDefaults standardUserDefaults] arrayForKey:@"myarray"];
     _dataArray = [array mutableCopy];
+    if (_dataArray == nil) {
+        _dataArray = [[NSMutableArray alloc] init];
+    }
 }
 
 
@@ -174,10 +179,6 @@
     for (NSString *key in dic) {
         [result appendFormat:@"%@",key];
     }
-    if ([result isEqualToString:@""]) {
-
-        return;
-    }
     [_dataArray addObject:result];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setObject:[_dataArray copy] forKey:@"myarray"];
@@ -227,7 +228,6 @@
 
 
 #pragma mark - Table view data source
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     [tableView tableViewDisplayWithMsg:@"没有备忘录" ifNecessaryForRowCount:_dataArray.count];
