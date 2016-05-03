@@ -28,6 +28,13 @@
 		04529A571C8DA0FB0081CF4E /* XNDiscoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04529A561C8DA0FB0081CF4E /* XNDiscoverController.m */; };
 		045716101CB65B5E0030E924 /* XNMessageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0457160F1CB65B5E0030E924 /* XNMessageTool.m */; };
 		045E1D2C1CBBD16B002124EE /* Repairs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 045E1D2B1CBBD16B002124EE /* Repairs.plist */; };
+		045FF3DA1CD7227D002D80B8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045FF3D91CD7227D002D80B8 /* CoreLocation.framework */; };
+		045FF3DC1CD72286002D80B8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045FF3DB1CD72286002D80B8 /* AVFoundation.framework */; };
+		045FF3DE1CD7228E002D80B8 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045FF3DD1CD7228E002D80B8 /* AddressBook.framework */; };
+		045FF3E01CD72299002D80B8 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045FF3DF1CD72299002D80B8 /* AudioToolbox.framework */; };
+		045FF3E21CD722B2002D80B8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045FF3E11CD722B2002D80B8 /* QuartzCore.framework */; };
+		045FF3E41CD722BC002D80B8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045FF3E31CD722BC002D80B8 /* UIKit.framework */; };
+		045FF3E61CD722C6002D80B8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045FF3E51CD722C6002D80B8 /* Foundation.framework */; };
 		046913721C959E7F00AA440D /* XNWeatherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 046913711C959E7F00AA440D /* XNWeatherModel.m */; };
 		0473B5D51C9C3E33009DB447 /* Profile.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0473B5D41C9C3E33009DB447 /* Profile.plist */; };
 		0473B5D81C9C425E009DB447 /* XNCollectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0473B5D71C9C425E009DB447 /* XNCollectController.m */; };
@@ -47,10 +54,10 @@
 		047D328D1C93FB9D00CEEFC6 /* NetworkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 047D328C1C93FB9D00CEEFC6 /* NetworkTools.m */; };
 		047D32931C94186E00CEEFC6 /* XNWeatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = 047D32921C94186E00CEEFC6 /* XNWeatherView.m */; };
 		04812CB81CBA9EF200D74A5C /* XNRepairsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04812CB71CBA9EF200D74A5C /* XNRepairsCell.m */; };
-		0481BA061CBF652400C8CC38 /* XNDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0481BA051CBF652400C8CC38 /* XNDataBase.m */; };
 		0481BA0A1CBF68C700C8CC38 /* XNDBTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 0481BA091CBF68C700C8CC38 /* XNDBTools.m */; };
 		0485784D1CBA6D2D00DA932E /* XNRepairsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0485784B1CBA6D2D00DA932E /* XNRepairsController.m */; };
 		048578541CBA89DD00DA932E /* UITextField+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 048578531CBA89DD00DA932E /* UITextField+Extension.m */; };
+		048E21371CD8414600F507E4 /* UITableView+XNEmptyData.m in Sources */ = {isa = PBXBuildFile; fileRef = 048E21361CD8414600F507E4 /* UITableView+XNEmptyData.m */; };
 		049621E11C9D59EF0063AAAA /* XNPopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049621E01C9D59EF0063AAAA /* XNPopViewController.m */; };
 		049D8E7A1CBA4921001D1C67 /* XNAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D8E791CBA4921001D1C67 /* XNAboutViewController.m */; };
 		049D8E7D1CBA4945001D1C67 /* XNAboutHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 049D8E7C1CBA4945001D1C67 /* XNAboutHeader.m */; };
@@ -64,6 +71,8 @@
 		04D1A7631CB96576001743E6 /* XNMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D1A7621CB96576001743E6 /* XNMineViewController.m */; };
 		04D463661CAB84FB00C95E01 /* XNBlurEffectMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D463651CAB84FB00C95E01 /* XNBlurEffectMenu.m */; };
 		04D463681CAB852300C95E01 /* XNProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D463671CAB852300C95E01 /* XNProfileController.m */; };
+		04E868251CD72A4800605F07 /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04E868241CD72A4800605F07 /* iflyMSC.framework */; };
+		04E868281CD73A1900605F07 /* XNVoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E868271CD73A1900605F07 /* XNVoiceViewController.m */; };
 		04F4D75E1CAE5B380080C7D2 /* XNUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F4D75D1CAE5B380080C7D2 /* XNUserManager.m */; };
 		04FEBB431C98584600FC5E79 /* XNDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FEBB421C98584600FC5E79 /* XNDetailViewController.m */; };
 		F84FB01BD5DFC15E9E1CA8A3 /* libPods-NICHelper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D89FB310D41FA4F5B3B1AA8A /* libPods-NICHelper.a */; };
@@ -111,6 +120,14 @@
 		0457160E1CB65B5E0030E924 /* XNMessageTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNMessageTool.h; sourceTree = "<group>"; };
 		0457160F1CB65B5E0030E924 /* XNMessageTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNMessageTool.m; sourceTree = "<group>"; };
 		045E1D2B1CBBD16B002124EE /* Repairs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Repairs.plist; sourceTree = "<group>"; };
+		045FF3D71CD72227002D80B8 /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iflyMSC.framework; path = ../iOS_voice_1128_5726e846/lib/iflyMSC.framework; sourceTree = "<group>"; };
+		045FF3D91CD7227D002D80B8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		045FF3DB1CD72286002D80B8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		045FF3DD1CD7228E002D80B8 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		045FF3DF1CD72299002D80B8 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		045FF3E11CD722B2002D80B8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		045FF3E31CD722BC002D80B8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		045FF3E51CD722C6002D80B8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		046913701C959E7F00AA440D /* XNWeatherModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNWeatherModel.h; sourceTree = "<group>"; };
 		046913711C959E7F00AA440D /* XNWeatherModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNWeatherModel.m; sourceTree = "<group>"; };
 		0473B5D41C9C3E33009DB447 /* Profile.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Profile.plist; sourceTree = "<group>"; };
@@ -140,8 +157,6 @@
 		047D32921C94186E00CEEFC6 /* XNWeatherView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNWeatherView.m; sourceTree = "<group>"; };
 		04812CB61CBA9EF200D74A5C /* XNRepairsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNRepairsCell.h; sourceTree = "<group>"; };
 		04812CB71CBA9EF200D74A5C /* XNRepairsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNRepairsCell.m; sourceTree = "<group>"; };
-		0481BA041CBF652400C8CC38 /* XNDataBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNDataBase.h; sourceTree = "<group>"; };
-		0481BA051CBF652400C8CC38 /* XNDataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNDataBase.m; sourceTree = "<group>"; };
 		0481BA081CBF68C700C8CC38 /* XNDBTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNDBTools.h; sourceTree = "<group>"; };
 		0481BA091CBF68C700C8CC38 /* XNDBTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNDBTools.m; sourceTree = "<group>"; };
 		0485784A1CBA6D2D00DA932E /* XNRepairsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNRepairsController.h; sourceTree = "<group>"; };
@@ -149,6 +164,8 @@
 		048578521CBA89DD00DA932E /* UITextField+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Extension.h"; sourceTree = "<group>"; };
 		048578531CBA89DD00DA932E /* UITextField+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Extension.m"; sourceTree = "<group>"; };
 		048991291CAD048900B572BF /* LeanCloud.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeanCloud.pch; sourceTree = "<group>"; };
+		048E21351CD8414600F507E4 /* UITableView+XNEmptyData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+XNEmptyData.h"; sourceTree = "<group>"; };
+		048E21361CD8414600F507E4 /* UITableView+XNEmptyData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+XNEmptyData.m"; sourceTree = "<group>"; };
 		049621DF1C9D59EF0063AAAA /* XNPopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNPopViewController.h; sourceTree = "<group>"; };
 		049621E01C9D59EF0063AAAA /* XNPopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNPopViewController.m; sourceTree = "<group>"; };
 		049D8E781CBA4921001D1C67 /* XNAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNAboutViewController.h; sourceTree = "<group>"; };
@@ -173,6 +190,9 @@
 		04D463641CAB84FB00C95E01 /* XNBlurEffectMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNBlurEffectMenu.h; sourceTree = "<group>"; };
 		04D463651CAB84FB00C95E01 /* XNBlurEffectMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNBlurEffectMenu.m; sourceTree = "<group>"; };
 		04D463671CAB852300C95E01 /* XNProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNProfileController.m; sourceTree = "<group>"; };
+		04E868241CD72A4800605F07 /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iflyMSC.framework; sourceTree = "<group>"; };
+		04E868261CD73A1900605F07 /* XNVoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNVoiceViewController.h; sourceTree = "<group>"; };
+		04E868271CD73A1900605F07 /* XNVoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNVoiceViewController.m; sourceTree = "<group>"; };
 		04F4D75C1CAE5B380080C7D2 /* XNUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNUserManager.h; sourceTree = "<group>"; };
 		04F4D75D1CAE5B380080C7D2 /* XNUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNUserManager.m; sourceTree = "<group>"; };
 		04FEBB411C98584600FC5E79 /* XNDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNDetailViewController.h; sourceTree = "<group>"; };
@@ -187,12 +207,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0477D7421C918695003C32DF /* CoreGraphics.framework in Frameworks */,
+				045FF3E61CD722C6002D80B8 /* Foundation.framework in Frameworks */,
+				04E868251CD72A4800605F07 /* iflyMSC.framework in Frameworks */,
+				045FF3E41CD722BC002D80B8 /* UIKit.framework in Frameworks */,
+				045FF3E21CD722B2002D80B8 /* QuartzCore.framework in Frameworks */,
+				0477D7401C918688003C32DF /* SystemConfiguration.framework in Frameworks */,
+				045FF3E01CD72299002D80B8 /* AudioToolbox.framework in Frameworks */,
+				045FF3DE1CD7228E002D80B8 /* AddressBook.framework in Frameworks */,
+				045FF3DC1CD72286002D80B8 /* AVFoundation.framework in Frameworks */,
+				045FF3DA1CD7227D002D80B8 /* CoreLocation.framework in Frameworks */,
+				0477D7461C9186B1003C32DF /* CoreTelephony.framework in Frameworks */,
 				0477D74A1C9186CB003C32DF /* libz.tbd in Frameworks */,
 				0477D7481C9186BD003C32DF /* libstdc++.tbd in Frameworks */,
-				0477D7461C9186B1003C32DF /* CoreTelephony.framework in Frameworks */,
 				0477D7441C9186A4003C32DF /* libsqlite3.tbd in Frameworks */,
-				0477D7421C918695003C32DF /* CoreGraphics.framework in Frameworks */,
-				0477D7401C918688003C32DF /* SystemConfiguration.framework in Frameworks */,
 				0477D73E1C91867E003C32DF /* libiconv.tbd in Frameworks */,
 				0477D73C1C91866F003C32DF /* Security.framework in Frameworks */,
 				F84FB01BD5DFC15E9E1CA8A3 /* libPods-NICHelper.a in Frameworks */,
@@ -397,6 +425,8 @@
 				0473B5DA1C9C4350009DB447 /* XNShakeViewController.m */,
 				0473B5DC1C9C437F009DB447 /* XNScanViewController.h */,
 				0473B5DD1C9C437F009DB447 /* XNScanViewController.m */,
+				04E868261CD73A1900605F07 /* XNVoiceViewController.h */,
+				04E868271CD73A1900605F07 /* XNVoiceViewController.m */,
 				049D8E781CBA4921001D1C67 /* XNAboutViewController.h */,
 				049D8E791CBA4921001D1C67 /* XNAboutViewController.m */,
 				049D8E801CBA5084001D1C67 /* XNHelpViewController.h */,
@@ -474,8 +504,6 @@
 		0457160D1CB65B4D0030E924 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
-				0481BA041CBF652400C8CC38 /* XNDataBase.h */,
-				0481BA051CBF652400C8CC38 /* XNDataBase.m */,
 				0457160E1CB65B5E0030E924 /* XNMessageTool.h */,
 				0457160F1CB65B5E0030E924 /* XNMessageTool.m */,
 			);
@@ -513,6 +541,8 @@
 				04A759471CABC1840051D223 /* UIButton+Extension.m */,
 				048578521CBA89DD00DA932E /* UITextField+Extension.h */,
 				048578531CBA89DD00DA932E /* UITextField+Extension.m */,
+				048E21351CD8414600F507E4 /* UITableView+XNEmptyData.h */,
+				048E21361CD8414600F507E4 /* UITableView+XNEmptyData.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -545,6 +575,15 @@
 		15C31103A5BDBB308566E4DE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04E868241CD72A4800605F07 /* iflyMSC.framework */,
+				045FF3E51CD722C6002D80B8 /* Foundation.framework */,
+				045FF3E31CD722BC002D80B8 /* UIKit.framework */,
+				045FF3E11CD722B2002D80B8 /* QuartzCore.framework */,
+				045FF3DF1CD72299002D80B8 /* AudioToolbox.framework */,
+				045FF3DD1CD7228E002D80B8 /* AddressBook.framework */,
+				045FF3DB1CD72286002D80B8 /* AVFoundation.framework */,
+				045FF3D91CD7227D002D80B8 /* CoreLocation.framework */,
+				045FF3D71CD72227002D80B8 /* iflyMSC.framework */,
 				0477D7491C9186CB003C32DF /* libz.tbd */,
 				0477D7471C9186BD003C32DF /* libstdc++.tbd */,
 				0477D7451C9186B1003C32DF /* CoreTelephony.framework */,
@@ -694,6 +733,7 @@
 				042226271C97940D004F1140 /* NSArray+Log.m in Sources */,
 				0417F5FC1C8DCF680071A6F0 /* XNMessageCell.m in Sources */,
 				046913721C959E7F00AA440D /* XNWeatherModel.m in Sources */,
+				048E21371CD8414600F507E4 /* UITableView+XNEmptyData.m in Sources */,
 				04529A571C8DA0FB0081CF4E /* XNDiscoverController.m in Sources */,
 				0473B5D81C9C425E009DB447 /* XNCollectController.m in Sources */,
 				047D328D1C93FB9D00CEEFC6 /* NetworkTools.m in Sources */,
@@ -706,12 +746,12 @@
 				04FEBB431C98584600FC5E79 /* XNDetailViewController.m in Sources */,
 				0485784D1CBA6D2D00DA932E /* XNRepairsController.m in Sources */,
 				045716101CB65B5E0030E924 /* XNMessageTool.m in Sources */,
+				04E868281CD73A1900605F07 /* XNVoiceViewController.m in Sources */,
 				04529A4F1C8D9D3B0081CF4E /* XNMessageController.m in Sources */,
 				04F4D75E1CAE5B380080C7D2 /* XNUserManager.m in Sources */,
 				049621E11C9D59EF0063AAAA /* XNPopViewController.m in Sources */,
 				04812CB81CBA9EF200D74A5C /* XNRepairsCell.m in Sources */,
 				040439D41C9EE7EE002137D7 /* XNLocationController.m in Sources */,
-				0481BA061CBF652400C8CC38 /* XNDataBase.m in Sources */,
 				04A451781CBD030100A5C332 /* XNCollectCell.m in Sources */,
 				049D8E7A1CBA4921001D1C67 /* XNAboutViewController.m in Sources */,
 				04A451751CBCF50F00A5C332 /* XNDetailCell.m in Sources */,
@@ -823,6 +863,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PODS_ROOT)/UmengSocial/Umeng_SDK_Social_iOS_ARM64_5.0/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI/",
+					"\"${PODS_ROOT}/BaiduMapKit/BaiduMapKit\"",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = NICHelper/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -842,6 +888,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PODS_ROOT)/UmengSocial/Umeng_SDK_Social_iOS_ARM64_5.0/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI/",
+					"\"${PODS_ROOT}/BaiduMapKit/BaiduMapKit\"",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = NICHelper/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

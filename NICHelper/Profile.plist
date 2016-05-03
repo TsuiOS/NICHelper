@@ -64,6 +64,18 @@
 				<key>target_vc</key>
 				<string>XNShakeViewController</string>
 			</dict>
+			<dict>
+				<key>accessory</key>
+				<string>UIImageView</string>
+				<key>accessory_img</key>
+				<string>arrow_right</string>
+				<key>icon</key>
+				<string>voice</string>
+				<key>title</key>
+				<string>语音备忘录</string>
+				<key>target_vc</key>
+				<string>XNVoiceViewController</string>
+			</dict>
 		</array>
 	</dict>
 	<dict>

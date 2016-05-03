@@ -17,6 +17,7 @@
 #import <BaiduMapAPI_Base/BMKBaseComponent.h>
 #import <AVOSCloud.h>
 #import <AVOSCloudSNS.h>
+#import "iflyMSC/iflyMSC.h"
 
 
 
@@ -44,8 +45,13 @@
     
     [self setNavigationStyle];
     [self setStatusBarStyle:application];
-    [self setUMShare];
     
+    // 可以优化程序启动的时间
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [self setUMShare];
+        [self setIFly];
+    });
+  
     //请先启动BaiduMapManager
     _mapManager = [[BMKMapManager alloc]init];
     // 如果要关注网络及授权验证事件，请设定     generalDelegate参数
@@ -111,6 +117,14 @@
     
 }
 
+/** 科大语音初始化 */
+- (void)setIFly {
+
+    NSString *initString = [[NSString alloc]initWithFormat:@"appid=%@",@"5726e846"];
+    //所有服务启动前，需要确保执行createUtility
+    [IFlySpeechUtility createUtility:initString];
+
+}
 
 -(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
     return [AVOSCloudSNS handleOpenURL:url];

@@ -24,6 +24,8 @@
 @property (nonatomic, strong) NSIndexPath *indexPath;
 @property (nonatomic, strong) XNPopViewController *menuView;
 @property (nonatomic, strong) UIButton *addButton;
+// 记录页数
+@property (nonatomic, assign) NSInteger currentPage;
 
 @end
 
@@ -34,6 +36,7 @@ static NSString *ID = @"message_cell";
 - (NSArray *)message {
     if (_message == nil) {
         _message = [XNMessage message];
+        
     }
     return _message;
 }
@@ -51,10 +54,7 @@ static NSString *ID = @"message_cell";
     __weak typeof(self) weakSelf = self;
     
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        
-        [weakSelf.tableView reloadData];
-        //结束刷新
-        [weakSelf.tableView.mj_header endRefreshing];
+        [self loadNewMessage];
     }];
     
     [header setTitle:@"我不耐烦,我要的我现在就要" forState:MJRefreshStateIdle];
@@ -66,10 +66,7 @@ static NSString *ID = @"message_cell";
     //上拉加载
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         // 进入刷新状态后会自动调用这个block
-        
-        // 变为没有更多数据的状态
-//        [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
-        [weakSelf.tableView.mj_footer endRefreshing];
+        [self loadMoreMessage];
     }];
 
     self.tableView.mj_header.automaticallyChangeAlpha = YES;
@@ -94,6 +91,20 @@ static NSString *ID = @"message_cell";
     //取消分割线
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+
+}
+
+#pragma mark - 私有方法
+
+// 下拉刷新
+- (void)loadNewMessage {
+
+
+}
+
+// 上拉加载
+- (void)loadMoreMessage {
+
 
 }
 
@@ -133,10 +144,7 @@ static NSString *ID = @"message_cell";
 - (UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller{
     return UIModalPresentationNone;
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
