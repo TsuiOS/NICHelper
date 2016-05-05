@@ -99,14 +99,12 @@
             // 设置标题
             if (placemark.locality) {
                 self.userLocation.title = placemark.locality;
-                self.province = placemark.locality;
-                
+                self.province = placemark.administrativeArea;
             } else {
                 self.userLocation.title = placemark.administrativeArea;
                 self.province = placemark.administrativeArea;
-                
             }
-            self.city = placemark.subLocality;
+            self.city = placemark.locality;
             // 设置子标题
             self.userLocation.subtitle = placemark.name;
         }

@@ -50,15 +50,16 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [self setUMShare];
         [self setIFly];
+        //请先启动BaiduMapManager
+        _mapManager = [[BMKMapManager alloc]init];
+        // 如果要关注网络及授权验证事件，请设定     generalDelegate参数
+        BOOL ret = [_mapManager start:@"9TFBUgqfqDkNkBjGEBS5y9Zj" generalDelegate:nil];
+        if (!ret) {
+            NSLog(@"manager start failed!");
+        }
     });
   
-    //请先启动BaiduMapManager
-    _mapManager = [[BMKMapManager alloc]init];
-    // 如果要关注网络及授权验证事件，请设定     generalDelegate参数
-    BOOL ret = [_mapManager start:@"9TFBUgqfqDkNkBjGEBS5y9Zj" generalDelegate:nil];
-    if (!ret) {
-        NSLog(@"manager start failed!");
-    }
+
     return YES;
 }
 
