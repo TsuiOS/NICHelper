@@ -52,16 +52,6 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         
-        /**
-         NSURL *baseURL = [NSURL URLWithString:@"http://example.com/v1/"];
-         [NSURL URLWithString:@"foo" relativeToURL:baseURL];// http://example.com/v1/foo
-         [NSURL URLWithString:@"foo?bar=baz" relativeToURL:baseURL];// http://example.com/v1/foo?bar=baz
-         [NSURL URLWithString:@"/foo" relativeToURL:baseURL];/ http://example.com/foo
-         [NSURL URLWithString:@"foo/" relativeToURL:baseURL];// http://example.com/v1/foo
-         [NSURL URLWithString:@"/foo/" relativeToURL:baseURL];// http://example.com/foo/
-         [NSURL URLWithString:@"http://example2.com/" relativeToURL:baseURL];// http://example2.com/
-         */
-//        NSURL *baseURL = [NSURL URLWithString:@"http://192.168.31.139:3000/api/"];
         tools = [[self alloc]init];;
         
         // 设置反序列化格式
@@ -95,7 +85,7 @@
                           } failure:^(NSURLSessionDataTask *task, NSError *error) {
                               finished(nil,error);
         
-                              NSLog(@"error--%@",error);
+//                              NSLog(@"error--%@",error);
                           }] resume];
     
 }

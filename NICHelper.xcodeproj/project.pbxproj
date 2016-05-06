@@ -73,7 +73,6 @@
 		04D463681CAB852300C95E01 /* XNProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D463671CAB852300C95E01 /* XNProfileController.m */; };
 		04E868251CD72A4800605F07 /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04E868241CD72A4800605F07 /* iflyMSC.framework */; };
 		04E868281CD73A1900605F07 /* XNVoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E868271CD73A1900605F07 /* XNVoiceViewController.m */; };
-		04F4D75E1CAE5B380080C7D2 /* XNUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F4D75D1CAE5B380080C7D2 /* XNUserManager.m */; };
 		04FEBB431C98584600FC5E79 /* XNDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FEBB421C98584600FC5E79 /* XNDetailViewController.m */; };
 		F84FB01BD5DFC15E9E1CA8A3 /* libPods-NICHelper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D89FB310D41FA4F5B3B1AA8A /* libPods-NICHelper.a */; };
 /* End PBXBuildFile section */
@@ -163,7 +162,6 @@
 		0485784B1CBA6D2D00DA932E /* XNRepairsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNRepairsController.m; sourceTree = "<group>"; };
 		048578521CBA89DD00DA932E /* UITextField+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Extension.h"; sourceTree = "<group>"; };
 		048578531CBA89DD00DA932E /* UITextField+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Extension.m"; sourceTree = "<group>"; };
-		048991291CAD048900B572BF /* LeanCloud.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeanCloud.pch; sourceTree = "<group>"; };
 		048E21351CD8414600F507E4 /* UITableView+XNEmptyData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+XNEmptyData.h"; sourceTree = "<group>"; };
 		048E21361CD8414600F507E4 /* UITableView+XNEmptyData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+XNEmptyData.m"; sourceTree = "<group>"; };
 		049621DF1C9D59EF0063AAAA /* XNPopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNPopViewController.h; sourceTree = "<group>"; };
@@ -193,8 +191,6 @@
 		04E868241CD72A4800605F07 /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iflyMSC.framework; sourceTree = "<group>"; };
 		04E868261CD73A1900605F07 /* XNVoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNVoiceViewController.h; sourceTree = "<group>"; };
 		04E868271CD73A1900605F07 /* XNVoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNVoiceViewController.m; sourceTree = "<group>"; };
-		04F4D75C1CAE5B380080C7D2 /* XNUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNUserManager.h; sourceTree = "<group>"; };
-		04F4D75D1CAE5B380080C7D2 /* XNUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNUserManager.m; sourceTree = "<group>"; };
 		04FEBB411C98584600FC5E79 /* XNDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNDetailViewController.h; sourceTree = "<group>"; };
 		04FEBB421C98584600FC5E79 /* XNDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNDetailViewController.m; sourceTree = "<group>"; };
 		0FB5A7758DDA5DD0D4598680 /* Pods-NICHelper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NICHelper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NICHelper/Pods-NICHelper.debug.xcconfig"; sourceTree = "<group>"; };
@@ -333,7 +329,6 @@
 			children = (
 				04529A1B1C8D9C400081CF4E /* AppDelegate.h */,
 				04529A1C1C8D9C400081CF4E /* AppDelegate.m */,
-				048991291CAD048900B572BF /* LeanCloud.pch */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -402,7 +397,6 @@
 		04529A461C8D9D3B0081CF4E /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				04F4D75B1CAE5AC40080C7D2 /* Tools */,
 				04529A471C8D9D3B0081CF4E /* Controller */,
 				04529A4A1C8D9D3B0081CF4E /* Model */,
 				04529A4B1C8D9D3B0081CF4E /* View */,
@@ -552,15 +546,6 @@
 			children = (
 			);
 			path = Lib;
-			sourceTree = "<group>";
-		};
-		04F4D75B1CAE5AC40080C7D2 /* Tools */ = {
-			isa = PBXGroup;
-			children = (
-				04F4D75C1CAE5B380080C7D2 /* XNUserManager.h */,
-				04F4D75D1CAE5B380080C7D2 /* XNUserManager.m */,
-			);
-			path = Tools;
 			sourceTree = "<group>";
 		};
 		0AF9D912A5E122598A85BA86 /* Pods */ = {
@@ -748,7 +733,6 @@
 				045716101CB65B5E0030E924 /* XNMessageTool.m in Sources */,
 				04E868281CD73A1900605F07 /* XNVoiceViewController.m in Sources */,
 				04529A4F1C8D9D3B0081CF4E /* XNMessageController.m in Sources */,
-				04F4D75E1CAE5B380080C7D2 /* XNUserManager.m in Sources */,
 				049621E11C9D59EF0063AAAA /* XNPopViewController.m in Sources */,
 				04812CB81CBA9EF200D74A5C /* XNRepairsCell.m in Sources */,
 				040439D41C9EE7EE002137D7 /* XNLocationController.m in Sources */,

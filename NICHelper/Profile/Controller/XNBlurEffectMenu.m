@@ -9,11 +9,9 @@
 #import "XNBlurEffectMenu.h"
 #import "XNColor.h"
 #import "UIButton+Extension.h"
-#import <UMSocial.h>
-#import <AVOSCloudSNS.h>
-#import <LeanCloudSocial/AVUser+SNS.h>
 #import "XNProgressHUD.h"
-#import "XNUserManager.h"
+
+#import <UMSocial.h>
 
 #define kLoginW     DEFAULT_WIDTH * 0.8
 #define kLoginX     (DEFAULT_WIDTH - kLoginW) / 2
@@ -30,7 +28,6 @@ NSString *const kQQLoginNotification = @"kQQLoginNotification";
 @property (nonatomic, strong) UIButton *tokenLogin;
 
 @property (nonatomic, strong) UITextField *tokenText;
-@property (nonatomic, strong) XNUserManager *manager;
 @property (nonatomic, strong) NSString *token;
 
 @end
@@ -38,13 +35,6 @@ NSString *const kQQLoginNotification = @"kQQLoginNotification";
 @implementation XNBlurEffectMenu
 
 
-- (XNUserManager *)manager {
-
-    if (!_manager) {
-        _manager = [[XNUserManager alloc]init];
-    }
-    return _manager;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

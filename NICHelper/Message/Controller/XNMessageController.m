@@ -54,7 +54,7 @@ static NSString *ID = @"message_cell";
     __weak typeof(self) weakSelf = self;
     
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [self loadNewMessage];
+        [weakSelf loadNewMessage];
     }];
     
     [header setTitle:@"我不耐烦,我要的我现在就要" forState:MJRefreshStateIdle];
@@ -66,7 +66,7 @@ static NSString *ID = @"message_cell";
     //上拉加载
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         // 进入刷新状态后会自动调用这个block
-        [self loadMoreMessage];
+        [weakSelf loadMoreMessage];
     }];
 
     self.tableView.mj_header.automaticallyChangeAlpha = YES;
@@ -82,7 +82,7 @@ static NSString *ID = @"message_cell";
     self.addButton.size = self.addButton.currentBackgroundImage.size;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:self.addButton];
     // 设置背景颜色
-    self.tableView.backgroundColor = [UIColor clearColor]; //DEFAULT_BACKGROUND_COLOR;
+    self.tableView.backgroundColor = DEFAULT_BACKGROUND_COLOR;
     // 注册 cell
     [self.tableView registerClass:[XNMessageCell class] forCellReuseIdentifier:ID];
     //设置 cell 的高度   

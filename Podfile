@@ -9,13 +9,11 @@ pod 'Masonry'
 pod 'SDWebImage'
 pod 'SVProgressHUD'
 pod 'UMengSocial'
-pod 'YYModel'
 pod 'MJExtension'
 pod 'MJRefresh'
 pod 'BaiduMapKit'
-pod 'AVOSCloud'
-pod 'LeanCloudSocial'
 pod 'FMDB'
+pod 'AFNetworking'
 
 
 end

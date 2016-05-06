@@ -29,7 +29,7 @@
     if (self) {
         //取消 cell 点击显示灰色的效果
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        self.backgroundColor = [UIColor clearColor];
+        self.backgroundColor = DEFAULT_BACKGROUND_COLOR;
         
         XNMessageView *messageView = [[XNMessageView alloc]init];
         // 添加控件
