@@ -31,8 +31,11 @@
 - (NSURLSessionDataTask *)dataTaskWithHTTPMethod:(NSString *)method
                                        URLString:(NSString *)URLString
                                       parameters:(id)parameters
+                                  uploadProgress:(nullable void (^)(NSProgress *uploadProgress)) uploadProgress
+                                downloadProgress:(nullable void (^)(NSProgress *downloadProgress)) downloadProgress
                                          success:(void (^)(NSURLSessionDataTask *, id))success
                                          failure:(void (^)(NSURLSessionDataTask *, NSError *))failure;
+
 
 @end
 
@@ -78,6 +81,8 @@
     [[self dataTaskWithHTTPMethod:methodName
                         URLString:URLString
                        parameters:parameters
+                   uploadProgress:nil
+                 downloadProgress:nil
                           success:^(NSURLSessionDataTask *task, id responseObject) {
       
                               finished(responseObject, nil);

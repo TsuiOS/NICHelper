@@ -54,7 +54,6 @@ NSString *const provinceKey = @"provinceKey";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    self.automaticallyAdjustsScrollViewInsets = NO;
     [self configTableView];
     [self setupUI];
     
@@ -125,7 +124,7 @@ NSString *const provinceKey = @"provinceKey";
     [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view);
         make.left.and.right.equalTo(self.view);
-        make.bottom.equalTo(self.view).offset(-44);
+        make.bottom.equalTo(self.view);
     }];
     
     
@@ -139,9 +138,13 @@ NSString *const provinceKey = @"provinceKey";
     
     if ([keyPath isEqualToString:@"contentOffset"]) {
         CGFloat offsetY = ((NSValue *)change[NSKeyValueChangeNewKey]).CGPointValue.y;
-        
+
         if (offsetY < -64){
             _parallaxHeaderHeightConstraint.equalTo(@(kParallaxHeaderHeight - offsetY -64));
+        } else if (offsetY >= -64) {
+            [_parallaxHeaderView mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(self.mas_topLayoutGuideBottom).offset(- (64 + offsetY));
+            }];
         }
     }
 }
@@ -177,8 +180,6 @@ NSString *const provinceKey = @"provinceKey";
     if (-scrollView.contentOffset.y <=  64) return;
     
     CGFloat alphaY = (ViewDidScrollOffset / -scrollView.contentOffset.y) - 1.5;
-    
-    NSLog(@"%f",alphaY);
     if (alphaY < 0) {
         alphaY = 0;
     }

@@ -99,13 +99,13 @@ static NSString *ID = @"message_cell";
 // 下拉刷新
 - (void)loadNewMessage {
 
-
+    [self.tableView.mj_header endRefreshing];
 }
 
 // 上拉加载
 - (void)loadMoreMessage {
 
-
+    [self.tableView.mj_footer endRefreshing];
 }
 
 // 发布任务的按钮

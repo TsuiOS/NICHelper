@@ -92,7 +92,6 @@
             return;
         }
         //placemarks 地标对象数组
-        NSLog(@"%@",placemarks);
         //这里将会有多个返回结果, 应该给用户一个列表选择
         for (CLPlacemark *placemark in placemarks) {
             
