@@ -183,9 +183,9 @@
 		04A4517A1CBD072E00A5C332 /* XNBaseViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNBaseViewCell.m; sourceTree = "<group>"; };
 		04A759461CABC1840051D223 /* UIButton+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIButton+Extension.h"; path = "../Tools/UIButton+Extension.h"; sourceTree = "<group>"; };
 		04A759471CABC1840051D223 /* UIButton+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+Extension.m"; path = "../Tools/UIButton+Extension.m"; sourceTree = "<group>"; };
-		04D1A7611CB96576001743E6 /* XNMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNMineViewController.h; sourceTree = "<group>"; };
+		04C4A3591CE2B40D008FC8F2 /* XNBlurEffectMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XNBlurEffectMenu.h; sourceTree = "<group>"; };
 		04D1A7621CB96576001743E6 /* XNMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNMineViewController.m; sourceTree = "<group>"; };
-		04D463641CAB84FB00C95E01 /* XNBlurEffectMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNBlurEffectMenu.h; sourceTree = "<group>"; };
+		04D2E2891CDF631C00FE1694 /* XNMineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XNMineViewController.h; sourceTree = "<group>"; };
 		04D463651CAB84FB00C95E01 /* XNBlurEffectMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNBlurEffectMenu.m; sourceTree = "<group>"; };
 		04D463671CAB852300C95E01 /* XNProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNProfileController.m; sourceTree = "<group>"; };
 		04E868241CD72A4800605F07 /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iflyMSC.framework; sourceTree = "<group>"; };
@@ -409,9 +409,9 @@
 			children = (
 				04529A481C8D9D3B0081CF4E /* XNProfileController.h */,
 				04D463671CAB852300C95E01 /* XNProfileController.m */,
-				04D463641CAB84FB00C95E01 /* XNBlurEffectMenu.h */,
+				04C4A3591CE2B40D008FC8F2 /* XNBlurEffectMenu.h */,
 				04D463651CAB84FB00C95E01 /* XNBlurEffectMenu.m */,
-				04D1A7611CB96576001743E6 /* XNMineViewController.h */,
+				04D2E2891CDF631C00FE1694 /* XNMineViewController.h */,
 				04D1A7621CB96576001743E6 /* XNMineViewController.m */,
 				0473B5D61C9C425E009DB447 /* XNCollectController.h */,
 				0473B5D71C9C425E009DB447 /* XNCollectController.m */,

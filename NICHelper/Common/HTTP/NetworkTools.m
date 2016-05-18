@@ -9,6 +9,8 @@
 #import "NetworkTools.h"
 
 
+
+
 /**
  *  网络工具协议
  */
@@ -47,6 +49,8 @@
 @end
 
 
+#define baseURL  [NSURL URLWithString:@"http://219.231.178.42/:3000/api/user/"]
+
 @implementation NetworkTools
 
 + (instancetype)sharedTools {
@@ -55,7 +59,16 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         
-        tools = [[self alloc]init];;
+        /**
+         NSURL *baseURL = [NSURL URLWithString:@"http://example.com/v1/"];
+         [NSURL URLWithString:@"foo" relativeToURL:baseURL];                  // http://example.com/v1/foo
+         [NSURL URLWithString:@"foo?bar=baz" relativeToURL:baseURL];          // http://example.com/v1/foo?bar=baz
+         [NSURL URLWithString:@"/foo" relativeToURL:baseURL];                 // http://example.com/foo
+         [NSURL URLWithString:@"foo/" relativeToURL:baseURL];                 // http://example.com/v1/foo
+         [NSURL URLWithString:@"/foo/" relativeToURL:baseURL];                // http://example.com/foo/
+         [NSURL URLWithString:@"http://example2.com/" relativeToURL:baseURL]; // http://example2.com/
+         */
+        tools = [[self alloc]initWithBaseURL:baseURL];
         
         // 设置反序列化格式
         tools.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", nil];
@@ -107,8 +120,10 @@
 - (void) loadWeatherWithCity:(NSString *)city province:(NSString *)province finished:XNRequesCallBack {
     
     NSString *appKey = @"10557a5d75b9c";
-    NSString *URLString = @"http://apicloud.mob.com/v1/weather/query";
-    
+    NSURL *URL = [NSURL URLWithString:@"http://apicloud.mob.com/v1/weather/query" relativeToURL:baseURL]; // http://apicloud.mob.com/v1/weather/query
+
+    NSString *URLString = [URL absoluteString];
+
     NSDictionary *parameters = @{@"key":appKey,
                                  @"city":city,
                                  @"province":province};
@@ -118,9 +133,12 @@
 }
 
 - (void)loadUserInfoWithToken:(NSString *)tokenString finished:XNRequesCallBack {
+   
     
+    NSString *URLString = [[NSURL URLWithString:@"info" relativeToURL:baseURL] absoluteString];
+
     
-    [self request:POST URLString:@"http://192.168.31.139:3000/api/user/info" parameters:@{@"token":tokenString} finished:finished];
+    [self request:POST URLString:URLString parameters:@{@"token":tokenString} finished:finished];
 
 
 }
@@ -138,7 +156,9 @@
                              @"content":content,
                              @"from":from};
 
-    [self request:POST URLString:@"http://192.168.31.139:3000/api/user/tips/save" parameters:params finished:XNRequesCallBack];
+    NSString *URLString = [[NSURL URLWithString:@"tips/sav" relativeToURL:baseURL] absoluteString];
+
+    [self request:POST URLString:URLString parameters:params finished:XNRequesCallBack];
 }
    
 /**
@@ -165,7 +185,10 @@
                              @"number":number,
                              @"student_name":studentName,
                              @"reason":reason};
-    [self request:POST URLString:@"http://192.168.31.139:3000/api/user/tasks/save" parameters:params finished:XNRequesCallBack];
+    
+    NSString *URLString = [[NSURL URLWithString:@"tasks/save" relativeToURL:baseURL] absoluteString];
+    
+    [self request:POST URLString:URLString parameters:params finished:XNRequesCallBack];
     
 }
 
@@ -185,7 +208,9 @@
                              @"progress":progress,
                              @"uid":uid};
     
-    [self request:POST URLString:@"http://192.168.31.139:3000/api/user/tasks/update" parameters:params finished:XNRequesCallBack];
+    NSString *URLString = [[NSURL URLWithString:@"tasks/update" relativeToURL:baseURL] absoluteString];
+    
+    [self request:POST URLString:URLString parameters:params finished:XNRequesCallBack];
 }
 
 
